@@ -4,7 +4,7 @@ import rentOkImg from '../Images/rentok/RentOKlogo.png'
 
 import translations from './words.json'
 
-import './RentOk.css'
+//import './RentOk.css'
 
 import { NavBar } from '../Components/NavBar/NavBar'
 

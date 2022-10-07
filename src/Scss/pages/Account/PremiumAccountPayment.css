@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*@import "../icons/_icons-fallback-variables";*/
+/*
+    *  
+    * SMALL
+    *
+    */
+/*
+    *  
+    * MEDIUM
+    *
+    */
+/*
+    *  
+    * LARGE
+    *
+    */
+/*
+    *  
+    * XL
+    *
+    */
+/*
+    *  
+    * XXL
+    *
+    */
+/*
+Burger by Joren Van Hee, http: //joren.co
+MIT License (MIT)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+/************ mixin to change opacity *************/
+/************************************************/
+/**********************************************************/
+/************ WEBP background support *********************/
+/* webp/no-webp classes added automatically by modernizr **/
+/**********************************************************/
+/*************************************************/
+/*************************************************/
+/*************************************************/
+/**********************************************************/
+/************ Background mixin ****************************/
+/**********************************************************/
+/*************************************************/
+/*************************************************/
+/*************************************************/
+/* GET ICON */
+.premium h2 {
+  line-height: 32px;
+}
+.premium .card--small ul {
+  text-align: left;
+  list-style-type: disc;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0 8px;
+}
+.premium .card--small a {
+  text-decoration: none;
+}
+.premium i.check {
+  position: absolute;
+  margin-top: 4px;
+}
+.premium i.check + span {
+  position: relative;
+  left: 32px;
+}
+.premium .suggestion {
+  font-weight: normal;
+  position: absolute;
+  padding: 0 16px;
+  top: 8px !important;
+  right: -4px !important;
+  z-index: 1;
+  box-shadow: rgba(0, 22, 63, 0.15) 0px 0px 15px 0px;
+}
+.premium .bordered {
+  border-right: 1px solid #f3f9f9;
+  border-bottom: none;
+  padding: 0 16px 0 0;
+}
+.premium .room-guaranty a {
+  color: #37d39a;
+}
+.premium .expandable-trigger {
+  padding-top: 16px;
+}
+.premium .expandable-trigger .chevron-right-thin {
+  top: 24px;
+}
+@media (max-width: 599px) {
+  .premium .card--small ul > li {
+    margin: 0 32px;
+  }
+  .premium .card--small > div:last-of-type {
+    margin: 0 32px;
+  }
+  .premium .card--small a {
+    display: inline-block;
+    width: 100%;
+  }
+  .premium .bordered {
+    border-right: none;
+    border-bottom: 1px solid #f3f9f9;
+    padding: 16px 0;
+  }
+  .premium .suggestion {
+    top: -8px !important;
+  }
+  .premium .expandable-wrapper:last-of-type {
+    margin-bottom: 16px;
+  }
+}/*# sourceMappingURL=PremiumAccountPayment.css.map */

@@ -1,0 +1,99 @@
+﻿@import "../../abstracts/_variables.scss";
+@import "../../abstracts/_mixins.scss";
+@import "../../abstracts/_functions.scss";
+
+.payment-card {
+    height: auto;
+
+    .best-choice {
+        position: absolute;
+        top: 16px;
+        right: -16px;
+        font-size: 14px;
+    }
+
+    .button-wrapper {
+        position: absolute;
+        bottom: 0;
+        padding: inherit;
+        width: 100%;
+        left: 0;
+    }
+}
+
+.expandable-trigger {
+    border-bottom: 1px solid #00163f;
+    padding-bottom: 16px;
+    cursor: pointer;
+    padding-right: 16px;
+}
+
+#why-premium-wrapper {
+    border-bottom-left-radius: 0;
+}
+
+.text-card {
+    img:not(.invisible) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+
+@include for-tablet-down {
+    .text-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .container {
+        .padding-v--xxl-1 {
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+    }
+
+    .payment-card-wrapper {
+        flex-direction: column-reverse;
+        align-self: flex-start;
+
+        * {
+            margin: 0;
+        }
+
+        .payment-card {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+
+            .section-subtitle {
+                text-align: left;
+                display: flex;
+                align-items: center;
+            }
+
+            .best-choice {
+                top: -24px;
+            }
+
+            &:last-of-type {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    #why-premium-wrapper {
+        border-radius: 0px 32px 32px 32px;
+    }
+
+}
+
+
+/* FAILED PAYMENT*/
+ol {
+    padding-inline-start: 16px;
+}
+
+ol li {
+    padding-left: 16px;
+}

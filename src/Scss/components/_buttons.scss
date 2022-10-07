@@ -1,0 +1,218 @@
+﻿/// Referencing files so intellisense would work correctly
+/// <reference path="../abstracts/_variables.scss" />
+/// <reference path="../abstracts/_functions.scss" />
+/// <reference path="../abstracts/_mixins.scss" />
+
+/***
+    SQUARE BUTTONS
+***/
+a[class*="btn-"], span[class*="btn-"] {
+    -webkit-appearance: none;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-small, .btn-medium, .btn-large {
+    width: min-content;
+    font-family: $font-poppins;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    display: inline-block;
+    outline: 0;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    font-stretch: normal;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    /*  primary */
+    &.primary {
+        background-color: $color-primary;
+        color: $color-text-light;
+        /*  hover */
+        &:hover {
+            background-color: $kamernet-green-dark;
+        }
+        /*  active */
+        &:active {
+            background-color: $color-primary;
+        }
+    }
+    /* accent */
+    &.accent {
+        background-color: $color-accent;
+        color: $color-text-light;
+        /*  hover */
+        &:hover {
+            background-color: $kamernet-yellow-dark;
+        }
+        /*  active */
+        &:active {
+            background-color: $color-accent;
+        }
+
+        &-dark {
+            background-color: $color-accent-dark;
+            color: $color-text-light;
+
+            &:hover {
+                background-color: $color-accent;
+            }
+            /*  active */
+            &:active {
+                background-color: $color-accent-dark;
+            }
+        }
+    }
+    /* secondary */
+    &.secondary {
+        background-color: $color-secondary;
+        color: $color-text-light;
+        /*  hover */
+        &:hover {
+            background-color: #000E28;
+        }
+        /*  active */
+        &:active {
+            background-color: $color-secondary;
+        }
+    }
+    /**
+        GHOST
+    **/
+    &.ghost {
+        background-color: #fff;
+        color: $color-text;
+        border: 1px solid $color-text;
+        /*  hover */
+        &:hover {
+            background-color: $color-secondary;
+            color: $color-text-light;
+
+            & i {
+                background-color: $color-text-light;
+            }
+        }
+
+        &:active {
+            background-color: $color-text-light;
+            color: $color-text;
+
+            & i {
+                background-color: $color-text;
+            }
+        }
+
+        &.primary {
+            color: $color-primary;
+            border: 1px solid $color-primary;
+
+            &:hover {
+                background-color: $color-primary;
+                color: $color-text-light;
+            }
+
+            &:active {
+                color: $color-text-light;
+                background-color: $color-text-light;
+            }
+        }
+    }
+    /**
+        DISABLED STATE
+    **/
+    &.disabled,
+    &:disabled {
+        background-color: #DFDFDF !important;
+        box-shadow: none;
+        color: #9F9F9F !important;
+        cursor: default;
+    }
+
+    &.disabled *,
+    &:disabled * {
+        pointer-events: none;
+    }
+
+    &.disabled:hover,
+    &:disabled:hover {
+        background-color: #DFDFDF;
+        color: #9F9F9F;
+        cursor: not-allowed;
+    }
+    /***
+        ROUND BUTTON
+    ***/
+    &.btn-round {
+        border-radius: 50%;
+    }
+}
+
+.btn-small {
+    padding: 6px 16px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 18px;
+    /***
+        ROUND BUTTON
+    ***/
+    &.btn-round {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+
+        & i {
+            vertical-align: middle;
+        }
+    }
+}
+
+.btn-medium {
+    padding: 12px 24px;
+    font-size: 14px;
+    height: 48px;
+    line-height: 18px;
+    /***
+        ROUND BUTTON
+    ***/
+    &.btn-round {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+
+        & i {
+            vertical-align: middle;
+        }
+    }
+
+    &.header {
+        font-size: 16px;
+    }
+}
+
+.btn-large {
+    padding: 20px 24px;
+    font-size: 18px;
+    height: 64px;
+    line-height: 22px;
+    /***
+        ROUND BUTTON
+    ***/
+    &.btn-round {
+        width: 48px;
+        height: 48px;
+        padding: 0;
+
+        & i {
+            vertical-align: middle;
+        }
+    }
+}

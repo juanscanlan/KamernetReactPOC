@@ -1,79 +1,221 @@
 .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rentOkLogoHeader {
-    text-align: center;
+  text-align: center;
 
-    img {
-        max-width: 450px;
-        width: 100%;
-    }
+  img {
+    max-width: 450px;
+    width: 100%;
+  }
 }
 
 .summaryContainer {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 40px 0px 20px 0px;
+  padding: 20px;
+
+  background-color: #f3f9f9;
+  border-radius: 4px;
+
+  &__text {
+    font-family: "Open sans", sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  &__video {
+    width: 100%;
+  }
+
+  img {
     display: flex;
-    flex-wrap: wrap;
-
-    margin: 40px 0px 20px 0px;
-    padding: 20px;
-
-    background-color: #f3f9f9;
-    border-radius: 4px;
-
-    &__text {
-        font-family: "Open sans",sans-serif;
-        font-size: 14.5px;
-        font-weight: 400;
-        line-height: 32px;
-    }
-
-    &__video {
-        width: 100%;
-    }
-
-    img {
-        display: flex;
-        width: 100%;
-        max-width: 394px;
-        margin: auto;
-        padding-bottom: 24px;
-    }
+    width: 100%;
+    max-width: 394px;
+    margin: auto;
+    padding-bottom: 24px;
+  }
 }
 
 .userChoiceContainer {
-    text-align: center;
+  text-align: center;
+  width: 100%;
 
-    &__title {
-        color: #00163f;
-        font-family: "Open sans",sans-serif;
-        font-size: 40px;
-        line-height: 60px;
+  &__title {
+    color: #00163f;
+    font-family: "Open sans", sans-serif;
+    font-size: 40px;
+    line-height: 60px;
 
-        padding-top: 20px;
-        padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  &__buttons {
+    padding-bottom: 40px;
+
+    &--left {
+      margin-right: 2px;
+    }
+    &--right {
+      margin-left: 2px;
     }
 
-    &__buttons {
-        &--left.active,
-        &--right.active {
-            background-color: #37d39a;
-            color: #ffffff;
-
-            border-color: #fff;
-            border-style: none;
-            border-radius: 3px;
-
-            font-family: "Poppins Bold",sans-serif;
-            font-size: 14px;
-            height: 26px;
-            letter-spacing: 0.5px;
-            padding: 0 20px;
-
-            cursor: pointer;
-        }
+    &--left.active,
+    &--right.active {
+      background-color: #37d39a;
+      color: #ffffff;
     }
+
+    &--left,
+    &--right {
+      width: 49%;
+      height: 36px;
+      border-color: #fff;
+      border-style: none;
+      border-radius: 3px;
+
+      font-family: "Poppins Bold", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      padding: 0 20px;
+
+      cursor: pointer;
+    }
+  }
 }
 
+.rentOkContainer {
+  padding: 32px 20px;
+  margin-bottom: 20px;
+
+  border: 1px solid #f3f9f9;
+  border-radius: 32px;
+
+  &__title {
+    font-family: "Poppins Bold", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 21px;
+
+    &--link {
+      cursor: pointer;
+      font-family: Poppins, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      color: #37d39a;
+    }
+  }
+
+  &__image {
+    border-radius: 4px;
+    margin: 20px;
+    background-color: #f3f9f9;
+
+    &--bankVerified,
+    &--landlordVerified,
+    &--tenantVerified,
+    &--rentRequest,
+    &--obp,
+    &--giveKey {
+      margin: 20px;
+      padding: 0 8px;
+    }
+    &--giveKey {
+      max-width: 200px;
+    }
+  }
+
+  &__button {
+    font-family: "Poppins Bold", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: #fab732;
+    text-align: center;
+    letter-spacing: 0.5px;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition: 0.2s ease-out;
+    -o-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    padding: 0 1.5rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 3px;
+  }
+}
+
+.horizontal-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f3f9f9;
+  margin: 8px 0 16px;
+}
+
+.notReceiveKeyContainer {
+  padding: 40px;
+  margin: 40px 0px;
+  border-top: 1px solid #f3f9f9;
+  border-bottom: 1px solid #f3f9f9;
+
+  &__title {
+    font-family: "Poppins Bold", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding-bottom: 12px;
+  }
+
+  &__text {
+    font-family: "Open sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+
+    &--link {
+      cursor: pointer;
+      font-family: Poppins, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      text-decoration: none;
+      color: #37d39a;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .rentOkContainer__image {
+    &--bankVerified,
+    &--landlordVerified,
+    &--tenantVerified,
+    &--rentRequest,
+    &--obp,
+    &--giveKey {
+      width: 87%;
+    }
+  }
+}

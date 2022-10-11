@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import rentOkImg from "../../Images/rentok/RentOKlogo.png";
 import rentOkVideoThumbnail from "../../Images/rentok/rentok-video.png";
@@ -8,29 +8,29 @@ import tenant from "../../Images/rentok/Tenant.png";
 import rentRequest from "../../Images/rentok/RentRequestEN.png";
 import obpThumbsUp from "../../Images/rentok/OBP.png";
 import giveKey from "../../Images/rentok/GiveKey.png";
+import paymentRequest from "../../Images/rentok/PaymentRequest.png";
+import receiveKey from "../../Images/rentok/ReceiveKey.png";
 
 import translations from "../words.json";
 
 import styles from "./RentOk.module.scss";
 
-import { NavBar } from "../../Components/NavBar/NavBar";
+import BaseLayout from "../../Components/Layouts/BaseLayout";
 
-let url2 = "http://localhost:44324/api/user/Login";
-let url = "http://localhost:44324/Login";
+// let url2 = "http://localhost:44324/api/user/Login";
+// let url = "http://localhost:44324/Login";
 
 const RentOk = () => {
+  const [isLandlord, setIsLandlord] = useState(true);
+
   // useEffect(() => {
   //   postLogin(url);
   // }, []);
 
   // const getLogin = (url) => {
-  //   // fetch("http://localhost/api/v1/login")
-  //   // .then(res => res.json())
-  //   // .then(data => {
-  //   //     console.log(data)
-  //   // })
-
-  //   fetch(url)
+  //   fetch(url, {
+  //     method: "POST",
+  //   })
   //     .then((res) => {
   //       if (res.ok) {
   //         return res.json();
@@ -46,20 +46,183 @@ const RentOk = () => {
   //     });
   // };
 
-  // const postLogin = (url) => {
-  //   fetch(url, {
-  //     method: "POST",
-  //   })
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         console.log(result);
-  //       },
-  //       (error) => {
-  //         console.log("Failed");
-  //       }
-  //     );
-  // };
+  const landlordSectionJSX = (
+    <div id="rentOkLandlordSection">
+      <div className={styles.rentOkContainer}>
+        <div className={styles.rentOkContainer__title}>Be trustworthy</div>
+        <div className={styles.rentOkContainer__text}>
+          Landlords or roommates can verify their bank account.
+        </div>
+        <div className={styles.rentOkContainer__image}>
+          <img
+            className={styles["rentOkContainer__image--bankVerified"]}
+            src={idBankVerficication}
+            alt="Be trustworthy"
+          />
+        </div>
+        <div className={styles["horizontal-divider"]}></div>
+        <div className={styles.rentOkContainer__text}>
+          After verification you will see a 'reliability badge' below your
+          profile picture which is visible to tenants.
+        </div>
+        <div className={styles.rentOkContainer__image}>
+          <img
+            className={styles["rentOkContainer__image--landlordVerified"]}
+            src={landlordVerified}
+            alt="Verified landlord"
+          />
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          The verification will be processed through our certified RentOK
+          partner Online Betaalplatform.
+        </div>
+        <div className={styles["horizontal-divider"]}></div>
+        <button className={styles.rentOkContainer__button}>
+          START VERIFICATION
+        </button>
+      </div>
+      <div className={styles.rentOkContainer}>
+        <div className={styles.rentOkContainer__title}>
+          Verification successful?
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          You are now showing tenants that they can safely rent from you. You
+          can arrange the down payment, rent transfer and/or deposit with
+          RentOK.
+        </div>
+        <div className={styles.rentOkContainer__image}>
+          <img
+            className={styles["rentOkContainer__image--tenantVerified"]}
+            src={tenant}
+            alt="Tenant profile"
+          />
+        </div>
+        <div className={styles["horizontal-divider"]}></div>
+        <div className={styles.rentOkContainer__text}>
+          This is how: Select the chosen tenant in 'my messages'.
+        </div>
+        <div className={styles.rentOkContainer__image}>
+          <img
+            className={styles["rentOkContainer__image--rentRequest"]}
+            src={rentRequest}
+            alt="Verified landlord"
+          />
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          Click the button 'rent request' and follow the steps.
+          <br />
+          After clicking 'send' the tenant will be able to complete the request.
+        </div>
+      </div>
+      <div className={styles.rentOkContainer}>
+        <div className={styles.rentOkContainer__title}>
+          Rent request completed?
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          The amount will be stored on a trust account by a certified third
+          party: Online Betaalplatform.
+        </div>
+        <div>
+          <img
+            className={styles["rentOkContainer__image--obp"]}
+            src={obpThumbsUp}
+            alt="OBP thumbs up"
+          />
+        </div>
+        <div className={styles["horizontal-divider"]}></div>
+
+        <div className={styles.rentOkContainer__text}>
+          After the key transfer date has taken place the amount will be
+          transferred to your account.
+        </div>
+        <div>
+          <img
+            className={styles["rentOkContainer__image--giveKey"]}
+            src={giveKey}
+            alt="Give key"
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+  const tenantSectionJSX = (
+    <div id="rentOkTenantSection">
+      <div className={styles.rentOkContainer}>
+        <div className={styles.rentOkContainer__title}>
+          When can I pay via RentOK?
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          You can do this with landlords / roommates that have a verified
+          profile. Check the verification badge below their profile picture.
+        </div>
+        <div className={styles.rentOkContainer__image}>
+          <img
+            className={styles["rentOkContainer__image--landlordVerified"]}
+            src={landlordVerified}
+            alt="Verified landlord"
+          />
+        </div>
+      </div>
+      <div className={styles.rentOkContainer}>
+        <div className={styles.rentOkContainer__title}>
+          Are you the chosen tenant?
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          You can ask the landlord to send you a rent request. You will receive
+          the rent request in 'my messages'.
+        </div>
+        <div className={styles.rentOkContainer__image}>
+          <img
+            className={styles["rentOkContainer__image--tenantVerified"]}
+            src={paymentRequest}
+            alt="Payment request"
+          />
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          Follow the steps to complete the request.
+        </div>
+      </div>
+      <div className={styles.rentOkContainer}>
+        <div className={styles.rentOkContainer__title}>
+          Rent request completed?
+        </div>
+        <div className={styles.rentOkContainer__text}>
+          The amount will be stored on a trust account by a certified third
+          party:{" "}
+          <a
+            className={styles["rentOkContainer__text--link"]}
+            href="https://onlinepaymentplatform.com/en/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Online Betaalplatform
+          </a>
+          .
+        </div>
+        <div>
+          <img
+            className={styles["rentOkContainer__image--obp"]}
+            src={obpThumbsUp}
+            alt="OBP thumbs up"
+          />
+        </div>
+        <div className={styles["horizontal-divider"]}></div>
+
+        <div className={styles.rentOkContainer__text}>
+          After you have received the key the money will be transferred to the
+          landlord / roommate
+        </div>
+        <div>
+          <img
+            className={styles["rentOkContainer__image--giveKey"]}
+            src={receiveKey}
+            alt="Receive key"
+          />
+        </div>
+      </div>
+    </div>
+  );
 
   const RentOkJSX = (
     <div className={styles.section}>
@@ -83,74 +246,68 @@ const RentOk = () => {
       </div>
       <div className={styles.userChoiceContainer}>
         <div className={styles.userChoiceContainer__title}>I am a...</div>
-        <div className={`${styles.userChoiceContainer__buttons} padding-h--xs`}>
-          <button className={`${styles["userChoiceContainer__buttons--left"]} ${styles["active"]}`}>LANDLORD</button>
-          <button className={styles["userChoiceContainer__buttons--right"]}>TENANT</button>
+        <div className={`${styles.userChoiceContainer__buttons}`}>
+          <button
+            className={`${styles["userChoiceContainer__buttons--left"]} ${
+              isLandlord ? styles["active"] : ""
+            }`}
+            onClick={() => setIsLandlord(true)}
+          >
+            LANDLORD
+          </button>
+          <button
+            className={`${styles["userChoiceContainer__buttons--right"]} ${
+              !isLandlord ? styles["active"] : ""
+            }`}
+            onClick={() => setIsLandlord(false)}
+          >
+            TENANT
+          </button>
         </div>
-        <div className={styles.beTrustworthyContainer}>
-          <div>Be trustworthy</div>
-          <div>Landlords or roommates can verify their bank account</div>
-          <div>
-            <img src={idBankVerficication} alt="Be trustworthy" />
+        {isLandlord ? landlordSectionJSX : tenantSectionJSX}
+
+        <div className={styles.notReceiveKeyContainer}>
+          <div className={styles.notReceiveKeyContainer__title}>
+            Did you not receive the key or the money?
           </div>
-          <div>
-            After verification you will see a 'reliability badge' below your
-            profile picture which is visible to tenants.
-          </div>
-          <div>
-            <img src={landlordVerified} alt="Verified landlord" />
-          </div>
-          <div>
-            The verification will be processed through our certified RentOK
-            partner Online Betaalplatform.
-          </div>
-          <button>START VERIFICATION</button>
-        </div>
-        <div className={styles.beTrustworthyContainer}>
-          <div>Verification successful?</div>
-          <div>
-            You are now showing tenants that they can safely rent from you. You
-            can arrange the down payment, rent transfer and/or deposit with
-            RentOK.
-          </div>
-          <div>
-            <img src={tenant} alt="Tenant profile" />
-          </div>
-          <div>This is how: Select the chosen tenant in 'my messages'.</div>
-          <div>
-            <img src={rentRequest} alt="Verified landlord" />
-          </div>
-          <div>
-            Click the button 'rent request' and follow the steps.
-            <br />
-            After clicking 'send' the tenant will be able to complete the
-            request.
+          <div className={styles.notReceiveKeyContainer__text}>
+            Please contact{" "}
+            <a
+              className={styles["notReceiveKeyContainer__text--link"]}
+              href="mailto:supportdesk@kamernet.nl"
+            >
+              supportdesk@kamernet.nl
+            </a>{" "}
+            as quickly as possible.
           </div>
         </div>
-        <div className={styles.beTrustworthyContainer}>
-          <div>Rent request completed?</div>
-          <div>
-          The amount will be stored on a trust account by a certified third party: Online Betaalplatform.
+        <div className={styles.notReceiveKeyContainer}>
+          <div className={styles.notReceiveKeyContainer__title}>
+            Frequently asked questions
           </div>
-          <div>
-            <img src={obpThumbsUp} alt="OBP thumbs up" />
-          </div>
-          <div>After the key transfer date has taken place the amount will be transferred to your account.</div>
-          <div>
-            <img src={giveKey} alt="Give key" />
+          <div className={styles.notReceiveKeyContainer__text}>
+            Please contact{" "}
+            <a
+              className={styles["notReceiveKeyContainer__text--link"]}
+              href="mailto:supportdesk@kamernet.nl"
+            >
+              supportdesk@kamernet.nl
+            </a>{" "}
+            as quickly as possible.
           </div>
         </div>
-        <div>Did you not received the key or the money?</div>
-        <div>Please contact supportdesk@jamernet.nl as quickly as possible.</div>
       </div>
     </div>
   );
 
   return (
-    <div className="padding-h--s">
-      {/* <NavBar/> */}
+    <BaseLayout
+      title="RentOK"
+      description="Learn how to use RentOK"
+      className="container padding-h--s"
+    >
       {RentOkJSX}
-    </div>
+    </BaseLayout>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import rentOkImg from "../../Images/rentok/RentOKlogo.png";
 import rentOkVideoThumbnail from "../../Images/rentok/rentok-video.png";
@@ -11,40 +11,15 @@ import giveKey from "../../Images/rentok/GiveKey.png";
 import paymentRequest from "../../Images/rentok/PaymentRequest.png";
 import receiveKey from "../../Images/rentok/ReceiveKey.png";
 
-import translations from "../words.json";
-
 import styles from "./RentOk.module.scss";
 
-import BaseLayout from "../../Components/Layouts/BaseLayout";
+import BaseLayout from "../../Components/Layouts/BaseLayout/BaseLayout";
+import Login from "../../Components/Auth/Login/Login";
 
-// let url2 = "http://localhost:44324/api/user/Login";
-// let url = "http://localhost:44324/Login";
+const isMobile = false;
 
 const RentOk = () => {
   const [isLandlord, setIsLandlord] = useState(true);
-
-  // useEffect(() => {
-  //   postLogin(url);
-  // }, []);
-
-  // const getLogin = (url) => {
-  //   fetch(url, {
-  //     method: "POST",
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       throw new Error("Something went wrong");
-  //     })
-  //     .then((resJson) => {
-  //       // Do something with the response
-  //       console.log(resJson);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
 
   const landlordSectionJSX = (
     <div id="rentOkLandlordSection">
@@ -224,6 +199,76 @@ const RentOk = () => {
     </div>
   );
 
+  const desktopLandlordSectionJSX = (
+    <div>
+      <div>Button</div>
+      {landlordSectionJSX}
+    </div>
+  );
+
+  const desktopTenantSectionJSX = (
+    <div>
+      <div>Button</div>
+      {tenantSectionJSX}
+    </div>
+  );
+
+  const mobileUserChoiceSectionJSX = (_isLandlord) => {
+    <div>
+      {userChoiceButtonJSX}
+      {_isLandlord ? landlordSectionJSX : tenantSectionJSX}
+    </div>;
+  };
+
+  const desktopUserChoiceSectionJSX = (_isLandlord) => {
+    <div>
+      <div>
+        {userChoiceButtonJSX(_isLandlord, "landlord")}
+        {landlordSectionJSX}
+      </div>
+      {userChoiceDesktopDividerJSX}
+      <div>
+        {userChoiceButtonJSX(!_isLandlord, "tenant")}
+        {landlordSectionJSX}
+      </div>
+    </div>;
+  };
+
+  const userChoiceButtonJSX = (isActive, buttonType) => {
+    console.log(isActive);
+    return (
+      <button
+        className={`${styles["userChoiceContainer__buttons--left"]} ${
+          isActive ? styles["active"] : ""
+        }`}
+        onClick={() => setIsLandlord(isActive)}
+      >
+        {buttonType.toUpperCase()}
+      </button>
+    );
+  };
+  console.log("loaded");
+  const userChoiceDesktopDividerJSX = (
+    <div className="col s2 hide-on-med-and-down">
+      <div className={styles["rent-ok-numbers"]}>
+        <div className={styles["number-wrapper"]}>
+          <div className={styles["number-horizontal-connector"]}></div>
+          <div className={styles.number}>1</div>
+        </div>
+        <div className={styles["number-vertical-connector"]}></div>
+        <div className={styles["number-wrapper"]}>
+          <div className={styles["number-horizontal-connector"]}></div>
+          <div className={styles.number}>2</div>
+        </div>
+        <div className={styles["number-vertical-connector"]}></div>
+        <div className={styles["number-wrapper"]}>
+          <div className={styles["number-horizontal-connector"]}></div>
+          <div className={styles.number}>3</div>
+        </div>
+      </div>
+    </div>
+  );
+
   const RentOkJSX = (
     <div className={styles.section}>
       <div className={`${styles.rentOkLogoHeader} spacer-v--m`}>
@@ -246,55 +291,70 @@ const RentOk = () => {
       </div>
       <div className={styles.userChoiceContainer}>
         <div className={styles.userChoiceContainer__title}>I am a...</div>
-        <div className={`${styles.userChoiceContainer__buttons}`}>
-          <button
-            className={`${styles["userChoiceContainer__buttons--left"]} ${
-              isLandlord ? styles["active"] : ""
-            }`}
-            onClick={() => setIsLandlord(true)}
-          >
-            LANDLORD
-          </button>
-          <button
-            className={`${styles["userChoiceContainer__buttons--right"]} ${
-              !isLandlord ? styles["active"] : ""
-            }`}
-            onClick={() => setIsLandlord(false)}
-          >
-            TENANT
-          </button>
+        {isMobile ? (
+          <>
+            <div className={`${styles.userChoiceContainer__buttons}`}>
+              <button
+                className={`${styles["userChoiceContainer__buttons--left"]} ${
+                  isLandlord ? styles["active"] : ""
+                }`}
+                onClick={() => setIsLandlord(true)}
+              >
+                LANDLORD
+              </button>
+              <button
+                className={`${styles["userChoiceContainer__buttons--right"]} ${
+                  !isLandlord ? styles["active"] : ""
+                }`}
+                onClick={() => setIsLandlord(false)}
+              >
+                TENANT
+              </button>
+            </div>
+            {isLandlord ? landlordSectionJSX : tenantSectionJSX}{" "}
+          </>
+        ) : (
+          <div className={styles.userChoiceContainerMobile}>
+            <div className={isLandlord ? "" : styles.inactive}>
+              {userChoiceButtonJSX(isLandlord, "landlord")}
+              {landlordSectionJSX}
+            </div>
+            {userChoiceDesktopDividerJSX}
+            <div className={!isLandlord ? "" : styles.inactive}>
+              {userChoiceButtonJSX(!isLandlord, "tenant")}
+              {tenantSectionJSX}
+            </div>
+          </div>
+        )}
+      </div>
+      <div className={styles.notReceiveKeyContainer}>
+        <div className={styles.notReceiveKeyContainer__title}>
+          Did you not receive the key or the money?
         </div>
-        {isLandlord ? landlordSectionJSX : tenantSectionJSX}
-
-        <div className={styles.notReceiveKeyContainer}>
-          <div className={styles.notReceiveKeyContainer__title}>
-            Did you not receive the key or the money?
-          </div>
-          <div className={styles.notReceiveKeyContainer__text}>
-            Please contact{" "}
-            <a
-              className={styles["notReceiveKeyContainer__text--link"]}
-              href="mailto:supportdesk@kamernet.nl"
-            >
-              supportdesk@kamernet.nl
-            </a>{" "}
-            as quickly as possible.
-          </div>
+        <div className={styles.notReceiveKeyContainer__text}>
+          Please contact{" "}
+          <a
+            className={styles["notReceiveKeyContainer__text--link"]}
+            href="mailto:supportdesk@kamernet.nl"
+          >
+            supportdesk@kamernet.nl
+          </a>{" "}
+          as quickly as possible.
         </div>
-        <div className={styles.notReceiveKeyContainer}>
-          <div className={styles.notReceiveKeyContainer__title}>
-            Frequently asked questions
-          </div>
-          <div className={styles.notReceiveKeyContainer__text}>
-            Please contact{" "}
-            <a
-              className={styles["notReceiveKeyContainer__text--link"]}
-              href="mailto:supportdesk@kamernet.nl"
-            >
-              supportdesk@kamernet.nl
-            </a>{" "}
-            as quickly as possible.
-          </div>
+      </div>
+      <div className={styles.notReceiveKeyContainer}>
+        <div className={styles.notReceiveKeyContainer__title}>
+          Frequently asked questions
+        </div>
+        <div className={styles.notReceiveKeyContainer__text}>
+          Please contact{" "}
+          <a
+            className={styles["notReceiveKeyContainer__text--link"]}
+            href="mailto:supportdesk@kamernet.nl"
+          >
+            supportdesk@kamernet.nl
+          </a>{" "}
+          as quickly as possible.
         </div>
       </div>
     </div>
@@ -306,6 +366,7 @@ const RentOk = () => {
       description="Learn how to use RentOK"
       className="container padding-h--s"
     >
+      <Login />
       {RentOkJSX}
     </BaseLayout>
   );

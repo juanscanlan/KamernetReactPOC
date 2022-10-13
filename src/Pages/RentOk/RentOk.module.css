@@ -76,6 +76,10 @@
   cursor: pointer;
 }
 
+.userChoiceContainerMobile {
+  display: flex;
+}
+
 .rentOkContainer {
   padding: 32px 20px;
   margin-bottom: 20px;
@@ -168,6 +172,52 @@
   font-weight: 400;
   text-decoration: none;
   color: #37d39a;
+}
+
+.rent-ok-numbers {
+  margin-top: 120px;
+}
+
+.rent-ok-numbers .number-wrapper {
+  position: relative;
+}
+
+.rent-ok-numbers .number {
+  background-color: #f3f9f9;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 88px;
+  font-size: 32px;
+  margin: 0 auto;
+}
+
+.rent-ok-numbers .number-vertical-connector {
+  width: 8px;
+  margin: 0 auto;
+  background-color: #f3f9f9;
+  height: 700px;
+}
+
+.rent-ok-numbers .number-horizontal-connector {
+  height: 4px;
+  width: 100%;
+  background-color: #f3f9f9;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  left: -50%;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.rent-ok-numbers .number-horizontal-connector.invert-position {
+  transform: translate(156px);
+}
+
+.inactive {
+  opacity: 0.3;
 }
 
 @media only screen and (max-width: 600px) {

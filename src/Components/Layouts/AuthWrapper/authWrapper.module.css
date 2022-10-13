@@ -1,0 +1,249 @@
+.input-field {
+  position: relative;
+}
+
+.field-validation-error {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  color: #f95332;
+  position: absolute;
+  top: 0;
+  right: 8px;
+}
+
+.input-validation-error {
+  border: 1px solid #f95332 !important;
+  border-bottom-width: 2px !important;
+}
+
+#btnRegisterFacebook_popup {
+  background-color: #5971a8 !important;
+}
+
+#btnRegisterGoogle_popup {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.29);
+}
+
+#btnRegisterEmail_popup,
+#btnRegister_popup {
+  background-color: #fab732;
+}
+
+#register-card {
+  height: 500px;
+  padding: 0;
+  width: 574px;
+}
+
+#register-form {
+  padding: 0 28px 28px;
+  max-width: 336px;
+  overflow: hidden;
+}
+
+#login-form button,
+#register-form button {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-form input,
+#register-form input,
+#register-form input[type=checkbox] + label::before {
+  border-radius: 0 !important;
+}
+
+#login-form input[type=email],
+#login-form input[type=password],
+#login-form input[type=text],
+#register-form input[type=email],
+#register-form input[type=password],
+#register-form input[type=text] {
+  padding: 0 4px;
+}
+
+#login-form input[type=email]::-moz-placeholder, #login-form input[type=password]::-moz-placeholder, #login-form input[type=text]::-moz-placeholder, #register-form input[type=email]::-moz-placeholder, #register-form input[type=password]::-moz-placeholder, #register-form input[type=text]::-moz-placeholder {
+  color: #8ca5c1;
+}
+
+#login-form input[type=email]:-ms-input-placeholder, #login-form input[type=password]:-ms-input-placeholder, #login-form input[type=text]:-ms-input-placeholder, #register-form input[type=email]:-ms-input-placeholder, #register-form input[type=password]:-ms-input-placeholder, #register-form input[type=text]:-ms-input-placeholder {
+  color: #8ca5c1;
+}
+
+#login-form input[type=email]::placeholder,
+#login-form input[type=password]::placeholder,
+#login-form input[type=text]::placeholder,
+#register-form input[type=email]::placeholder,
+#register-form input[type=password]::placeholder,
+#register-form input[type=text]::placeholder {
+  color: #8ca5c1;
+}
+
+#login-card .section-title span,
+#register-card .section-title span {
+  display: block;
+  border-bottom: 1px solid #e9f4f4;
+  width: 100%;
+}
+
+#login-form > div,
+#register-form > div {
+  float: left;
+  width: 100%;
+  /*overflow: hidden*/
+}
+
+#login-form .owl-stage,
+#register-form .owl-stage {
+  display: flex;
+}
+
+#login-form .owl-stage .grid-item,
+#register-form .owl-stage .grid-item {
+  display: block;
+  height: 100%;
+}
+
+.owl-nav.disabled {
+  display: none;
+}
+
+#to-login-link {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+
+#terms #terms-title {
+  padding-top: 8px;
+}
+
+#terms a {
+  font-size: 0.75rem;
+}
+
+#register-img {
+  height: 100%;
+  width: 100%;
+  max-width: 238px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.login-title,
+.register-title {
+  padding: 28px 28px 0;
+  max-width: 336px;
+}
+
+#btnLoginFacebook_popup {
+  background-color: #5971a8 !important;
+}
+
+#btnLoginGoogle_popup {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.29);
+}
+
+#btnLoginEmail_popup {
+  background-color: #fab732;
+}
+
+#login-card {
+  height: 500px;
+  padding: 0;
+  width: 574px;
+}
+
+#login-form {
+  padding: 0 28px 28px;
+  max-width: 336px;
+  overflow: hidden;
+}
+
+#login-form input[type=checkbox] + label::before {
+  border-radius: 2px;
+}
+
+#login-form input[type=checkbox] + label::before,
+#register-form input[type=checkbox] + label::before {
+  content: "";
+  line-height: 24px;
+  height: 18px;
+  width: 18px;
+}
+
+#terms,
+#to-register-link {
+  font-family: "Open Sans", sans-serif;
+}
+
+#to-register-link {
+  font-weight: 700;
+}
+
+#terms {
+  padding: 0 28px;
+  font-size: 0.75rem;
+  position: absolute;
+  bottom: 8px;
+  line-height: 1;
+  width: 100%;
+  max-width: 336px;
+}
+
+#login-img {
+  height: 100%;
+  width: 100%;
+  max-width: 238px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.login-footer * {
+  max-width: 50%;
+}
+
+.small-text {
+  font-size: 0.8rem;
+}
+
+#login-form button img,
+#register-form button img {
+  border-radius: 0;
+  margin: 0 8px !important;
+  height: 24px;
+  width: 24px;
+}
+
+@media (max-width: 1024px) {
+  #login-card,
+#register-card {
+    width: auto;
+  }
+}
+@media (max-width: 600px) {
+  #terms {
+    max-width: unset;
+  }
+  #login-card,
+#register-card {
+    width: 100%;
+  }
+  /*#login-form, #register-form {
+        max-width: unset;
+    }
+
+    .login-title, .register-title {
+        max-width: unset;
+    }*/
+}
+@media (max-width: 332px) {
+  #terms {
+    width: 105%;
+  }
+}/*# sourceMappingURL=authWrapper.module.css.map */

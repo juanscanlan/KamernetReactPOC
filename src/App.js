@@ -1,12 +1,10 @@
-import Navbar from "./Components/NavBar/Navbar";
-import RentOk2 from "./Pages/RentOk/RentOk2";
+import RentOk from "./Pages/RentOk/RentOk";
 import "./Scss/main.css";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <RentOk2 />
+      <RentOk />
     </div>
   );
 }

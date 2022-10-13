@@ -11,7 +11,7 @@ import flag from "../../Images/flags/lang/nl.png";
 
 const Navbar = () => {
   const isSimpleHeader = false;
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = false;
   const UserContextHelper = {};
   const checkStudentHouse = true;
   const _verificationPossible = true;

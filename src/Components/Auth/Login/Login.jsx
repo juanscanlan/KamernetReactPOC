@@ -68,7 +68,7 @@ const Login = ({onTriggerLoginDialog}) => {
   };
 
   const loginJSX = (
-    <div className="auth-dialog">
+    <div className="dialog">
       <div className="card color-background border-radius--xs" id="login-card">
         {/* @Html.HiddenFor(m => m.JavascriptCallback)
 @Html.HiddenFor(m => m.LoginReturnUrl)

@@ -7,12 +7,13 @@ const BaseLayout = ({
   description = "Description",
   className,
   children,
-  onTriggerLoginDialog
+  onTriggerLoginDialog,
+  onTriggerRegisterDialog
 }) => {
   // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet
   return (
     <div>
-      <Navbar onTriggerLoginDialog={onTriggerLoginDialog}/>
+      <Navbar onTriggerLoginDialog={onTriggerLoginDialog} onTriggerRegisterDialog={onTriggerRegisterDialog}/>
       <div className={className}>{children}</div>
     </div>
   );

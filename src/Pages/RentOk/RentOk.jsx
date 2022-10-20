@@ -15,12 +15,20 @@ import styles from "./RentOk.module.scss";
 
 import BaseLayout from "../../Components/Layouts/BaseLayout/BaseLayout";
 import Login from "../../Components/Auth/Login/Login";
+import Register from "../../Components/Auth/Register/Register";
 
 const isMobile = false;
 
 const RentOk = () => {
   const [isLandlord, setIsLandlord] = useState(true);
   const [showLoginDialog, setShowLoginDialog] = useState(false);
+  const [showRegisterDialog, setShowRegisterDialog] = useState(false);
+
+  const onTriggerRegisterDialog = () => {
+    console.log('here');
+    setShowRegisterDialog(!showRegisterDialog);
+  };
+
   const onTriggerLoginDialog = () => {
     setShowLoginDialog(!showLoginDialog);
   };
@@ -367,8 +375,10 @@ const RentOk = () => {
       description="Learn how to use RentOK"
       className="container padding-h--s"
       onTriggerLoginDialog={onTriggerLoginDialog}
+      onTriggerRegisterDialog={onTriggerRegisterDialog}
     >
       {showLoginDialog && <Login onTriggerLoginDialog={onTriggerLoginDialog} />}
+      {showRegisterDialog && <Register onTriggerRegisterDialog={onTriggerRegisterDialog} />}
       {RentOkJSX}
     </BaseLayout>
   );

@@ -9,7 +9,7 @@ import {
 
 import flag from "../../Images/flags/lang/nl.png";
 
-const Navbar = () => {
+const Navbar = ({onTriggerLoginDialog}) => {
   const isSimpleHeader = false;
   const isUserLoggedIn = false;
   const UserContextHelper = {};
@@ -87,9 +87,8 @@ const Navbar = () => {
           </div>
           {/* @******************************@ */}
           <div
-            className={`brand-logo-wrapper ${
-              isSimpleHeader ? "full-width" : ""
-            }`}
+            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
+              }`}
           >
             <a
               id="brand-logo"
@@ -112,9 +111,8 @@ const Navbar = () => {
               </a>
               <a
                 href="@_createAdvertUrl"
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
-                  isUserLoggedIn ? "col-start-5" : "col-start-6"
-                }`}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isUserLoggedIn ? "col-start-5" : "col-start-6"
+                  }`}
                 id="header-place-button"
               >
                 <span
@@ -128,9 +126,8 @@ const Navbar = () => {
                 <>
                   <a
                     href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyAdverts)"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
-                      isUserLoggedIn ? "col-start-6" : "col-start-7"
-                    }`}
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isUserLoggedIn ? "col-start-6" : "col-start-7"
+                      }`}
                     id="header-my-adverts"
                   >
                     My adverts
@@ -170,6 +167,7 @@ const Navbar = () => {
                     className="for-desktop-s-up grid-item align-center-all pointer"
                     data-modal-id="#modal-auth-login"
                     id="login-button"
+                    onClick={onTriggerLoginDialog}
                   >
                     Log in
                   </div>
@@ -186,7 +184,7 @@ const Navbar = () => {
           ) : null}
 
           {UserContextHelper.CurrentUser != null &&
-          UserContextHelper.CurrentUser.IsAuthenticated ? (
+            UserContextHelper.CurrentUser.IsAuthenticated ? (
             <div
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"
@@ -211,7 +209,7 @@ const Navbar = () => {
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
                   {UserContextHelper.CurrentUser != null &&
-                  UserContextHelper.CurrentUser.IsAuthenticated ? (
+                    UserContextHelper.CurrentUser.IsAuthenticated ? (
                     <>
                       <li id="menu_desk_profile">
                         <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MySearchProfile)">
@@ -614,7 +612,7 @@ const Navbar = () => {
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-              isUserLoggedIn ? (
+                isUserLoggedIn ? (
                 <li>
                   <a href="@NavigationHelper.GetPremiumAccountPaymentUrl(userCanBuyLandlordPremium: UserContextHelper.CurrentUser.UserCanBuyLandlordPremium)">
                     @Translator.TranslateText("LBL_GLOBAL_GET_PREMIUM")
@@ -728,7 +726,7 @@ const Navbar = () => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-              isUserLoggedIn ? (
+                isUserLoggedIn ? (
                 <li>
                   <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyReferral)">
                     @Translator.TranslateText("LBL_GLOBAL_REFERRAL")

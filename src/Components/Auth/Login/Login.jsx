@@ -7,7 +7,7 @@ import googleIcon from "../../../Images/SocialMedia/google_icon.jpg";
 
 const apiUrl = "http://localhost:50001/api/customer/login";
 
-const Login = () => {
+const Login = ({onTriggerLoginDialog}) => {
   const [userEmailValue, setUserEmailValue] = useState("");
   const [userPasswordValue, setUserPasswordValue] = useState("");
 
@@ -68,128 +68,131 @@ const Login = () => {
   };
 
   const loginJSX = (
-    <div className="card color-background border-radius--xs" id="login-card">
-      {/* @Html.HiddenFor(m => m.JavascriptCallback)
+    <div className="auth-dialog">
+      <div className="card color-background border-radius--xs" id="login-card">
+        {/* @Html.HiddenFor(m => m.JavascriptCallback)
 @Html.HiddenFor(m => m.LoginReturnUrl)
 @Html.HiddenFor(m => m.RememberMe)
 @Html.HiddenFor(m => m.Source) */}
-      <div className="section-title login-title">
-        <span>Log in</span>
-      </div>
-      <div id="login-form" className="clearfix">
-        {/* @* loginFormStep1 *@ */}
-        <form onSubmit={handleSubmit} id="lfs1">
-          <div className="spacer-v--s">
-            <a
-              className="link-subtle underline color-text-primary"
-              id="to-register-link"
-              data-modal-id="#modal-auth-register"
-            >
-              New to Kamernet? Create an account
-            </a>
-          </div>
-          <div className="spacer-v--s">
-            <input
-              type="checkbox"
-              name="chkStayLoggedIn"
-              id="chkStayLoggedIn"
-              className="full-width"
-            />
-            <label htmlFor="chkStayLoggedIn" className="label">
-              Stay logged in
-            </label>
-          </div>
-          <div className="spacer-v--s">
-            <button
-              type="button"
-              id="btnLoginFacebook_popup"
-              className="btn-medium full-width color-text-light"
-              onClick={fbLogin}
-            >
-              <img src={fbIcon} alt="Facebook" width="24" height="24" />
-              Log in with Facebook
-            </button>
-          </div>
-          <div className="spacer-v--s">
-            <button
-              type="button"
-              id="btnLoginGoogle_popup"
-              className="btn-medium full-width color-background color-text-secondary"
-              onClick={() =>
-                loginGoogle("@SettingsManager.Instance.GoogleApiWebClientId")
-              }
-            >
-              <img src={googleIcon} alt="Google" width="24" height="24" />
-              Log in with Google
-            </button>
-          </div>
-          <div className="text-center text-open-sans small-text">
-            Log in via email
-          </div>
-          <div className="input-field spacer-v--xs">
-            {/* @Html.TextBoxFor(m => m.UserEmail, new { @autocomplete = "email", @className = "full-width", @type = "email", @placeholder = Translator.TranslateText("LBL_EMAIL") })
+        <div className="section-title login-title">
+          <span>Log in</span>
+          <button onClick={onTriggerLoginDialog}>close</button>
+        </div>
+        <div id="login-form" className="clearfix">
+          {/* @* loginFormStep1 *@ */}
+          <form onSubmit={handleSubmit} id="lfs1">
+            <div className="spacer-v--s">
+              <a
+                className="link-subtle underline color-text-primary"
+                id="to-register-link"
+                data-modal-id="#modal-auth-register"
+              >
+                New to Kamernet? Create an account
+              </a>
+            </div>
+            <div className="spacer-v--s">
+              <input
+                type="checkbox"
+                name="chkStayLoggedIn"
+                id="chkStayLoggedIn"
+                className="full-width"
+              />
+              <label htmlFor="chkStayLoggedIn" className="label">
+                Stay logged in
+              </label>
+            </div>
+            <div className="spacer-v--s">
+              <button
+                type="button"
+                id="btnLoginFacebook_popup"
+                className="btn-medium full-width color-text-light"
+                onClick={fbLogin}
+              >
+                <img src={fbIcon} alt="Facebook" width="24" height="24" />
+                Log in with Facebook
+              </button>
+            </div>
+            <div className="spacer-v--s">
+              <button
+                type="button"
+                id="btnLoginGoogle_popup"
+                className="btn-medium full-width color-background color-text-secondary"
+                onClick={() =>
+                  loginGoogle("@SettingsManager.Instance.GoogleApiWebClientId")
+                }
+              >
+                <img src={googleIcon} alt="Google" width="24" height="24" />
+                Log in with Google
+              </button>
+            </div>
+            <div className="text-center text-open-sans small-text">
+              Log in via email
+            </div>
+            <div className="input-field spacer-v--xs">
+              {/* @Html.TextBoxFor(m => m.UserEmail, new { @autocomplete = "email", @className = "full-width", @type = "email", @placeholder = Translator.TranslateText("LBL_EMAIL") })
             @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.UserEmail).ToHtmlString())) */}
-            {/* Below is an attempt to replicate the c# code above */}
-            <input
-              autoComplete="email"
-              className="full-width"
-              data-val="true"
-              data-val-required="Email field is required"
-              id="UserEmail"
-              name="UserEmail"
-              placeholder="Email address"
-              type="email"
-              value={userEmailValue}
-              onChange={handleEmailChange}
-              tabIndex="1"
-            ></input>
-            <span
-              className="field-validation-valid"
-              data-valmsg-for="UserEmail"
-              data-valmsg-replace="true"
-            ></span>
-          </div>
-          <div className="input-field spacer-v--xs">
-            {/* @Html.PasswordFor(m => m.LoginPassword, new { @className = "full-width", @placeholder = Translator.TranslateText("LBL_PASSWORD") })
+              {/* Below is an attempt to replicate the c# code above */}
+              <input
+                autoComplete="email"
+                className="full-width"
+                data-val="true"
+                data-val-required="Email field is required"
+                id="UserEmail"
+                name="UserEmail"
+                placeholder="Email address"
+                type="email"
+                value={userEmailValue}
+                onChange={handleEmailChange}
+                tabIndex="1"
+              ></input>
+              <span
+                className="field-validation-valid"
+                data-valmsg-for="UserEmail"
+                data-valmsg-replace="true"
+              ></span>
+            </div>
+            <div className="input-field spacer-v--xs">
+              {/* @Html.PasswordFor(m => m.LoginPassword, new { @className = "full-width", @placeholder = Translator.TranslateText("LBL_PASSWORD") })
             @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.LoginPassword).ToHtmlString())) */}
-            {/* Below is an attempt to replicate the c# code above */}
-            <input
-              className="full-width"
-              data-val="true"
-              data-val-required="Password is incorrect"
-              id="LoginPassword"
-              name="LoginPassword"
-              placeholder="Password"
-              type="password"
-              value={userPasswordValue}
-              onChange={handlePasswordChange}
-              tabIndex="2"
-            ></input>
-            <span
-              className="field-validation-valid"
-              data-valmsg-for="LoginPassword"
-              data-valmsg-replace="true"
-            ></span>
-          </div>
-          <div className="spacer-v--s login-footer">
-            <a
-              href="#"
-              className="left underline pointer color-text-primary small-text"
-              onClick={ShowForgotPasswordPopupNewFramework}
-            >
-              Forgotten password?
-            </a>
-            <button
-              id="btnLogin_popup"
-              type="submit"
-              className="btn-medium primary right"
-            >
-              Log in
-            </button>
-          </div>
-        </form>
+              {/* Below is an attempt to replicate the c# code above */}
+              <input
+                className="full-width"
+                data-val="true"
+                data-val-required="Password is incorrect"
+                id="LoginPassword"
+                name="LoginPassword"
+                placeholder="Password"
+                type="password"
+                value={userPasswordValue}
+                onChange={handlePasswordChange}
+                tabIndex="2"
+              ></input>
+              <span
+                className="field-validation-valid"
+                data-valmsg-for="LoginPassword"
+                data-valmsg-replace="true"
+              ></span>
+            </div>
+            <div className="spacer-v--s login-footer">
+              <a
+                href="#"
+                className="left underline pointer color-text-primary small-text"
+                onClick={ShowForgotPasswordPopupNewFramework}
+              >
+                Forgotten password?
+              </a>
+              <button
+                id="btnLogin_popup"
+                type="submit"
+                className="btn-medium primary right"
+              >
+                Log in
+              </button>
+            </div>
+          </form>
+        </div>
+        <div id="login-img" className="for-desktop-s-up"></div>
       </div>
-      <div id="login-img" className="for-desktop-s-up"></div>
     </div>
   );
 

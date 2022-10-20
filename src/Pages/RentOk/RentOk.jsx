@@ -20,6 +20,10 @@ const isMobile = false;
 
 const RentOk = () => {
   const [isLandlord, setIsLandlord] = useState(true);
+  const [showLoginDialog, setShowLoginDialog] = useState(false);
+  const onTriggerLoginDialog = () => {
+    setShowLoginDialog(!showLoginDialog);
+  };
 
   const landlordSectionJSX = (
     <div id="rentOkLandlordSection">
@@ -238,9 +242,8 @@ const RentOk = () => {
     console.log(isActive);
     return (
       <button
-        className={`${styles["userChoiceContainer__buttons--left"]} ${
-          isActive ? styles["active"] : ""
-        }`}
+        className={`${styles["userChoiceContainer__buttons--left"]} ${isActive ? styles["active"] : ""
+          }`}
         onClick={() => setIsLandlord(isActive)}
       >
         {buttonType.toUpperCase()}
@@ -295,17 +298,15 @@ const RentOk = () => {
           <>
             <div className={`${styles.userChoiceContainer__buttons}`}>
               <button
-                className={`${styles["userChoiceContainer__buttons--left"]} ${
-                  isLandlord ? styles["active"] : ""
-                }`}
+                className={`${styles["userChoiceContainer__buttons--left"]} ${isLandlord ? styles["active"] : ""
+                  }`}
                 onClick={() => setIsLandlord(true)}
               >
                 LANDLORD
               </button>
               <button
-                className={`${styles["userChoiceContainer__buttons--right"]} ${
-                  !isLandlord ? styles["active"] : ""
-                }`}
+                className={`${styles["userChoiceContainer__buttons--right"]} ${!isLandlord ? styles["active"] : ""
+                  }`}
                 onClick={() => setIsLandlord(false)}
               >
                 TENANT
@@ -365,8 +366,9 @@ const RentOk = () => {
       title="RentOK"
       description="Learn how to use RentOK"
       className="container padding-h--s"
+      onTriggerLoginDialog={onTriggerLoginDialog}
     >
-      <Login />
+      {showLoginDialog && <Login onTriggerLoginDialog={onTriggerLoginDialog} />}
       {RentOkJSX}
     </BaseLayout>
   );

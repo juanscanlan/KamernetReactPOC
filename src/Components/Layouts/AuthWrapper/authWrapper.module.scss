@@ -52,7 +52,7 @@
 
 #login-form input,
 #register-form input,
-#register-form input[type="checkbox"] + label::before {
+#register-form input[type="checkbox"]+label::before {
   border-radius: 0 !important;
 }
 
@@ -81,8 +81,8 @@
   width: 100%;
 }
 
-#login-form > div,
-#register-form > div {
+#login-form>div,
+#register-form>div {
   float: left;
   width: 100%;
   /*overflow: hidden*/
@@ -156,12 +156,12 @@
   overflow: hidden;
 }
 
-#login-form input[type="checkbox"] + label::before {
+#login-form input[type="checkbox"]+label::before {
   border-radius: 2px;
 }
 
-#login-form input[type="checkbox"] + label::before,
-#register-form input[type="checkbox"] + label::before {
+#login-form input[type="checkbox"]+label::before,
+#register-form input[type="checkbox"]+label::before {
   content: "";
   line-height: 24px;
   height: 18px;
@@ -213,6 +213,7 @@
 }
 
 @media (max-width: 1024px) {
+
   #login-card,
   #register-card {
     width: auto;

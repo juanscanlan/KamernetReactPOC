@@ -15,6 +15,7 @@ import styles from "./RentOk.module.scss";
 
 import BaseLayout from "../../Components/Layouts/BaseLayout/BaseLayout";
 import Login from "../../Components/Auth/Login/Login";
+import Register from "../../Components/Auth/Register/Register";
 
 const isMobile = false;
 

@@ -9,7 +9,7 @@ import {
 
 import flag from "../../Images/flags/lang/nl.png";
 
-const Navbar = ({onTriggerLoginDialog}) => {
+const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
   const isSimpleHeader = false;
   const isUserLoggedIn = false;
   const UserContextHelper = {};
@@ -175,6 +175,7 @@ const Navbar = ({onTriggerLoginDialog}) => {
                     className="for-desktop-s-up grid-item col-span-2 align-center-all pointer"
                     data-modal-id="#modal-auth-register"
                     id="register-button"
+                    onClick={onTriggerRegisterDialog}
                   >
                     Create account
                   </div>

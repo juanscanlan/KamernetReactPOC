@@ -223,6 +223,8 @@ const Register = () => {
       <div id="register-img" className="for-desktop-s-up"></div>
     </div>
   );
+
+  return <div>{registerJSX}</div>;
 };
 
 export default Register;

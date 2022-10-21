@@ -9,8 +9,13 @@ import {
   slideRegForm,
 } from "../../../Scripts/Components/Auth/Auth";
 
-
 const apiUrl = "http://localhost:50001/api/customer/register";
+
+const baseUrl = "https://acceptance.kamernet.nl/";
+
+const getFullRoute = (baseUrl, route) => {
+  return baseUrl + route;
+};
 
 const Register = () => {
   const Model = {};
@@ -104,7 +109,7 @@ const Register = () => {
       body: new URLSearchParams({
         UserFirstName: firstName,
         UserEmail: email,
-        UserPassword: password
+        UserPassword: password,
       }),
     })
       .then((res) => {
@@ -165,9 +170,7 @@ const Register = () => {
               type="button"
               id="btnRegisterGoogle_popup"
               className="btn-medium full-width color-background color-text-secondary"
-              onClick={() =>
-                googleRegister()
-              }
+              onClick={() => googleRegister()}
             >
               <img src={googleIcon} alt="Google" width="24" height="24" />
               Sign up with Google
@@ -273,17 +276,19 @@ const Register = () => {
         <div id="terms-title">
           By creating an account you accept the
           <a
-            href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.KamernetConditions, (AppLanguageCode)LocalizationHelper.GetUserLanguage())"
+            href={getFullRoute(baseUrl, "en/terms-conditions")}
             className="link-subtle underline color-text-primary"
             target="_blank"
+            rel="noreferrer"
           >
             terms and conditions
           </a>
           <span>and</span>
           <a
-            href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.KamernetPrivacy)"
+            href={getFullRoute(baseUrl, "en/privacypolicy")}
             className="link-subtle underline color-text-primary"
             target="_blank"
+            rel="noreferrer"
           >
             privacy statement
           </a>
@@ -291,7 +296,7 @@ const Register = () => {
         </div>
       </div>
       <div id="register-img" className="for-desktop-s-up"></div>
-    </div >
+    </div>
   );
 
   return <div>{registerJSX}</div>;

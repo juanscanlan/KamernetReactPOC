@@ -641,19 +641,21 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul className="menu-first">
               <li className="submenu-item-selector">
-                <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.CreateRoomAdvertOrCompleteDraft)">
+                <a href={getFullRoute(baseUrl, "en/create-room-advert")}>
                   <i className="icon-m home color-background-secondary"></i>
                   @Translator.TranslateText("LBL_MENU_CREATE_ADVERT")
                 </a>
               </li>
               <li>
-                <a href="@NavigationHelper.GetSearchRouteUrl(new SearchOptions() { })">
+                <a
+                  href={getFullRoute(baseUrl, "en/for-rent/rooms-netherlands")}
+                >
                   <i className="icon-m search color-background-secondary"></i>
                   @Translator.TranslateText("LBL_SEARCH_ROOMS_MENU")
                 </a>
               </li>
               <li>
-                <a href="@NavigationHelper.GetSearchTenantsRouteUrl(new SearchOptions() { SearchIn = SearchInTypeEnum.Tenants })">
+                <a href={getFullRoute(baseUrl, "en/tenants/room-netherlands")}>
                   <i className="icon-m search color-background-secondary"></i>
                   @Translator.TranslateText("LBL_SEARCH_TENANTS_MENU")
                 </a>
@@ -662,7 +664,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
               isUserLoggedIn ? (
                 <li>
-                  <a href="@NavigationHelper.GetPremiumAccountPaymentUrl(userCanBuyLandlordPremium: UserContextHelper.CurrentUser.UserCanBuyLandlordPremium)">
+                  <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
                     @Translator.TranslateText("LBL_GLOBAL_GET_PREMIUM")
                   </a>
                 </li>
@@ -677,7 +679,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul className="menu-first">
                   <li>
-                    <a href="@_dashboardUrl">
+                    <a href={getFullRoute(baseUrl, "en/dashboard")}>
                       @Translator.TranslateText("LBL_MENU_DASHBOARD")
                     </a>
                   </li>
@@ -823,7 +825,11 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 </a>
               </li>
               <li>
-                <a href="@_supportLink" target="_blank" rel="noopener">
+                <a
+                  href="https://support.kamernet.nl/en"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   @Translator.TranslateText("LBL_SUPPORT")
                 </a>
               </li>

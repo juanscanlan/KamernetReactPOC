@@ -79,7 +79,6 @@ const Login = ({ showLoginDialog, onTriggerLoginDialog }) => {
 @Html.HiddenFor(m => m.Source) */}
         <div className="section-title login-title">
           <span>Log in</span>
-          <button onClick={onTriggerLoginDialog}>close</button>
         </div>
         <div id="login-form" className="clearfix">
           {/* @* loginFormStep1 *@ */}

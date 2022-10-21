@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 import fbIcon from "../../../Images/SocialMedia/facebook-3-48.png";
 import googleIcon from "../../../Images/SocialMedia/google_icon.jpg";
 
@@ -9,8 +9,15 @@ import {
   slideRegForm,
 } from "../../../Scripts/Components/Auth/Auth";
 
+
+const apiUrl = "http://localhost:50001/api/customer/register";
+
 const Register = () => {
   const Model = {};
+
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [password, setPassword] = useState("");
 
   const RenderSourceSwitch = () => {
     switch (Model.Source) {
@@ -62,20 +69,59 @@ const Register = () => {
     }
   };
 
-  // const fbLogin = () => {
-  //   //Todo
-  //   console.log("fbLogin potato");
-  // };
+  const handleSubmit = (event) => {
+    console.log(firstName, email, password);
+    postRegister(firstName, email, password);
+    event.preventDefault();
+  };
 
-  // const loginGoogle = (instance) => {
-  //   //Todo
-  //   console.log(instance, "potato");
-  // };
+  const emailChangeHandler = (event) => {
+    setEmail(event.target.value);
+  };
 
-  // const slideRegForm = (number) => {
-  //   //Todo
-  //   console.log(number, "potato");
-  // };
+  const firstNameChangeHandler = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const passwordChangeHandler = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const fbRegister = () => {
+    console.log("fbRegister");
+  };
+
+  const googleRegister = () => {
+    console.log("googleRegister");
+  };
+
+  const postRegister = (firstName, email, password) => {
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        UserFirstName: firstName,
+        UserEmail: email,
+        UserPassword: password
+      }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          console.log(res.json());
+          return res.json();
+        }
+        throw new Error("Something went wrong");
+      })
+      .then((resJson) => {
+        // Do something with the response
+        console.log(resJson);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const registerJSX = (
     <div className="card color-background border-radius--xs" id="register-card">
@@ -108,7 +154,7 @@ const Register = () => {
               type="button"
               id="btnRegisterFacebook_popup"
               className="btn-medium full-width color-text-light"
-              onClick={fbLogin}
+              onClick={fbRegister}
             >
               <img src={fbIcon} alt="Facebook" width="24" height="24" />
               Sign up with Facebook
@@ -120,7 +166,7 @@ const Register = () => {
               id="btnRegisterGoogle_popup"
               className="btn-medium full-width color-background color-text-secondary"
               onClick={() =>
-                loginGoogle("@SettingsManager.Instance.GoogleApiWebClientId")
+                googleRegister()
               }
             >
               <img src={googleIcon} alt="Google" width="24" height="24" />
@@ -143,51 +189,75 @@ const Register = () => {
 
         {/* @* RegisterFormStep2 *@ */}
         <div id="rfs2" className="hide">
-          <div className="input-fields spacer-v--sm">
-            <div className="input-field" id="input">
-              {/* @Html.TextBoxFor(m => m.FirstName, new { @autocomplete = "name", @className = "full-width", @placeholder = Translator.TranslateText("LBL_REGISTER_FIRSTNAME") })
-                @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.FirstName).ToHtmlString())) */}
+          <form onSubmit={handleSubmit} id="lfs1">
+            <div className="input-field spacer-v--xs">
+              <input
+                autoComplete="firstName"
+                className="full-width"
+                data-val="true"
+                data-val-required="First Name field is required"
+                id="FirstName"
+                name="FirstName"
+                placeholder="First Name"
+                type="text"
+                value={firstName}
+                onChange={firstNameChangeHandler}
+                tabIndex="1"
+              ></input>
+              <span
+                className="field-validation-valid"
+                data-valmsg-for="FirstName"
+                data-valmsg-replace="true"
+              ></span>
             </div>
-            <div className="input-field spacer-v--s">
-              {/* @Html.TextBoxFor(m => m.RegisterUserEmail, new { @autocomplete = "email", @className = "full-width", @type = "email", @placeholder = Translator.TranslateText("LBL_REGISTER_EMAIL") })
-                @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.RegisterUserEmail).ToHtmlString())) */}
+            <div className="input-field spacer-v--xs">
+              <input
+                autoComplete="email"
+                className="full-width"
+                data-val="true"
+                data-val-required="Email field is required"
+                id="UserEmail"
+                name="UserEmail"
+                placeholder="Email address"
+                type="email"
+                value={email}
+                onChange={emailChangeHandler}
+                tabIndex="1"
+              ></input>
+              <span
+                className="field-validation-valid"
+                data-valmsg-for="UserEmail"
+                data-valmsg-replace="true"
+              ></span>
             </div>
-            <div className="input-field spacer-v--s">
-              {/* @Html.PasswordFor(m => m.RegisterPassword, new { @className = "full-width", @placeholder = Translator.TranslateText("LBL_REGISTER_PASSWORD") })
-                @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.RegisterPassword).ToHtmlString())) */}
-            </div>{" "}
-            <div className="spacer-v--xs">
-              <div className="spacer-v--s">
-                <input
-                  type="checkbox"
-                  name="chkStayLoggedIn_Register"
-                  id="chkStayLoggedIn_Register"
-                  className=""
-                />
-                <label htmlFor="chkStayLoggedIn_Register" className="label">
-                  Stay logged in
-                </label>
-              </div>
-              <div className="spacer-v--s">
-                <input
-                  type="checkbox"
-                  name="ReceiveServiceEmails"
-                  id="ReceiveServiceEmails"
-                  className=""
-                  value="true"
-                />
-                <label htmlFor="ReceiveServiceEmails" className="label">
-                  {/* @Html.Raw(String.Format(Translator.TranslateText("LBL_REGISTER_POPUP_RECEIVE_EMAILS"), _emailLink+"\" rel=\"noopener")) */}
-                </label>
-              </div>
+            <div className="input-field spacer-v--xs">
+              <input
+                autoComplete="password"
+                className="full-width"
+                data-val="true"
+                data-val-required="Password field is required"
+                id="Password"
+                name="Password"
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={passwordChangeHandler}
+                tabIndex="1"
+              ></input>
+              <span
+                className="field-validation-valid"
+                data-valmsg-for="Password"
+                data-valmsg-replace="true"
+              ></span>
             </div>
             <button
               id="btnRegister_popup"
               type="submit"
               className="btn-medium spacer-v--sm spacer-h--xs color-text-light right box-shadow"
             >
-              Create account
+              Sign Up
             </button>
+
             <button
               type="button"
               id="btnRegisterBack_popup"
@@ -196,7 +266,7 @@ const Register = () => {
             >
               Back
             </button>
-          </div>
+          </form>
         </div>
       </div>
       <div className="spacer-v--s text-center" id="terms">
@@ -221,7 +291,7 @@ const Register = () => {
         </div>
       </div>
       <div id="register-img" className="for-desktop-s-up"></div>
-    </div>
+    </div >
   );
 
   return <div>{registerJSX}</div>;

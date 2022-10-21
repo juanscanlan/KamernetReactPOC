@@ -1,174 +1,182 @@
 import React from "react";
 
+import fbIcon from "../../../Images/SocialMedia/facebook-3-48.png";
+import googleIcon from "../../../Images/SocialMedia/google_icon.jpg";
+
+import {
+  fbLogin,
+  loginGoogle,
+  slideRegForm,
+} from "../../../Scripts/Components/Auth/Auth";
+
 const Register = () => {
-  const fbLogin = () => {
-    //Todo
-    console.log("fbLogin potato");
+  const Model = {};
+
+  const RenderSourceSwitch = () => {
+    switch (Model.Source) {
+      case "LoginRegisterSourceEnum.DisplayTenant":
+        <div className="strong marketing-title">
+          <span>
+            @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_PROFILES")
+          </span>
+        </div>;
+        break;
+
+      case "LoginRegisterSourceEnum.SetFavorite":
+        <div id="rdMarketingTitleRoomType" className="strong marketing-title">
+          <span>
+            @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_FAVORITE")
+          </span>
+        </div>;
+        break;
+
+      case "LoginRegisterSourceEnum.CreateAlert":
+        <div className="strong marketing-title">
+          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_ALERT")
+        </div>;
+        break;
+
+      case "LoginRegisterSourceEnum.ReactToRoomAdvert":
+        <div className="strong marketing-title">
+          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_REACT")
+        </div>;
+        break;
+
+      case "LoginRegisterSourceEnum.ReportAbuse":
+        <div className="strong marketing-title">
+          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_REPORTABUSE")
+        </div>;
+        break;
+      case "LoginRegisterSourceEnum.PageAccessRequiresLogin":
+        <div className="strong marketing-title">
+          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_ACCESS")
+        </div>;
+        break;
+      default:
+        <div className="strong marketing-title">
+          <span>
+            @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_DEFAULT")
+          </span>
+        </div>;
+        break;
+    }
   };
 
-  const loginGoogle = (instance) => {
-    //Todo
-    console.log(instance, "potato");
-  };
+  // const fbLogin = () => {
+  //   //Todo
+  //   console.log("fbLogin potato");
+  // };
 
-  const slideRegForm = (number) => {
-    //Todo
-    console.log(number, "potato");
-  };
+  // const loginGoogle = (instance) => {
+  //   //Todo
+  //   console.log(instance, "potato");
+  // };
+
+  // const slideRegForm = (number) => {
+  //   //Todo
+  //   console.log(number, "potato");
+  // };
 
   const registerJSX = (
-    <div class="card color-background border-radius--xs" id="register-card">
+    <div className="card color-background border-radius--xs" id="register-card">
       {/* @Html.HiddenFor(m => m.RememberMe)
 @Html.HiddenFor(m => m.RegisterReturnUrl)
 @Html.HiddenFor(m => m.LastName)
 @Html.HiddenFor(m => m.FbEmailAddress)
 @Html.HiddenFor(m => m.JavascriptCallback)
 @Html.HiddenFor(m => m.Source) */}
-      <div class="section-title register-title">
-        <span>@Translator.TranslateText("LBL_REGISTER_POPUP_TITLE")</span>
+      <div className="section-title register-title">
+        <span>Create an account</span>
       </div>
-      <div id="register-form" class="clearfix">
+      <div id="register-form" className="clearfix">
         {/* @* RegisterFormStep1 *@ */}
         <div id="rfs1">
-          <div class="section-subtitle spacer-v--s">
-            {/* @switch (Model.Source)
-            {
-                case LoginRegisterSourceEnum.DisplayTenant:
-                    <div class="strong marketing-title">
-                        <span>@Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_PROFILES")</span>
-                    </div>
-                    break;
-
-                case LoginRegisterSourceEnum.SetFavorite:
-                    <div id="rdMarketingTitleRoomType" class="strong marketing-title">
-                        <span>@Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_FAVORITE")</span>
-                    </div>
-                    break;
-
-                case LoginRegisterSourceEnum.CreateAlert:
-                    <div class="strong marketing-title">
-                        @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_ALERT")
-                    </div>
-                    break;
-
-                case LoginRegisterSourceEnum.ReactToRoomAdvert:
-                    <div class="strong marketing-title">
-                        @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_REACT")
-                    </div>
-                    break;
-
-                case LoginRegisterSourceEnum.ReportAbuse:
-                    <div class="strong marketing-title">
-                        @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_REPORTABUSE")
-                    </div>
-                    break;
-                case LoginRegisterSourceEnum.PageAccessRequiresLogin:
-                    <div class="strong marketing-title">
-                        @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_ACCESS")
-                    </div>
-                    break;
-                default:
-                    <div class="strong marketing-title">
-                        <span>@Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_DEFAULT")</span>
-                    </div>
-                    break;
-            } */}
+          <div className="section-subtitle spacer-v--s">
+            <RenderSourceSwitch />
           </div>
-          <div class="spacer-v--s">
+          <div className="spacer-v--s">
             <a
-              class="link-subtle underline color-text-primary"
+              className="link-subtle underline color-text-primary"
               id="to-login-link"
               data-modal-id="#modal-auth-login"
             >
-              @Translator.TranslateText("LBL_REGISTER_POPUP_SWITCH_TO_LOGIN")
+              Already have an account? Log in
             </a>
           </div>
-          <div class="spacer-v--s">
+          <div className="spacer-v--s">
             <button
               type="button"
               id="btnRegisterFacebook_popup"
-              class="btn-medium full-width color-text-light"
+              className="btn-medium full-width color-text-light"
               onClick={fbLogin}
             >
-              <img
-                src="@StaticResourcesHelper.GetImageUrl('/content/images/facebook-3-48.png')"
-                alt="Facebook"
-                width="24"
-                height="24"
-              />
-              @Translator.TranslateText("LBL_REGISTER_POPUP_FB_SIGNUP") Facebook
+              <img src={fbIcon} alt="Facebook" width="24" height="24" />
+              Sign up with Facebook
             </button>
           </div>
-          <div class="spacer-v--s">
+          <div className="spacer-v--s">
             <button
               type="button"
               id="btnRegisterGoogle_popup"
-              class="btn-medium full-width color-background color-text-secondary"
+              className="btn-medium full-width color-background color-text-secondary"
               onClick={() =>
                 loginGoogle("@SettingsManager.Instance.GoogleApiWebClientId")
               }
             >
-              <img
-                src="@StaticResourcesHelper.GetImageUrl('/content/images/google_icon.jpg')"
-                alt="Google"
-                width="24"
-                height="24"
-              />
-              @Translator.TranslateText("LBL_REGISTER_POPUP_FB_SIGNUP") Google
+              <img src={googleIcon} alt="Google" width="24" height="24" />
+              Sign up with Google
             </button>
           </div>
-          <div class="spacer-v--s text-center">
-            @Translator.TranslateText("LBL_OR")
-          </div>
+          <div className="spacer-v--s text-center">or</div>
 
-          <div class="spacer-v--s">
+          <div className="spacer-v--s">
             <button
               type="button"
               id="btnRegisterEmail_popup"
-              class="btn-medium full-width color-text-light"
+              className="btn-medium full-width color-text-light"
               onClick={() => slideRegForm(1)}
             >
-              @Translator.TranslateText("LBL_REGISTER_POPUP_EMAIL_SIGNUP")
+              with e-mail
             </button>
           </div>
         </div>
 
         {/* @* RegisterFormStep2 *@ */}
-        <div id="rfs2" class="hide">
-          <div class="input-fields spacer-v--sm">
-            <div class="input-field" id="input">
-              {/* @Html.TextBoxFor(m => m.FirstName, new { @autocomplete = "name", @class = "full-width", @placeholder = Translator.TranslateText("LBL_REGISTER_FIRSTNAME") })
+        <div id="rfs2" className="hide">
+          <div className="input-fields spacer-v--sm">
+            <div className="input-field" id="input">
+              {/* @Html.TextBoxFor(m => m.FirstName, new { @autocomplete = "name", @className = "full-width", @placeholder = Translator.TranslateText("LBL_REGISTER_FIRSTNAME") })
                 @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.FirstName).ToHtmlString())) */}
             </div>
-            <div class="input-field spacer-v--s">
-              {/* @Html.TextBoxFor(m => m.RegisterUserEmail, new { @autocomplete = "email", @class = "full-width", @type = "email", @placeholder = Translator.TranslateText("LBL_REGISTER_EMAIL") })
+            <div className="input-field spacer-v--s">
+              {/* @Html.TextBoxFor(m => m.RegisterUserEmail, new { @autocomplete = "email", @className = "full-width", @type = "email", @placeholder = Translator.TranslateText("LBL_REGISTER_EMAIL") })
                 @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.RegisterUserEmail).ToHtmlString())) */}
             </div>
-            <div class="input-field spacer-v--s">
-              {/* @Html.PasswordFor(m => m.RegisterPassword, new { @class = "full-width", @placeholder = Translator.TranslateText("LBL_REGISTER_PASSWORD") })
+            <div className="input-field spacer-v--s">
+              {/* @Html.PasswordFor(m => m.RegisterPassword, new { @className = "full-width", @placeholder = Translator.TranslateText("LBL_REGISTER_PASSWORD") })
                 @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(m => m.RegisterPassword).ToHtmlString())) */}
             </div>{" "}
-            <div class="spacer-v--xs">
-              <div class="spacer-v--s">
+            <div className="spacer-v--xs">
+              <div className="spacer-v--s">
                 <input
                   type="checkbox"
                   name="chkStayLoggedIn_Register"
                   id="chkStayLoggedIn_Register"
-                  class=""
+                  className=""
                 />
-                <label for="chkStayLoggedIn_Register" class="label">
-                  @Translator.TranslateText("LBL_REMEMBER_ME")
+                <label htmlFor="chkStayLoggedIn_Register" className="label">
+                  Stay logged in
                 </label>
               </div>
-              <div class="spacer-v--s">
+              <div className="spacer-v--s">
                 <input
                   type="checkbox"
                   name="ReceiveServiceEmails"
                   id="ReceiveServiceEmails"
-                  class=""
+                  className=""
                   value="true"
                 />
-                <label for="ReceiveServiceEmails" class="label">
+                <label htmlFor="ReceiveServiceEmails" className="label">
                   {/* @Html.Raw(String.Format(Translator.TranslateText("LBL_REGISTER_POPUP_RECEIVE_EMAILS"), _emailLink+"\" rel=\"noopener")) */}
                 </label>
               </div>
@@ -176,43 +184,43 @@ const Register = () => {
             <button
               id="btnRegister_popup"
               type="submit"
-              class="btn-medium spacer-v--sm spacer-h--xs color-text-light right box-shadow"
+              className="btn-medium spacer-v--sm spacer-h--xs color-text-light right box-shadow"
             >
-              @Translator.TranslateText("LBL_REGISTER_POPUP_BUTTON_REGISTER")
+              Create account
             </button>
             <button
               type="button"
               id="btnRegisterBack_popup"
-              class="btn-medium spacer-v--sm color-background color-text-secondary right box-shadow"
+              className="btn-medium spacer-v--sm color-background color-text-secondary right box-shadow"
               onClick={() => slideRegForm(0)}
             >
-              @Translator.TranslateText("LBL_BACK")
+              Back
             </button>
           </div>
         </div>
       </div>
-      <div class="spacer-v--s text-center" id="terms">
+      <div className="spacer-v--s text-center" id="terms">
         <div id="terms-title">
-          @Translator.TranslateText("LBL_REGISTER_ACCEPT")
+          By creating an account you accept the
           <a
             href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.KamernetConditions, (AppLanguageCode)LocalizationHelper.GetUserLanguage())"
-            class="link-subtle underline color-text-primary"
+            className="link-subtle underline color-text-primary"
             target="_blank"
           >
-            @Translator.TranslateText("LBL_REGISTER_KAMERNET_CONDITIONS")
+            terms and conditions
           </a>
-          <span>@Translator.TranslateText("LBL_AND")</span>
+          <span>and</span>
           <a
             href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.KamernetPrivacy)"
-            class="link-subtle underline color-text-primary"
+            className="link-subtle underline color-text-primary"
             target="_blank"
           >
-            @Translator.TranslateText("LBL_REGISTER_KAMERNET_PRIVACY")
+            privacy statement
           </a>
           *
         </div>
       </div>
-      <div id="register-img" class="for-desktop-s-up"></div>
+      <div id="register-img" className="for-desktop-s-up"></div>
     </div>
   );
 

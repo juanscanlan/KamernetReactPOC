@@ -1,15 +1,17 @@
 import React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import fbIcon from "../../../Images/SocialMedia/facebook-3-48.png";
 import googleIcon from "../../../Images/SocialMedia/google_icon.jpg";
 
 const apiUrl = "http://localhost:50001/api/customer/login";
 
-const Login = ({onTriggerLoginDialog}) => {
+const Login = ({ showLoginDialog, onTriggerLoginDialog }) => {
   const [userEmailValue, setUserEmailValue] = useState("");
   const [userPasswordValue, setUserPasswordValue] = useState("");
+
+  useEffect(() => {}, [showLoginDialog]);
 
   const handleEmailChange = (event) => {
     setUserEmailValue(event.target.value);
@@ -32,10 +34,11 @@ const Login = ({onTriggerLoginDialog}) => {
     })
       .then((res) => {
         if (res.ok) {
-          console.log(res.json());
+          //console.log(res.json());
           return res.json();
         }
-        throw new Error("Something went wrong");
+        //throw new Error("Something went wrong");
+        console.log(res);
       })
       .then((resJson) => {
         // Do something with the response
@@ -196,7 +199,7 @@ const Login = ({onTriggerLoginDialog}) => {
     </div>
   );
 
-  return <div>{loginJSX}</div>;
+  return <>{loginJSX}</>;
 };
 
 export default Login;

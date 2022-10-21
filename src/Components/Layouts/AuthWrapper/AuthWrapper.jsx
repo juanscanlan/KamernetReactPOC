@@ -1,27 +1,25 @@
 import React from "react";
 
-// import styles from "./authWrapper.module.scss";
-
-// To save time, I just imported the css without using modules.
+// To save time, I just imported the css without using css modules.
 import "./authWrapper.css";
 
 import Login from "../../Auth/Login/Login";
+import Register from "../../Auth/Register/Register";
 
-const AuthWrapper = () => {
+const AuthWrapper = ({ showLoginDialog, onTriggerLoginDialog }) => {
   const loginJSX = (
     <div id="modal-auth-login" className="modal auth-login">
       <div className="modal-background"></div>
-      {/* @Html.Partial("~/Views/Redesign/Components/Auth/_Login.cshtml",
-      loginModel) */}
       <Login />
     </div>
   );
 
-  const registerJSX = (
+  const RegisterJSX = (
     <div id="modal-auth-register" className="modal auth-register">
       <div className="modal-background"></div>
-      @Html.Partial("~/Views/Redesign/Components/Auth/_Register.cshtml",
-      registerModel)
+      {/* @Html.Partial("~/Views/Redesign/Components/Auth/_Register.cshtml",
+      registerModel) */}
+      <Register />
     </div>
   );
 
@@ -36,7 +34,7 @@ const AuthWrapper = () => {
   return (
     <div>
       {loginJSX}
-      {registerJSX}
+      {RegisterJSX}
       {facebookJSX}
     </div>
   );

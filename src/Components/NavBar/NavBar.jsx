@@ -8,15 +8,26 @@ import {
 } from "../../Scripts/Components/Navbar/HamburgerMenu";
 
 import flag from "../../Images/flags/lang/nl.png";
+import { get } from "jquery";
+
+const baseUrl = "https://acceptance.kamernet.nl/";
+
+const getFullRoute = (baseUrl, route) => {
+  return baseUrl + route;
+};
 
 const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
   const isSimpleHeader = false;
-  const isUserLoggedIn = false;
+  const isUserLoggedIn = true;
   const UserContextHelper = {};
   const checkStudentHouse = true;
   const _verificationPossible = true;
   const SettingsManager = {};
   const iUnrepliedConversationCounter = 0;
+
+  const createAdvertUrl = isUserLoggedIn
+    ? "https://acceptance.kamernet.nl/en/create-room-advert"
+    : "https://acceptance.kamernet.nl/en/rent-out-room";
 
   const ProfilePhoto =
     "https://play-lh.googleusercontent.com/9UDY3O4wSwlBm-kHHfjKf85Yk5GCt0nckL5ZdMR-nYotAfNjODvR4sZ-scPXG3ABVF65";
@@ -87,12 +98,13 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           </div>
           {/* @******************************@ */}
           <div
-            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
-              }`}
+            className={`brand-logo-wrapper ${
+              isSimpleHeader ? "full-width" : ""
+            }`}
           >
             <a
               id="brand-logo"
-              href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.Home)"
+              href="https://acceptance.kamernet.nl/"
               className="grid-item align-center-all logo color-background-secondary col-span-3--m col-span-1--s"
             >
               logo
@@ -102,7 +114,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           {!isSimpleHeader ? (
             <>
               <a
-                href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.Search)"
+                href="https://acceptance.kamernet.nl/en/search"
                 className="dark-white-hover for-desktop-s-up grid-item col-span-3 align-center-all link-subtle col-span-2--xl"
                 id="header-search"
               >
@@ -110,9 +122,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 Search for a room
               </a>
               <a
-                href="@_createAdvertUrl"
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isUserLoggedIn ? "col-start-5" : "col-start-6"
-                  }`}
+                href={createAdvertUrl}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
+                  isUserLoggedIn ? "col-start-5" : "col-start-6"
+                }`}
                 id="header-place-button"
               >
                 <span
@@ -125,15 +138,16 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               {isUserLoggedIn ? (
                 <>
                   <a
-                    href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyAdverts)"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isUserLoggedIn ? "col-start-6" : "col-start-7"
-                      }`}
+                    href="https://acceptance.kamernet.nl/en/my-adverts"
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
+                      isUserLoggedIn ? "col-start-6" : "col-start-7"
+                    }`}
                     id="header-my-adverts"
                   >
                     My adverts
                   </a>
                   <a
-                    href="@_messageUrl"
+                    href="https://acceptance.kamernet.nl/en/my-messages/default?itemsperpage=20&amp;pageno=1"
                     data-tooltip="@Translator.TranslateText('LBL_MENU_BAR_TT_MESSAGES')"
                     className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
                     id="header-messages"
@@ -146,7 +160,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                     data-tooltip="@Translator.TranslateText('LBL_GLOBAL_FAVORITES')"
                     className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
                     id="header-favorites"
-                    href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyFavorites)"
+                    href={getFullRoute(baseUrl, "en/my-favorites/rooms")}
                   >
                     <i className="icon-header header-favorite color-background-secondary"></i>
                   </a>
@@ -185,7 +199,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           ) : null}
 
           {UserContextHelper.CurrentUser != null &&
-            UserContextHelper.CurrentUser.IsAuthenticated ? (
+          UserContextHelper.CurrentUser.IsAuthenticated ? (
             <div
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"
@@ -210,17 +224,17 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
                   {UserContextHelper.CurrentUser != null &&
-                    UserContextHelper.CurrentUser.IsAuthenticated ? (
+                  UserContextHelper.CurrentUser.IsAuthenticated ? (
                     <>
                       <li id="menu_desk_profile">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MySearchProfile)">
+                        <a href={getFullRoute(baseUrl, "en/public-profile")}>
                           My profile
                         </a>
                       </li>
-                      {/* // @*<li id="menu_desk_messages"><a href="@_messageUrl">@Translator.TranslateText("LBL_GLOBAL_MESSAGES")</a></li>*@
-                            // @*<li id="menu_desk_favorites"><a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyFavorites)">@Translator.TranslateText("LBL_GLOBAL_FAVORITES")</a></li>*@ */}
                       <li id="menu_desk_adverts">
-                        <a href="@_myAdvertsUrl">My adverts</a>
+                        <a href={getFullRoute(baseUrl, "en/my-adverts")}>
+                          My adverts
+                        </a>
                       </li>
                       <li className="desktop-menu-divider">
                         <div className="divider-wrapper">
@@ -232,7 +246,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                       </li>
 
                       <li id="menu_desk_roomsearch">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.Search)">
+                        <a href={getFullRoute(baseUrl, "en/search")}>
                           Searching for a room
                         </a>
                       </li>
@@ -252,25 +266,32 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
 
                       {checkStudentHouse ? (
                         <li id="menu_desk_studenthouse">
-                          <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.StudentHouse)">
+                          <a href={getFullRoute(baseUrl, "en/studenthouse")}>
                             Student House
                           </a>
                         </li>
                       ) : (
                         <li id="menu_desk_studenthouse">
-                          <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.StudentHouseInfo)">
+                          <a
+                            href={getFullRoute(
+                              baseUrl,
+                              "en/student-house/find-your-new-roommate"
+                            )}
+                          >
                             Student House
                           </a>
                         </li>
                       )}
                       <li id="menu_desk_cashback">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.CashBack)">
+                        <a href={getFullRoute(baseUrl, "en/cashback")}>
                           Cashback & discounts
                         </a>
                       </li>
 
                       <li id="menu_desk_smartstudent">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.SmartStudentDeals)">
+                        <a
+                          href={getFullRoute(baseUrl, "en/for-rent/appliances")}
+                        >
                           Rent your appliances
                         </a>
                       </li>
@@ -285,12 +306,12 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                       </li>
 
                       <li id="menu_desk_account">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyAccount)">
+                        <a href={getFullRoute(baseUrl, "en/my-account")}>
                           My account
                         </a>
                       </li>
                       <li id="menu_desk_settings">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MySettings)">
+                        <a href={getFullRoute(baseUrl, "en/account/settings")}>
                           Settings
                         </a>
                       </li>
@@ -324,12 +345,12 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                       </li>
 
                       <li id="menu_desk_howitwors">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.HowDoesItWork, new RouteValueDictionary(new { @variant = '' }))">
+                        <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
                           How does it work?
                         </a>
                       </li>
                       <li id="menu_desk_aboutus">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.AboutUs)">
+                        <a href={getFullRoute(baseUrl, "en/about-us")}>
                           About Kamernet
                         </a>
                       </li>
@@ -345,15 +366,21 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                         </div>
                       </li>
                       <li id="menu_desk_rentok">
-                        <a href="@_safetyPageUrl">Safety</a>
+                        <a href={getFullRoute(baseUrl, "en/safety-tenant")}>
+                          Safety
+                        </a>
                       </li>
                       <li id="menu_desk_usefultips">
-                        <a href="@NavigationHelper.GetAbsoluteUrl(_usefultipsLink)">
+                        <a href={getFullRoute(baseUrl, "tips/studenten")}>
                           Useful tips
                         </a>
                       </li>
                       <li id="menu_desk_support">
-                        <a href="@_supportLink" target="_blank" rel="noopener">
+                        <a
+                          href="https://support.kamernet.nl/en"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Support
                         </a>
                       </li>
@@ -372,7 +399,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                       <li id="menu_desk_logout">
                         <a
                           onClick={KamernetMPLogout}
-                          href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.Logout)"
+                          href={getFullRoute(baseUrl, "en/logout")}
                         >
                           Log out
                         </a>
@@ -404,12 +431,17 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                         </div>
                       </li>
                       <li id="menu_desk_roomsearch_loggedout">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.Search)">
+                        <a href={getFullRoute(baseUrl, "en/search")}>
                           Searching for a room
                         </a>
                       </li>
                       <li id="menu_desk_tenantsearch_loggedout">
-                        <a href="@NavigationHelper.GetSearchTenantsRouteUrl(new SearchOptions() { SearchIn = SearchInTypeEnum.Tenants })">
+                        <a
+                          href={getFullRoute(
+                            baseUrl,
+                            "en/tenants/room-netherlands"
+                          )}
+                        >
                           Searching for a tenant
                         </a>
                       </li>
@@ -424,17 +456,26 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                         </div>
                       </li>
                       <li id="menu_desk_createadvert_loggedout">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.CreateRoomAdvertOrCompleteDraft)">
+                        <a
+                          href={getFullRoute(baseUrl, "en/create-room-advert")}
+                        >
                           Place advert
                         </a>
                       </li>
                       <li id="menu_desk_studenthouse">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.StudentHouseInfo)">
+                        <a
+                          href={getFullRoute(
+                            baseUrl,
+                            "en/student-house/find-your-new-roommate"
+                          )}
+                        >
                           Student House
                         </a>
                       </li>
                       <li id="menu_desk_smartstudent">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.SmartStudentDeals)">
+                        <a
+                          href={getFullRoute(baseUrl, "en/for-rent/appliances")}
+                        >
                           Rent your appliances
                         </a>
                       </li>
@@ -467,12 +508,12 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                         </div>
                       </li>
                       <li id="menu_desk_howitwors_loggedout">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.HowDoesItWork, new RouteValueDictionary(new { @variant = '' }))">
+                        <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
                           How does it work?
                         </a>
                       </li>
                       <li id="menu_desk_aboutus_loggedout">
-                        <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.AboutUs)">
+                        <a href={getFullRoute(baseUrl, "en/about-us")}>
                           About Kamernet
                         </a>
                       </li>
@@ -483,15 +524,21 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                         </div>
                       </li>
                       <li id="menu_desk_safety_loggedout">
-                        <a href="@_safetyPageUrl">Safety</a>
+                        <a href={getFullRoute(baseUrl, "en/safety-landlord")}>
+                          Safety
+                        </a>
                       </li>
                       <li id="menu_desk_usefultips_loggedout">
-                        <a href="@NavigationHelper.GetAbsoluteUrl(_usefultipsLink)">
+                        <a href={getFullRoute(baseUrl, "tips/studenten")}>
                           Useful tips
                         </a>
                       </li>
                       <li id="menu_desk_support_loggedout">
-                        <a href="@_supportLink" target="_blank" rel="noopener">
+                        <a
+                          href="https://support.kamernet.nl/en"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Support
                         </a>
                       </li>
@@ -512,7 +559,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               <div className="grid-item">
                 <div className="profile-wrapper">
                   <a
-                    href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyAccount)"
+                    href={getFullRoute(baseUrl, "en/my-account")}
                     className="mobile-menu-user"
                   >
                     <img
@@ -613,7 +660,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-                isUserLoggedIn ? (
+              isUserLoggedIn ? (
                 <li>
                   <a href="@NavigationHelper.GetPremiumAccountPaymentUrl(userCanBuyLandlordPremium: UserContextHelper.CurrentUser.UserCanBuyLandlordPremium)">
                     @Translator.TranslateText("LBL_GLOBAL_GET_PREMIUM")
@@ -646,7 +693,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                     </span>
                   </li>
                   <li>
-                    <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyAccount)">
+                    <a href={getFullRoute(baseUrl, "en/my-account")}>
                       @Translator.TranslateText("LBL_MENU_MY_ACCOUNT")
                     </a>
                   </li>
@@ -666,22 +713,22 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                     </a>
                   </li>
                   <li>
-                    <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MySearchProfile)">
+                    <a href={getFullRoute(baseUrl, "en/public-profile")}>
                       @Translator.TranslateText("LBL_GLOBAL_PUBLIC_PROFILE")
                     </a>
                   </li>
                   <li>
-                    <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyAlerts)">
+                    <a href={getFullRoute(baseUrl, "en/account/alerts")}>
                       @Translator.TranslateText("LBL_GLOBAL_ALERTS")
                     </a>
                   </li>
                   <li>
-                    <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyFavorites)">
+                    <a href={getFullRoute(baseUrl, "en/my-favorites/rooms")}>
                       @Translator.TranslateText("LBL_GLOBAL_FAVORITES")
                     </a>
                   </li>
                   <li>
-                    <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MySettings)">
+                    <a href={getFullRoute(baseUrl, "en/account/settings")}>
                       @Translator.TranslateText("LBL_GLOBAL_SETTINGS")
                     </a>
                   </li>
@@ -697,7 +744,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               {checkStudentHouse ? (
                 <li>
                   <a
-                    href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.StudentHouse)"
+                    href={getFullRoute(baseUrl, "en/studenthouse")}
                     className="white-text"
                   >
                     @Translator.TranslateText("LBL_GLOBAL_STUDENT_HOUSE")
@@ -706,7 +753,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               ) : (
                 <li>
                   <a
-                    href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.StudentHouseInfo)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/student-house/find-your-new-roommate"
+                    )}
                     className="white-text"
                   >
                     @Translator.TranslateText("LBL_GLOBAL_STUDENT_HOUSE")
@@ -716,7 +766,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
 
               {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
                 <li className="mytodolist-menubar-mobile">
-                  <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyToDoList)">
+                  <a href={getFullRoute(baseUrl, "en/account/to-do")}>
                     @Translator.TranslateText("LBL_MY_TODO_LIST_MENU")
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
@@ -727,21 +777,21 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-                isUserLoggedIn ? (
+              isUserLoggedIn ? (
                 <li>
-                  <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyReferral)">
+                  <a href={getFullRoute(baseUrl, "en/referrals")}>
                     @Translator.TranslateText("LBL_GLOBAL_REFERRAL")
                   </a>
                 </li>
               ) : null}
 
               <li className="cashback-mobile">
-                <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.CashBack)">
+                <a href={getFullRoute(baseUrl, "en/cashback")}>
                   @Translator.TranslateText("LBL_GLOBAL_CASHBACK")
                 </a>
               </li>
               <li className="smartstudent-mobile">
-                <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.SmartStudentDeals)">
+                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
                   @Translator.TranslateText("LBL_GLOBAL_RENTSMARTSTUDENTS")
                 </a>
               </li>
@@ -752,12 +802,12 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul>
               <li>
-                <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.HowDoesItWork, new RouteValueDictionary(new { @variant = '' }))">
+                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
                   @Translator.TranslateText("LBL_HOW_DOES_IT_WORK_MENU")
                 </a>
               </li>
               <li>
-                <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.AboutUs)">
+                <a href={getFullRoute(baseUrl, "en/about-us")}>
                   @Translator.TranslateText("LBL_MENU_ABOUT_KAMERNET")
                 </a>
               </li>
@@ -768,7 +818,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul>
               <li>
-                <a href="@NavigationHelper.GetAbsoluteUrl(_usefultipsLink)">
+                <a href={getFullRoute(baseUrl, "tips/studenten")}>
                   @Translator.TranslateText("LBL_USEFUL_TIPS_MENU")
                 </a>
               </li>
@@ -786,7 +836,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul>
                   <li>
-                    <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.Logout)">
+                    <a href={getFullRoute(baseUrl, "en/logout")}>
                       @Translator.TranslateText("LBL_LOGOUT_MENU")
                     </a>
                   </li>
@@ -803,7 +853,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="tab all-messages spacer-v--m collection-item sub-item @if (Model.CurrentMessageType == MessagesType.All) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetAllMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.All, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/all?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_ALL_MESSAGES")
                   </a>
@@ -813,7 +866,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="tab unreplied-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Unreplied) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetUnrepliedMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.Unreplied, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/unreplied?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_UNREPLIED_CONVERSATIONS")
                     {iUnrepliedConversationCounter > 0 ? (
@@ -828,7 +884,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="tab favorite-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Favorites) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetFavoritesMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.Favorite, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/favorite?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_FAVORITE_MESSAGES")
                   </a>
@@ -838,7 +897,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="hide tab notfavorite-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.NotFavorites) { <text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetNotFavoritesMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.NotFavorite, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/notfavorite?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_NOTFAVORITE_MESSAGES")
                   </a>
@@ -848,7 +910,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="tab activeadvert-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.ActiveAdvert) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetActiveAdvertsMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.ActiveAdverts, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/activeadverts?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_PER_ADVERT_MESSAGES")
                   </a>
@@ -858,7 +923,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="tab inactiveadvert-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.InactiveAdvert) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetInactiveAdvertsMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.InactiveAdverts, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/inactiveadverts?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_INACTIVE_ADVERTS_MESSAGES")
                   </a>
@@ -868,7 +936,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="hide tab read-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Read) { <text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetReadMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.Read, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/read?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_READ_MESSAGES")
                   </a>
@@ -878,7 +949,10 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="hide tab unread-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Unread) { <text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetUnreadMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.Unread, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/unread?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_UNREAD_MESSAGES")
                   </a>
@@ -888,14 +962,17 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <li className="tab trash-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Trash) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetTrashMessages', 'Messages') + queryString)"
-                    href="@NavigationHelper.GetMyMessagesFilterUrl(MyMessagesActionsDropdown.Trash, 20)"
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/my-messages/trash?itemsperpage=20"
+                    )}
                   >
                     @Translator.TranslateText("LBL_MY_MESSAGES_TRASH_MESSAGES")
                   </a>
                 </li>
 
                 <li className="tab custom-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Custom) {<text> my-messages-menuitem-selected selection selected</text>}">
-                  <a href="@NavigationHelper.GetFullRouteUrl(KamernetRoute.MyMessagesCustom)">
+                  <a href={getFullRoute(baseUrl, "en/my-messages/custom")}>
                     @Translator.TranslateText("LBL_MY_MESSAGES_CUSTOM_MESSAGES")
                   </a>
                 </li>
@@ -906,17 +983,17 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                   <a href="#!">Back to main menu</a>
                 </li>
                 <li className="spacer-v--m">
-                  <a href="@NavigationHelper.GetMyAdvertsFullRouteUrl(SearchOptions.Default, KamernetRoute.MyAdverts)">
+                  <a href={getFullRoute(baseUrl, "en/my-adverts")}>
                     @Translator.TranslateText("LBL_ACTIVE_ADVERTS")
                   </a>
                 </li>
                 <li>
-                  <a href="@NavigationHelper.GetMyAdvertsFullRouteUrl(SearchOptions.Default, KamernetRoute.MyAdvertsInactive)">
+                  <a href={getFullRoute(baseUrl, "en/my-adverts/inactive")}>
                     @Translator.TranslateText("LBL_INACTIVE_ADVERTS")
                   </a>
                 </li>
                 <li>
-                  <a href="@NavigationHelper.GetMyAdvertsFullRouteUrl(SearchOptions.Default, KamernetRoute.MyAdvertsDraft)">
+                  <a href={getFullRoute(baseUrl, "en/my-adverts/draft")}>
                     @Translator.TranslateText("LBL_DRAFT_ADVERTS")
                   </a>
                 </li>

@@ -121,7 +121,8 @@ const Register = ({ successfulRegisterHandler }) => {
         } else {
           alert('register failed');
         }
-      });
+      })
+      .catch(() => alert('register failed'));
   };
 
   const registerJSX = (

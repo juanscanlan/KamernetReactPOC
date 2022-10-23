@@ -39,7 +39,8 @@ const Login = ({ successfulLoginHandler }) => {
         }else{
           alert('wrong credentials');
         }
-      });
+      })
+      .catch(() => alert('wrong credentials'));;
   };
 
   const handleSubmit = (event) => {

@@ -9,6 +9,7 @@ import {
 
 import flag from "../../Images/flags/lang/nl.png";
 import { get } from "jquery";
+import { useEffect } from "react";
 
 const baseUrl = "https://acceptance.kamernet.nl/";
 
@@ -31,34 +32,6 @@ const Navbar = ({ isUserLoggedIn }) => {
   const ProfilePhoto =
     "https://play-lh.googleusercontent.com/9UDY3O4wSwlBm-kHHfjKf85Yk5GCt0nckL5ZdMR-nYotAfNjODvR4sZ-scPXG3ABVF65";
 
-  const userNotLoggedInFunctions = (_isUserLoggedIn) => {
-    if (!_isUserLoggedIn) {
-      document
-        .getElementById("login-button")
-        .addEventListener("click", function () {
-          setReturnUrl();
-          // sendUserAuthKamernetMPEvent(true);
-        });
-      document
-        .getElementById("login-button-mobile")
-        .addEventListener("click", function () {
-          setReturnUrl();
-        });
-      document
-        .getElementById("register-button")
-        .addEventListener("click", function () {
-          setReturnUrl();
-          // sendUserAuthKamernetMPEvent(false);
-        });
-      document
-        .getElementById("register-button-mobile")
-        .addEventListener("click", function () {
-          setReturnUrl();
-        });
-    }
-  };
-
-  //userNotLoggedInFunctions(isUserLoggedIn);
 
   const KamernetMPLogout = () => {
     console.log("Log out potato");
@@ -72,18 +45,9 @@ const Navbar = ({ isUserLoggedIn }) => {
     console.log("OpenSubMenu potato");
   };
 
-  function setReturnUrl() {
-    fetch('@Url.Action(@"SetCurrentUrlAsReturnUrl", @"Account")', {
-      method: "POST",
-      body: JSON.stringify({
-        returnUrl: window.location.href,
-      }),
-    });
-  }
-
-  hamburgerListener();
-
-  //initTodoList('@Url.Action("mytodolistdropdown", "account")');
+  useEffect(() => {
+    hamburgerListener();
+  }, []);
 
   const NavbarJSX = (
     <>
@@ -192,8 +156,7 @@ const Navbar = ({ isUserLoggedIn }) => {
             </>
           ) : null}
 
-          {UserContextHelper.CurrentUser != null &&
-            UserContextHelper.CurrentUser.IsAuthenticated ? (
+          {isUserLoggedIn ? (
             <div
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"

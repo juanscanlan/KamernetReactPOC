@@ -16,9 +16,8 @@ const getFullRoute = (baseUrl, route) => {
   return baseUrl + route;
 };
 
-const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
+const Navbar = ({ isUserLoggedIn }) => {
   const isSimpleHeader = false;
-  const isUserLoggedIn = true;
   const UserContextHelper = {};
   const checkStudentHouse = true;
   const _verificationPossible = true;
@@ -98,9 +97,8 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           </div>
           {/* @******************************@ */}
           <div
-            className={`brand-logo-wrapper ${
-              isSimpleHeader ? "full-width" : ""
-            }`}
+            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
+              }`}
           >
             <a
               id="brand-logo"
@@ -123,9 +121,8 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               </a>
               <a
                 href={createAdvertUrl}
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
-                  isUserLoggedIn ? "col-start-5" : "col-start-6"
-                }`}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isUserLoggedIn ? "col-start-5" : "col-start-6"
+                  }`}
                 id="header-place-button"
               >
                 <span
@@ -139,9 +136,8 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                 <>
                   <a
                     href="https://acceptance.kamernet.nl/en/my-adverts"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
-                      isUserLoggedIn ? "col-start-6" : "col-start-7"
-                    }`}
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isUserLoggedIn ? "col-start-6" : "col-start-7"
+                      }`}
                     id="header-my-adverts"
                   >
                     My adverts
@@ -181,7 +177,6 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                     className="for-desktop-s-up grid-item align-center-all pointer"
                     data-modal-id="#modal-auth-login"
                     id="login-button"
-                    onClick={onTriggerLoginDialog}
                   >
                     Log in
                   </div>
@@ -189,7 +184,6 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
                     className="for-desktop-s-up grid-item col-span-2 align-center-all pointer"
                     data-modal-id="#modal-auth-register"
                     id="register-button"
-                    onClick={onTriggerRegisterDialog}
                   >
                     Create account
                   </div>
@@ -199,7 +193,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
           ) : null}
 
           {UserContextHelper.CurrentUser != null &&
-          UserContextHelper.CurrentUser.IsAuthenticated ? (
+            UserContextHelper.CurrentUser.IsAuthenticated ? (
             <div
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"
@@ -224,7 +218,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
                   {UserContextHelper.CurrentUser != null &&
-                  UserContextHelper.CurrentUser.IsAuthenticated ? (
+                    UserContextHelper.CurrentUser.IsAuthenticated ? (
                     <>
                       <li id="menu_desk_profile">
                         <a href={getFullRoute(baseUrl, "en/public-profile")}>
@@ -662,7 +656,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-              isUserLoggedIn ? (
+                isUserLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
                     @Translator.TranslateText("LBL_GLOBAL_GET_PREMIUM")
@@ -779,7 +773,7 @@ const Navbar = ({ onTriggerLoginDialog, onTriggerRegisterDialog }) => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-              isUserLoggedIn ? (
+                isUserLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/referrals")}>
                     @Translator.TranslateText("LBL_GLOBAL_REFERRAL")

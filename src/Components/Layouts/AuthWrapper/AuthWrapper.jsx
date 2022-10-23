@@ -6,11 +6,11 @@ import "./authWrapper.css";
 import Login from "../../Auth/Login/Login";
 import Register from "../../Auth/Register/Register";
 
-const AuthWrapper = ({ showLoginDialog, onTriggerLoginDialog }) => {
+const AuthWrapper = ({ successfulLoginHandler, successfulRegisterHandler }) => {
   const loginJSX = (
     <div id="modal-auth-login" className="modal auth-login">
       <div className="modal-background"></div>
-      <Login />
+      <Login successfulLoginHandler={successfulLoginHandler} />
     </div>
   );
 
@@ -19,7 +19,7 @@ const AuthWrapper = ({ showLoginDialog, onTriggerLoginDialog }) => {
       <div className="modal-background"></div>
       {/* @Html.Partial("~/Views/Redesign/Components/Auth/_Register.cshtml",
       registerModel) */}
-      <Register />
+      <Register successfulRegisterHandler={successfulRegisterHandler} />
     </div>
   );
 

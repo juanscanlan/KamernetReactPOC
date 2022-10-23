@@ -1,7 +1,7 @@
 import $ from "jquery";
 // Copied from kamernet\proj\Qmulus.Kamernet.StaticResources\Scripts\redesign\Components\Modals.js
 
-export function init(modalId, modalCaller) {
+function init(modalId, modalCaller) {
   if (modalId != null && modalId.indexOf("#") === -1) {
     modalId = "#" + modalId;
   }
@@ -26,14 +26,9 @@ export function init(modalId, modalCaller) {
       //Set relative position
       container.addClass("position-relative");
       //Add close-icon
-      var iconClassName = "icon-s cross color-background";
       container.append(
         $(
-          '<div class="modal-close-icon" onclick={Modal.hide(\'' +
-            modalId +
-            "')}><i class=\"" +
-            iconClassName +
-            '"></i></div>'
+          '<div class="modal-close-icon"><i class="icon-s cross color-background"></i></div>'
         )
       );
 
@@ -56,7 +51,7 @@ export function init(modalId, modalCaller) {
   $(document).trigger("Modal.initialized", true);
 }
 
-const Modal = {
+export const Modal = {
   initialized: {
     modals: [],
     callers: [],
@@ -85,10 +80,12 @@ const Modal = {
   init,
 };
 
-$(document).ready(function () {
-  Modal.init();
+export function initModal() {
+  setTimeout(() => {
+    Modal.init();
 
-  $(".modal-close-icon").click(function () {
-    Modal.hideAllModals();
-  });
-});
+    $(".modal-close-icon").click(function () {
+      Modal.hideAllModals();
+    });
+  }, 600);
+}

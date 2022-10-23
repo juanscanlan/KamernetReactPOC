@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 
 import fbIcon from "../../../Images/SocialMedia/facebook-3-48.png";
 import googleIcon from "../../../Images/SocialMedia/google_icon.jpg";
+import { Modal } from "../../../Scripts/Components/Modals/Modals";
 
 const apiUrl = "http://localhost:50001/api/customer/login";
 
-const Login = ({ showLoginDialog, onTriggerLoginDialog }) => {
+const Login = ({ successfulLoginHandler }) => {
   const [userEmailValue, setUserEmailValue] = useState("");
   const [userPasswordValue, setUserPasswordValue] = useState("");
-
-  useEffect(() => {}, [showLoginDialog]);
 
   const handleEmailChange = (event) => {
     setUserEmailValue(event.target.value);
@@ -24,6 +23,7 @@ const Login = ({ showLoginDialog, onTriggerLoginDialog }) => {
   const postLogin = (username, password) => {
     fetch(apiUrl, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -32,20 +32,13 @@ const Login = ({ showLoginDialog, onTriggerLoginDialog }) => {
         userpassword: password,
       }),
     })
-      .then((res) => {
-        if (res.ok) {
-          //console.log(res.json());
-          return res.json();
+      .then(response => {
+        if (response.ok) {
+          Modal.hideAllModals();
+          successfulLoginHandler();
+        }else{
+          alert('wrong credentials');
         }
-        //throw new Error("Something went wrong");
-        console.log(res);
-      })
-      .then((resJson) => {
-        // Do something with the response
-        console.log(resJson);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   };
 

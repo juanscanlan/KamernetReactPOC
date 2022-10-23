@@ -19,12 +19,8 @@ import Register from "../../Components/Auth/Register/Register";
 
 const isMobile = false;
 
-const RentOk = ({ onTriggerLoginDialog }) => {
+const RentOk = () => {
   const [isLandlord, setIsLandlord] = useState(true);
-  // const [showLoginDialog, setShowLoginDialog] = useState(false);
-  // const onTriggerLoginDialog = () => {
-  //   setShowLoginDialog(!showLoginDialog);
-  // };
 
   const landlordSectionJSX = (
     <div id="rentOkLandlordSection">
@@ -370,9 +366,7 @@ const RentOk = ({ onTriggerLoginDialog }) => {
       title="RentOK"
       description="Learn how to use RentOK"
       className="container padding-h--s"
-      // onTriggerLoginDialog={onTriggerLoginDialog}
     >
-      {/* {showLoginDialog && <Login onTriggerLoginDialog={onTriggerLoginDialog} />} */}
       {RentOkJSX}
     </BaseLayout>
   );

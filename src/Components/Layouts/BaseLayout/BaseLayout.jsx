@@ -4,7 +4,8 @@ import { useState } from "react";
 import Navbar from "../../NavBar/NavBar";
 import AuthWrapper from "../AuthWrapper/AuthWrapper";
 
-import { init } from "../../../Scripts/Components/Modals/Modals";
+import { initModal } from "../../../Scripts/Components/Modals/Modals";
+import { useEffect } from "react";
 
 const BaseLayout = ({
   title = "Title",
@@ -13,25 +14,48 @@ const BaseLayout = ({
   children,
   // onTriggerLoginDialog,
 }) => {
-  const [showLoginDialog, setShowLoginDialog] = useState(false);
-  const onTriggerLoginDialog = () => {
-    // console.log("potato");
-    setShowLoginDialog(!showLoginDialog);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isAppInitialized, setIsAppInitialized] = useState(false);
+
+  const successfulLoginHandler = () => {
+    setIsUserLoggedIn(true);
   };
 
-  // Initialize modals (old version from .net solution)
-  init();
+  const successfulRegisterHandler = () => {
+    setIsUserLoggedIn(true);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:50001/api/customer/view", {
+      method: "GET",
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(body => {
+        setIsUserLoggedIn(body.userid != null);
+        setIsAppInitialized(true);
+        initModal();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet
   return (
-    <div>
-      <AuthWrapper
-        showLoginDialog={showLoginDialog}
-        onTriggerLoginDialog={onTriggerLoginDialog}
-      />
-      <Navbar onTriggerLoginDialog={onTriggerLoginDialog} />
-      <div className={className}>{children}</div>
-    </div>
+    isAppInitialized ?
+      (
+        <div>
+          <AuthWrapper successfulLoginHandler={successfulLoginHandler} successfulRegisterHandler={successfulRegisterHandler} />
+          <Navbar isUserLoggedIn={isUserLoggedIn} />
+          <div className={className}>{children}</div>
+        </div>
+      ) :
+      (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '100px', height: '100vh' }}>
+          Initializing...
+        </div>
+      )
   );
 };
 

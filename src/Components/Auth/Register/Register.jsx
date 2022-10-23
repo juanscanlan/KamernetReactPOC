@@ -8,6 +8,7 @@ import {
   loginGoogle,
   slideRegForm,
 } from "../../../Scripts/Components/Auth/Auth";
+import { Modal } from "../../../Scripts/Components/Modals/Modals";
 
 const apiUrl = "http://localhost:50001/api/customer/register";
 
@@ -17,7 +18,7 @@ const getFullRoute = (baseUrl, route) => {
   return baseUrl + route;
 };
 
-const Register = () => {
+const Register = ({ successfulRegisterHandler }) => {
   const Model = {};
 
   const [email, setEmail] = useState("");
@@ -103,6 +104,7 @@ const Register = () => {
   const postRegister = (firstName, email, password) => {
     fetch(apiUrl, {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -114,17 +116,11 @@ const Register = () => {
     })
       .then((res) => {
         if (res.ok) {
-          console.log(res.json());
-          return res.json();
+          Modal.hideAllModals();
+          successfulRegisterHandler();
+        } else {
+          alert('register failed');
         }
-        throw new Error("Something went wrong");
-      })
-      .then((resJson) => {
-        // Do something with the response
-        console.log(resJson);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   };
 

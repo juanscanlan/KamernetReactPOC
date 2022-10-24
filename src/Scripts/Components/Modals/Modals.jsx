@@ -1,5 +1,5 @@
 import $ from "jquery";
-// Copied from kamernet\proj\Qmulus.Kamernet.StaticResources\Scripts\redesign\Components\Modals.js
+// Copied from kamernet\proj\Qmulus.Kamernet.StaticResources\Scripts\redesign\Components\Modals.js (some changes was made to make it work with react)
 
 function init(modalId, modalCaller) {
   if (modalId != null && modalId.indexOf("#") === -1) {
@@ -87,5 +87,5 @@ export function initModal() {
     $(".modal-close-icon").click(function () {
       Modal.hideAllModals();
     });
-  }, 600);
+  }, 600); // this timeout is required because the modal elements are not ready right away.
 }

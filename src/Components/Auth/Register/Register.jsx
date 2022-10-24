@@ -104,7 +104,7 @@ const Register = ({ successfulRegisterHandler }) => {
   const postRegister = (firstName, email, password) => {
     fetch(apiUrl, {
       method: "POST",
-      credentials: 'include',
+      credentials: 'include', // this flag is required for exachanging cookies with the API
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },

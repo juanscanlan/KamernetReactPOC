@@ -26,9 +26,10 @@ const BaseLayout = ({
   };
 
   useEffect(() => {
+    // Get all the necessary information (like user info, translations, links, ...) for initializing the app
     fetch("http://localhost:50001/api/customer/view", {
       method: "GET",
-      credentials: "include"
+      credentials: "include" // this flag is required for exachanging cookies with the API
     })
       .then(response => response.json())
       .then(body => {
@@ -41,7 +42,7 @@ const BaseLayout = ({
       });
   }, []);
 
-  // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet
+  // Show the app content if initializing is finished, otherwise just show a text
   return (
     isAppInitialized ?
       (

@@ -46,6 +46,7 @@ const Navbar = ({ isUserLoggedIn }) => {
   };
 
   useEffect(() => {
+    // set up the listener only once
     hamburgerListener();
   }, []);
 
@@ -180,8 +181,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               <div className="burger-icon"></div>
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
-                  {UserContextHelper.CurrentUser != null &&
-                    UserContextHelper.CurrentUser.IsAuthenticated ? (
+                  { isUserLoggedIn ? (
                     <>
                       <li id="menu_desk_profile">
                         <a href={getFullRoute(baseUrl, "en/public-profile")}>
@@ -723,7 +723,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                 </li>
               )}
 
-              {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
+              {isUserLoggedIn ? (
                 <li className="mytodolist-menubar-mobile">
                   <a href={getFullRoute(baseUrl, "en/account/to-do")}>
                     @Translator.TranslateText("LBL_MY_TODO_LIST_MENU")

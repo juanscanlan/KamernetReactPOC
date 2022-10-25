@@ -1,0 +1,157 @@
+﻿@import "../../abstracts/_variables.scss";
+@import "../../abstracts/_mixins.scss";
+@import "../../abstracts/_functions.scss";
+@import "../../components/_carousel.scss";
+
+
+.full-image {
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.owl-carousel {
+    min-height: 160px;
+
+    .owl-nav {
+        top: 44%;
+
+        .owl-prev, .owl-next {
+            background-color: $color-text-light !important;
+            box-shadow: 0px 0px 15px rgba(0, 22, 63, 0.15);
+        }
+    }
+
+    .card--large {
+        height: inherit;
+    }
+
+    .owl-stage {
+        display: flex;
+
+        .grid-item {
+            display: block;
+            height: 100%;
+        }
+    }
+}
+
+#abovethefoldTenant #maincard.card--large {
+    @include webp-background($img: 'redesign/pages/safety/TenantYellowBackground', $color: #cae1e9);
+    background-repeat:no-repeat;
+    background-position-y: 70%;
+    background-position-x: 100%;
+    background-size: cover;
+}
+
+#abovethefoldLandlord #maincard.card--large {
+    @include webp-background($img: 'redesign/pages/safety/Livingroomwithyellowcouch', $color: #cae1e9);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 100%;
+}
+
+
+
+
+
+#tips-cards {
+    .card--large {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .section-subtitle {
+            margin-bottom: 8px;
+        }
+
+        .card__footer {
+            margin-top: auto;
+        }
+    }
+}
+
+#faq ul {
+    list-style-type: disc;
+    padding: 0 40px;
+}
+
+
+.options {
+    position: relative;
+    min-width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    background: $color-secondary-light-3;
+    text-align: center;
+    display: flex;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    padding-left: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: $color-secondary-light-1;
+}
+
+.option-selected {
+    color: $color-text-light;
+}
+
+.slider {
+    position: absolute;
+    right: 0px;
+    margin: 4px;
+    height: calc(100% - 8px);
+    width: 50%;
+    background: $color-secondary;
+    z-index: 1;
+    border-radius: 50px;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    .active {
+        transform: translateX(100%);
+    }
+
+    &.slider-left {
+        left:0;
+    }
+}
+
+@include for-tablet-down {
+    .owl-carousel {
+        .grid-item {
+            min-width: 242px;
+            width: 64.5vw;
+            max-width: 300px;
+        }
+
+        .owl-stage-outer {
+            overflow: visible !important;
+        }
+    }
+}
+
+@include for-mobile-only {
+    .owl-carousel {
+        .grid-item {
+            min-width: 220px;
+        }
+    }
+
+    .padding-v--xl {
+        padding-top: $spacing-l;
+        padding-bottom: $spacing-l;
+    }
+}

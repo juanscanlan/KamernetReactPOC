@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import fbIcon from "@assets/Images/SocialMedia/facebook-3-48.png";
 import googleIcon from "@assets/Images/SocialMedia/google_icon.jpg";
 import { Modal } from "@utilities/Modals/Modals";
+import Image from "next/image";
 
 const apiUrl = "http://localhost:50001/api/customer/login";
 
@@ -104,7 +105,7 @@ const Login = ({ successfulLoginHandler }) => {
                 className="btn-medium full-width color-text-light"
                 onClick={fbLogin}
               >
-                <img src={fbIcon} alt="Facebook" width="24" height="24" />
+                <Image src={fbIcon} alt="Facebook" width="24" height="24" />
                 Log in with Facebook
               </button>
             </div>
@@ -117,7 +118,7 @@ const Login = ({ successfulLoginHandler }) => {
                   loginGoogle("@SettingsManager.Instance.GoogleApiWebClientId")
                 }
               >
-                <img src={googleIcon} alt="Google" width="24" height="24" />
+                <Image src={googleIcon} alt="Google" width="24" height="24" />
                 Log in with Google
               </button>
             </div>

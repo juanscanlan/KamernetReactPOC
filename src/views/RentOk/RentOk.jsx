@@ -234,7 +234,6 @@ const RentOk = () => {
   };
 
   const userChoiceButtonJSX = (isActive, buttonType) => {
-    console.log(isActive);
     return (
       <button
         className={`${styles["userChoiceContainer__buttons--left"]} ${
@@ -246,7 +245,7 @@ const RentOk = () => {
       </button>
     );
   };
-  console.log("loaded");
+
   const userChoiceDesktopDividerJSX = (
     <div className="col s2 hide-on-med-and-down">
       <div className={styles["rent-ok-numbers"]}>

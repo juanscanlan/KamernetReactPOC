@@ -1,0 +1,76 @@
+﻿@import "../icons/_icon-variables.scss";
+/*@import "../icons/_icons-fallback-variables";*/
+@import "../icons/names-array";
+//-----------------------------------------------------------
+//-------------------- Breakpoints --------------------------
+//-----------------------------------------------------------
+$breakpoint-tablet: 600px !default; //Max width for mobile
+$breakpoint-desktop-s: 1024px !default; //Min width for desktop
+$breakpoint-desktop: 1360px !default; //Min width for wide/big desktop
+$breakpoint-desktop-l: 1680px !default; //Min width for wide/big desktop
+
+//-----------------------------------------------------------
+//-------------- Spacing from zeplin.io ---------------------
+//-----------------------------------------------------------
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-icon-s:12px;
+$spacing-icon-sm: 14px;
+$spacing-s: 16px;
+$spacing-sm: 24px;
+$spacing-m: 32px;
+$spacing-l: 48px;
+$spacing-xl: 64px;
+$spacing-xlm: 72px;
+$spacing-xxl-1: 96px;
+$spacing-xxl-2: 128px;
+//-----------------------------------------------------------
+//---------- Container widths based on device ---------------
+//-----------------------------------------------------------
+$width-container-mobile: 100% !default;
+$width-container-tablet: 87% !default;
+$width-container-desktop-s: 87% !default;
+$width-container-desktop: 1192px !default;
+$width-container-desktop-l: 1462px !default;
+//-----------------------------------------------------------
+//--------------- Grid-cols based on device -----------------
+//-----------------------------------------------------------
+$grid-cols-desktop: 12;
+$grid-cols-mobile: 4;
+//-----------------------------------------------------------
+//--------------- Grid-gaps based on device -----------------
+//-----------------------------------------------------------
+$grid-column-gap-s: $spacing-s;
+$grid-column-gap: $spacing-m;
+$grid-row-gap: $spacing-s;
+
+//-----------------------------------------------------------
+//------------------- Main colors ---------------------------
+//-----------------------------------------------------------
+@import "_variables-colors-main.scss";
+
+//border radius
+$border-radius-xs: 4px;
+$border-radius-s: 8px;
+$border-radius-m: 16px;
+$border-radius-sm: 24px;
+$border-radius-l: 32px;
+$border-radius-xl: 48px;
+
+//padding
+$padding-xs: 4px;
+$padding-s: 8px;
+$padding-m: 16px;
+$padding-l: 32px;
+
+//fonts
+$font-poppins: "Poppins", sans-serif;
+$font-opensans: "Open Sans", sans-serif;
+
+//icon sizes
+$size-icon-s: $spacing-icon-s;
+$size-icon-sm: $spacing-s;
+$size-icon-m: $spacing-sm;
+$size-icon-l: $spacing-m;
+$size-icon-xl: $spacing-l;
+

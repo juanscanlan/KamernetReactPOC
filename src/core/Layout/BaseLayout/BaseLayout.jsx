@@ -6,6 +6,7 @@ import AuthWrapper from "@core/Auth/AuthWrapper/AuthWrapper";
 
 import { initModal } from "@utilities/Modals/Modals";
 import { useEffect } from "react";
+import Head from "next/head";
 
 const BaseLayout = ({
   title = "Title",
@@ -41,16 +42,17 @@ const BaseLayout = ({
       });
   }, []);
 
+  //isAppInitialized
   // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet
-  return isAppInitialized ? (
-    <div>
+  return true ? (
+    <>
       <AuthWrapper
         successfulLoginHandler={successfulLoginHandler}
         successfulRegisterHandler={successfulRegisterHandler}
       />
       <Navbar isUserLoggedIn={isUserLoggedIn} />
       <div className={className}>{children}</div>
-    </div>
+    </>
   ) : (
     <div
       style={{

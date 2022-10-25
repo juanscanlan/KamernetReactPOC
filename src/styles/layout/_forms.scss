@@ -1,0 +1,18 @@
+﻿/// Referencing files so intellisense would work correctly
+/// <reference path="../abstracts/_variables.scss" />
+/// <reference path="../abstracts/_functions.scss" />
+/// <reference path="../abstracts/_mixins.scss" />
+
+// 1. select
+@import '_select.scss';
+
+// 2. inputs
+@import '_input.scss';
+
+// 3. checkbox, switch and radio buttons
+@import '_checkbox.scss';
+
+
+
+
+

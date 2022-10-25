@@ -1,0 +1,97 @@
+﻿@import "../../abstracts/_variables.scss";
+@import "../../abstracts/_variables-colors-main.scss";
+@import "../../abstracts/_mixins.scss";
+@import "../../abstracts/_functions.scss";
+
+.premium {
+
+    h2 {
+        line-height: $spacing-m;
+    }
+
+    .card--small {
+
+        ul {
+            text-align: left;
+            list-style-type: disc;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 0 $padding-s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    i.check {
+        position: absolute;
+        margin-top: $padding-xs;
+
+        & + span {
+            position: relative;
+            left: $spacing-m;
+        }
+    }
+
+    .suggestion {
+        font-weight: normal;
+        position: absolute;
+        padding: 0 $spacing-s;
+        top: $spacing-xs !important;
+        right: -$spacing-xxs !important;
+        z-index: 1;
+        box-shadow: rgba(0, 22, 63, 0.15) 0px 0px 15px 0px;
+    }
+
+    .bordered {
+        border-right: 1px solid $kamernet-blue-light-3;
+        border-bottom: none;
+        padding: 0 $padding-m 0 0;
+    }
+
+    .room-guaranty a {
+        color: $color-primary;
+    }
+
+    .expandable-trigger {
+        padding-top: $spacing-s;
+
+        .chevron-right-thin {
+            top: $spacing-sm;
+        }
+    }
+
+    @media (max-width: 599px) {
+
+        .card--small {
+
+            ul > li {
+                margin: 0 $spacing-m;
+            }
+
+            & > div:last-of-type {
+                margin: 0 $spacing-m;
+            }
+
+            a {
+                display: inline-block;
+                width: 100%;
+            }
+        }
+
+        .bordered {
+            border-right: none;
+            border-bottom: 1px solid $kamernet-blue-light-3;
+            padding: $padding-m 0;
+        }
+
+        .suggestion {
+            top: -$spacing-xs !important;
+        }
+
+        .expandable-wrapper:last-of-type {
+            margin-bottom: $spacing-s;
+        }
+    }
+}

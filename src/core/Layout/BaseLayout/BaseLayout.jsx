@@ -20,6 +20,7 @@ const BaseLayout = ({
 
   const successfulLoginHandler = () => {
     setIsUserLoggedIn(true);
+    console.log("potato logged in");
   };
 
   const successfulRegisterHandler = () => {
@@ -44,7 +45,7 @@ const BaseLayout = ({
 
   //isAppInitialized
   // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet
-  return true ? (
+  return isAppInitialized ? (
     <>
       <AuthWrapper
         successfulLoginHandler={successfulLoginHandler}

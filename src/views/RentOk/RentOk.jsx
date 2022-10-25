@@ -14,6 +14,7 @@ import receiveKey from "@assets/Images/rentok/ReceiveKey.png";
 import styles from "./RentOk.module.scss";
 
 import BaseLayout from "@core/Layout/BaseLayout/BaseLayout";
+import Image from "next/image";
 
 const isMobile = false;
 
@@ -28,7 +29,7 @@ const RentOk = () => {
           Landlords or roommates can verify their bank account.
         </div>
         <div className={styles.rentOkContainer__image}>
-          <img
+          <Image
             className={styles["rentOkContainer__image--bankVerified"]}
             src={idBankVerficication}
             alt="Be trustworthy"
@@ -40,7 +41,7 @@ const RentOk = () => {
           profile picture which is visible to tenants.
         </div>
         <div className={styles.rentOkContainer__image}>
-          <img
+          <Image
             className={styles["rentOkContainer__image--landlordVerified"]}
             src={landlordVerified}
             alt="Verified landlord"
@@ -65,7 +66,7 @@ const RentOk = () => {
           RentOK.
         </div>
         <div className={styles.rentOkContainer__image}>
-          <img
+          <Image
             className={styles["rentOkContainer__image--tenantVerified"]}
             src={tenant}
             alt="Tenant profile"
@@ -76,7 +77,7 @@ const RentOk = () => {
           This is how: Select the chosen tenant in 'my messages'.
         </div>
         <div className={styles.rentOkContainer__image}>
-          <img
+          <Image
             className={styles["rentOkContainer__image--rentRequest"]}
             src={rentRequest}
             alt="Verified landlord"
@@ -97,7 +98,7 @@ const RentOk = () => {
           party: Online Betaalplatform.
         </div>
         <div>
-          <img
+          <Image
             className={styles["rentOkContainer__image--obp"]}
             src={obpThumbsUp}
             alt="OBP thumbs up"
@@ -110,7 +111,7 @@ const RentOk = () => {
           transferred to your account.
         </div>
         <div>
-          <img
+          <Image
             className={styles["rentOkContainer__image--giveKey"]}
             src={giveKey}
             alt="Give key"
@@ -131,7 +132,7 @@ const RentOk = () => {
           profile. Check the verification badge below their profile picture.
         </div>
         <div className={styles.rentOkContainer__image}>
-          <img
+          <Image
             className={styles["rentOkContainer__image--landlordVerified"]}
             src={landlordVerified}
             alt="Verified landlord"
@@ -147,7 +148,7 @@ const RentOk = () => {
           the rent request in 'my messages'.
         </div>
         <div className={styles.rentOkContainer__image}>
-          <img
+          <Image
             className={styles["rentOkContainer__image--tenantVerified"]}
             src={paymentRequest}
             alt="Payment request"
@@ -175,7 +176,7 @@ const RentOk = () => {
           .
         </div>
         <div>
-          <img
+          <Image
             className={styles["rentOkContainer__image--obp"]}
             src={obpThumbsUp}
             alt="OBP thumbs up"
@@ -188,7 +189,7 @@ const RentOk = () => {
           landlord / roommate
         </div>
         <div>
-          <img
+          <Image
             className={styles["rentOkContainer__image--giveKey"]}
             src={receiveKey}
             alt="Receive key"
@@ -270,7 +271,7 @@ const RentOk = () => {
   const RentOkJSX = (
     <div className={styles.section}>
       <div className={`${styles.rentOkLogoHeader} spacer-v--m`}>
-        <img src={rentOkImg} alt="RentOk Logo" />
+        <Image src={rentOkImg} alt="RentOk Logo" />
       </div>
       <div className={`${styles.summaryContainer} padding-h--xs`}>
         <div className={`${styles.summaryContainer__text} padding-h--xs`}>
@@ -284,7 +285,7 @@ const RentOk = () => {
           processing of payments. This is how it works:
         </div>
         <div className={`${styles.summaryContainer__video} padding-h--xs`}>
-          <img src={rentOkVideoThumbnail} alt="RentOk Video" />
+          <Image src={rentOkVideoThumbnail} alt="RentOk Video" />
         </div>
       </div>
       <div className={styles.userChoiceContainer}>

@@ -5,6 +5,7 @@ import googleIcon from "@assets/Images/SocialMedia/google_icon.jpg";
 
 import { fbLogin, loginGoogle, slideRegForm } from "@utilities/Auth/Auth";
 import { Modal } from "@utilities/Modals/Modals";
+import Image from "next/image";
 
 const apiUrl = "http://localhost:50001/api/customer/register";
 
@@ -154,7 +155,7 @@ const Register = ({ successfulRegisterHandler }) => {
               className="btn-medium full-width color-text-light"
               onClick={fbRegister}
             >
-              <img src={fbIcon} alt="Facebook" width="24" height="24" />
+              <Image src={fbIcon} alt="Facebook" width="24" height="24" />
               Sign up with Facebook
             </button>
           </div>
@@ -165,7 +166,7 @@ const Register = ({ successfulRegisterHandler }) => {
               className="btn-medium full-width color-background color-text-secondary"
               onClick={() => googleRegister()}
             >
-              <img src={googleIcon} alt="Google" width="24" height="24" />
+              <Image src={googleIcon} alt="Google" width="24" height="24" />
               Sign up with Google
             </button>
           </div>

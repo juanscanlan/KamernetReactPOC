@@ -2,7 +2,6 @@ import $ from "jquery";
 // Copied from kamernet\proj\Qmulus.Kamernet.StaticResources\Scripts\redesign\Components\Modals.js
 
 function init(modalId, modalCaller) {
-  console.log("potato");
   if (modalId != null && modalId.indexOf("#") === -1) {
     modalId = "#" + modalId;
   }
@@ -82,6 +81,7 @@ export const Modal = {
 };
 
 export function initModal() {
+  console.log("potato");
   setTimeout(() => {
     Modal.init();
 

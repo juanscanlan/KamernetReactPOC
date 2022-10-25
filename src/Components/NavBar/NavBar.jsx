@@ -1,15 +1,15 @@
 import React from "react";
 
 import { initTodoList } from "@utilities/Header/Header";
-import {
-  hamburgerListener,
-  openSubMenu,
-  backToMain,
-} from "@utilities/Navbar/HamburgerMenu";
+
+import { hamburgerListener } from "@utilities/Navbar/HamburgerMenu";
 
 import flag from "@assets/Images/flags/lang/nl.png";
+import ProfilePhoto from "@assets/Images/marketing/marketing_home_default_sh.jpg";
 
 import { useEffect } from "react";
+import Script from "next/script";
+import Image from "next/image";
 
 const baseUrl = "https://acceptance.kamernet.nl/";
 
@@ -29,9 +29,6 @@ const Navbar = ({ isUserLoggedIn }) => {
     ? "https://acceptance.kamernet.nl/en/create-room-advert"
     : "https://acceptance.kamernet.nl/en/rent-out-room";
 
-  const ProfilePhoto =
-    "https://play-lh.googleusercontent.com/9UDY3O4wSwlBm-kHHfjKf85Yk5GCt0nckL5ZdMR-nYotAfNjODvR4sZ-scPXG3ABVF65";
-
   const KamernetMPLogout = () => {
     console.log("Log out potato");
   };
@@ -45,7 +42,8 @@ const Navbar = ({ isUserLoggedIn }) => {
   };
 
   useEffect(() => {
-    hamburgerListener();
+    //hamburgerListener();
+    console.log("potato rendered");
   }, []);
 
   const NavbarJSX = (
@@ -163,7 +161,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"
             >
-              <img
+              <Image
                 className="border-radius--s border-radius--no-bl"
                 src={ProfilePhoto}
                 width="48"
@@ -281,7 +279,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                           rel="nofollow"
                         >
                           @_langLabel{" "}
-                          <img
+                          <Image
                             className="icon-s flagImg"
                             src={flag}
                             width="12"
@@ -451,7 +449,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                           rel="nofollow"
                         >
                           @_langLabel{" "}
-                          <img
+                          <Image
                             className="icon-s flagImg"
                             src={flag}
                             width="12"
@@ -521,8 +519,8 @@ const Navbar = ({ isUserLoggedIn }) => {
                     href={getFullRoute(baseUrl, "en/my-account")}
                     className="mobile-menu-user"
                   >
-                    <img
-                      src="@ProfilePhoto"
+                    <Image
+                      src={ProfilePhoto}
                       alt="Your profile"
                       width="48"
                       height="48"
@@ -555,9 +553,9 @@ const Navbar = ({ isUserLoggedIn }) => {
           <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
           {/* @* language*@ */}
           <div className="grid-item col-span-4 col-span-12--m">
-            <img
+            <Image
               className="lang-flag"
-              src="@_flag"
+              src={flag}
               alt="Language"
               width="24"
               height="24"
@@ -581,14 +579,10 @@ const Navbar = ({ isUserLoggedIn }) => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul>
                   <li>
-                    <a data-modal-id="#modal-auth-login">
-                      @Translator.TranslateText("LBL_LOGIN_BUTTON")
-                    </a>
+                    <a data-modal-id="#modal-auth-login">Log in</a>
                   </li>
                   <li>
-                    <a data-modal-id="#modal-auth-register">
-                      @Translator.TranslateText("LBL_BUTTON_REGISTER")
-                    </a>
+                    <a data-modal-id="#modal-auth-register">Create account</a>
                   </li>
                 </ul>
               </div>
@@ -602,7 +596,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               <li className="submenu-item-selector">
                 <a href={getFullRoute(baseUrl, "en/create-room-advert")}>
                   <i className="icon-m home color-background-secondary"></i>
-                  @Translator.TranslateText("LBL_MENU_CREATE_ADVERT")
+                  Place advert
                 </a>
               </li>
               <li>
@@ -610,13 +604,13 @@ const Navbar = ({ isUserLoggedIn }) => {
                   href={getFullRoute(baseUrl, "en/for-rent/rooms-netherlands")}
                 >
                   <i className="icon-m search color-background-secondary"></i>
-                  @Translator.TranslateText("LBL_SEARCH_ROOMS_MENU")
+                  Search room
                 </a>
               </li>
               <li>
                 <a href={getFullRoute(baseUrl, "en/tenants/room-netherlands")}>
                   <i className="icon-m search color-background-secondary"></i>
-                  @Translator.TranslateText("LBL_SEARCH_TENANTS_MENU")
+                  Searching for a tenant
                 </a>
               </li>
 
@@ -624,7 +618,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               isUserLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
-                    @Translator.TranslateText("LBL_GLOBAL_GET_PREMIUM")
+                    Get Premium
                   </a>
                 </li>
               ) : null}
@@ -639,7 +633,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                 <ul className="menu-first">
                   <li>
                     <a href={getFullRoute(baseUrl, "en/dashboard")}>
-                      @Translator.TranslateText("LBL_MENU_DASHBOARD")
+                      Dashboard
                     </a>
                   </li>
                   <li
@@ -647,7 +641,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                     className="submenu-item-selector"
                     onClick={() => openSubMenu("submenu-messages")}
                   >
-                    <a>@Translator.TranslateText("LBL_GLOBAL_MESSAGES")</a>
+                    <a>Messages</a>
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetUnreadConversationsCount", "Home", new{" "}
                       {(userId = UserContextHelper.CurrentUser.UserId)}) */}
@@ -655,7 +649,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                   </li>
                   <li>
                     <a href={getFullRoute(baseUrl, "en/my-account")}>
-                      @Translator.TranslateText("LBL_MENU_MY_ACCOUNT")
+                      My account
                     </a>
                   </li>
                 </ul>
@@ -669,28 +663,26 @@ const Navbar = ({ isUserLoggedIn }) => {
                     className="submenu-item-selector"
                     onClick={() => openSubMenu("submenu-properties")}
                   >
-                    <a href="#!">
-                      @Translator.TranslateText("LBL_ADVERTS_MENU")
-                    </a>
+                    <a href="#!">My adverts</a>
                   </li>
                   <li>
                     <a href={getFullRoute(baseUrl, "en/public-profile")}>
-                      @Translator.TranslateText("LBL_GLOBAL_PUBLIC_PROFILE")
+                      Public profile
                     </a>
                   </li>
                   <li>
                     <a href={getFullRoute(baseUrl, "en/account/alerts")}>
-                      @Translator.TranslateText("LBL_GLOBAL_ALERTS")
+                      Saved searches
                     </a>
                   </li>
                   <li>
                     <a href={getFullRoute(baseUrl, "en/my-favorites/rooms")}>
-                      @Translator.TranslateText("LBL_GLOBAL_FAVORITES")
+                      Favorites
                     </a>
                   </li>
                   <li>
                     <a href={getFullRoute(baseUrl, "en/account/settings")}>
-                      @Translator.TranslateText("LBL_GLOBAL_SETTINGS")
+                      Settings
                     </a>
                   </li>
                 </ul>
@@ -708,7 +700,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                     href={getFullRoute(baseUrl, "en/studenthouse")}
                     className="white-text"
                   >
-                    @Translator.TranslateText("LBL_GLOBAL_STUDENT_HOUSE")
+                    Student House
                   </a>
                 </li>
               ) : (
@@ -720,7 +712,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                     )}
                     className="white-text"
                   >
-                    @Translator.TranslateText("LBL_GLOBAL_STUDENT_HOUSE")
+                    Student House
                   </a>
                 </li>
               )}
@@ -728,7 +720,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
                 <li className="mytodolist-menubar-mobile">
                   <a href={getFullRoute(baseUrl, "en/account/to-do")}>
-                    @Translator.TranslateText("LBL_MY_TODO_LIST_MENU")
+                    To do
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
                       {(userId = UserContextHelper.CurrentUser.UserId)}) */}
@@ -741,19 +733,19 @@ const Navbar = ({ isUserLoggedIn }) => {
               isUserLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/referrals")}>
-                    @Translator.TranslateText("LBL_GLOBAL_REFERRAL")
+                    Refer a friend
                   </a>
                 </li>
               ) : null}
 
               <li className="cashback-mobile">
                 <a href={getFullRoute(baseUrl, "en/cashback")}>
-                  @Translator.TranslateText("LBL_GLOBAL_CASHBACK")
+                  Cashback & discounts
                 </a>
               </li>
               <li className="smartstudent-mobile">
                 <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
-                  @Translator.TranslateText("LBL_GLOBAL_RENTSMARTSTUDENTS")
+                  Rent your appliances
                 </a>
               </li>
             </ul>
@@ -764,12 +756,12 @@ const Navbar = ({ isUserLoggedIn }) => {
             <ul>
               <li>
                 <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
-                  @Translator.TranslateText("LBL_HOW_DOES_IT_WORK_MENU")
+                  How does it work?
                 </a>
               </li>
               <li>
                 <a href={getFullRoute(baseUrl, "en/about-us")}>
-                  @Translator.TranslateText("LBL_MENU_ABOUT_KAMERNET")
+                  About Kamernet
                 </a>
               </li>
             </ul>
@@ -780,7 +772,7 @@ const Navbar = ({ isUserLoggedIn }) => {
             <ul>
               <li>
                 <a href={getFullRoute(baseUrl, "tips/studenten")}>
-                  @Translator.TranslateText("LBL_USEFUL_TIPS_MENU")
+                  Useful tips
                 </a>
               </li>
               <li>
@@ -789,7 +781,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  @Translator.TranslateText("LBL_SUPPORT")
+                  Support
                 </a>
               </li>
             </ul>
@@ -801,9 +793,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/logout")}>
-                      @Translator.TranslateText("LBL_LOGOUT_MENU")
-                    </a>
+                    <a href={getFullRoute(baseUrl, "en/logout")}>Log out</a>
                   </li>
                 </ul>
               </div>
@@ -823,7 +813,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/all?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_ALL_MESSAGES")
+                    All Messages
                   </a>
                 </li>
 
@@ -836,7 +826,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/unreplied?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_UNREPLIED_CONVERSATIONS")
+                    Unreplied conversations
                     {iUnrepliedConversationCounter > 0 ? (
                       <span className="unrepliedConversationClass">
                         @iUnrepliedConversationCounter
@@ -854,7 +844,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/favorite?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_FAVORITE_MESSAGES")
+                    Favorite messages
                   </a>
                 </li>
 
@@ -867,7 +857,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/notfavorite?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_NOTFAVORITE_MESSAGES")
+                    @Translator.TranslateText('LBL_MY_MESSAGES_NOTFAVORITE_MESSAGES')
                   </a>
                 </li>
 
@@ -880,7 +870,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/activeadverts?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_PER_ADVERT_MESSAGES")
+                    Messages active adverts
                   </a>
                 </li>
 
@@ -893,7 +883,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/inactiveadverts?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_INACTIVE_ADVERTS_MESSAGES")
+                    Messages inactive adverts
                   </a>
                 </li>
 
@@ -919,7 +909,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/unread?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_UNREAD_MESSAGES")
+                    Unread messages
                   </a>
                 </li>
 
@@ -932,13 +922,13 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/trash?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_TRASH_MESSAGES")
+                    Trash
                   </a>
                 </li>
 
                 <li className="tab custom-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Custom) {<text> my-messages-menuitem-selected selection selected</text>}">
                   <a href={getFullRoute(baseUrl, "en/my-messages/custom")}>
-                    @Translator.TranslateText("LBL_MY_MESSAGES_CUSTOM_MESSAGES")
+                    Custom message
                   </a>
                 </li>
               </ul>
@@ -949,17 +939,17 @@ const Navbar = ({ isUserLoggedIn }) => {
                 </li>
                 <li className="spacer-v--m">
                   <a href={getFullRoute(baseUrl, "en/my-adverts")}>
-                    @Translator.TranslateText("LBL_ACTIVE_ADVERTS")
+                    Active adverts
                   </a>
                 </li>
                 <li>
                   <a href={getFullRoute(baseUrl, "en/my-adverts/inactive")}>
-                    @Translator.TranslateText("LBL_INACTIVE_ADVERTS")
+                    Inactive adverts
                   </a>
                 </li>
                 <li>
                   <a href={getFullRoute(baseUrl, "en/my-adverts/draft")}>
-                    @Translator.TranslateText("LBL_DRAFT_ADVERTS")
+                    Draft Adverts
                   </a>
                 </li>
               </ul>
@@ -971,7 +961,12 @@ const Navbar = ({ isUserLoggedIn }) => {
     </>
   );
 
-  return <>{NavbarJSX}</>;
+  return (
+    <>
+      {NavbarJSX}
+      {hamburgerListener()}
+    </>
+  );
 };
 
 export default Navbar;

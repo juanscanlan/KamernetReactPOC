@@ -1,0 +1,150 @@
+﻿@import "../abstracts/_variables.scss";
+
+//Colors based on primary/secondary/accent
+.color-background-primary {
+    background-color: $color-primary;
+}
+
+.color-background-primary-dark {
+    background-color: $color-primary-dark;
+}
+
+.color-background-primary-light-1 {
+    background-color: $color-primary-light-1;
+}
+
+.color-background-primary-light-2 {
+    background-color: $color-primary-light-2;
+}
+
+.color-text-primary {
+    color: $color-primary;
+}
+
+.color-text-primary-dark {
+    color: $color-primary-dark;
+}
+
+.color-text-primary-light-1 {
+    color: $color-primary-light-1;
+}
+
+.color-text-primary-light-2 {
+    color: $color-primary-light-2;
+}
+
+
+.color-background-secondary {
+    background-color: $color-secondary;
+}
+
+.color-background-secondary-light-1 {
+    background-color: $color-secondary-light-1;
+}
+
+.color-background-secondary-light-2 {
+    background-color: $color-secondary-light-2;
+}
+
+.color-background-secondary-light-3 {
+    background-color: $color-secondary-light-3;
+}
+
+.color-text-secondary {
+    color: $color-secondary;
+}
+
+.color-text-secondary-light-1 {
+    color: $color-secondary-light-1;
+}
+
+.color-text-secondary-light-2 {
+    color: $color-secondary-light-2;
+}
+
+.color-text-secondary-light-3 {
+    color: $color-secondary-light-3;
+}
+
+.color-background-accent {
+    background-color: $color-accent;
+}
+
+.color-background-accent-light-1 {
+    background-color: $color-accent-light-1;
+}
+
+.color-background-accent-light-2 {
+    background-color: $color-accent-light-2;
+}
+
+.color-background-accent-dark {
+    background-color: $color-accent-dark;
+}
+
+
+.color-text-accent {
+    color: $color-accent;
+}
+
+.color-text-accent-light-1 {
+    color: $color-accent-light-1;
+}
+
+.color-text-accent-light-2 {
+    color: $color-accent-light-2;
+}
+
+.color-text-accent-dark {
+    color: $color-accent-dark;
+}
+
+.color-text-warning {
+    color: $color-warning-text;
+}
+
+.color-text-warning-dark {
+    color: $color-warning-text-dark;
+}
+
+.color-text-warning-light {
+    color: $color-warning-text-light;
+}
+//Dedicated text color
+.color-text {
+    color: $color-text;
+}
+
+.color-text-light {
+    color: $color-text-light;
+}
+
+.color-text-light-1 {
+    color: $color-text-light-1;
+}
+
+.color-text-light-2 {
+    color: $color-text-light-2;
+}
+
+.color-text-light-3 {
+    color: $color-text-light-3;
+}
+
+//Dedicated background color
+.color-background {
+    background-color: $color-text-light;
+}
+
+/* warning colors */
+.color-background-warning {
+    background-color: $kamernet-warning;
+}
+
+.color-background-warning-dark {
+    background-color: $kamernet-warning-dark;
+}
+
+.color-background-warning-light {
+    background-color: $kamernet-warning-light;
+}

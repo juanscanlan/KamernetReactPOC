@@ -1,0 +1,188 @@
+﻿@import "../abstracts/_variables.scss";
+@import "../abstracts/_mixins.scss";
+@import "../abstracts/_functions.scss";
+
+#cookiesRequest {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-l;
+
+    @include for-mobile-only {
+        padding: 0 24px;
+    }
+}
+
+#cookiesRequest .btn i {
+    font-size: 1rem;
+}
+
+.cookie-container {
+    position: relative;
+    margin-left: auto; /* 2 */
+    margin-right: auto; /* 2 */
+    width: 100%; /*  1 */
+    padding: $spacing-sm;
+    @include box-shadow($v-offset:4px,$blur:8px,$spread:2px);
+    border-radius: $spacing-s;
+
+    .cookie-body {
+        display: flex;
+
+        @include for-mobile-only {
+            flex-direction: column;
+        }
+
+        .body-text {
+            padding-right: 16px;
+        }
+
+        .body-accept {
+            display: flex;
+            align-items: center;
+
+            @include for-mobile-only {
+                justify-content: flex-end;
+                margin-top: 24px;
+            }
+
+
+            @include for-tablet-up {
+                #cookieSettingsLink {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    @include for-mobile-only {
+        max-width: $width-container-mobile; /* 1 */
+    }
+
+    @include for-tablet-up {
+        max-width: $width-container-tablet; /* 1 */
+    }
+
+    @include for-desktop-s-up {
+        max-width: $width-container-desktop-s; /* 1 */
+    }
+
+    @include for-desktop-up {
+        max-width: $width-container-desktop; /* 1 */
+    }
+
+    @include for-desktop-l-up {
+        max-width: $width-container-desktop-l;
+    }
+}
+//remove below after migrating to 100% redesigned version
+.btn-medium {
+    width: min-content;
+    font-family: "Poppins Bold",Poppins,sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    display: inline-block;
+    outline: 0;
+    position: relative;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    font-stretch: normal;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.btn-medium.primary {
+    background-color: #37d39a;
+    color: #fff
+}
+
+.btn-medium.primary:hover {
+    background-color: #24b37e
+}
+
+.btn-medium.primary:active {
+    background-color: #37d39a
+}
+
+.btn-medium {
+    padding: 12px 24px;
+    font-size: 14px;
+    height: 48px;
+    line-height: 18px
+}
+
+.text-underline {
+    text-decoration: underline !important
+}
+
+.section-subtitle {
+    font-family: "Poppins Bold",Poppins,sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px
+}
+
+@media (max-width:599px) {
+    .section-subtitle {
+        font-size: 16px;
+        line-height: 22px
+    }
+}
+
+a {
+    font-family: "Poppins Bold",Poppins,sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+    color: #00163f
+}
+
+a.link-subtle {
+    font-family: "Poppins",Poppins,sans-serif;
+    font-weight: 400
+}
+
+a span {
+    color: inherit;
+    font-size: inherit
+}
+
+.underline {
+    text-decoration: underline !important
+}
+
+.full-width {
+    width: 100% !important;
+    max-width: 100% !important
+}
+
+.spacer-h--s {
+    margin-left: 16px
+}
+
+.spacer-v--xs {
+    margin-top: 8px
+}
+
+.color-background-primary {
+    background-color: #37d39a
+}
+
+.color-text-primary {
+    color: #37d39a
+}
+
+.color-text {
+    color: #00163f
+}
+
+.color-background {
+    background-color: #fff
+}

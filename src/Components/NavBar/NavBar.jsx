@@ -1,14 +1,14 @@
 import React from "react";
 
-import { initTodoList } from "@utilities/Header/Header";
+import { initTodoList } from "../../Scripts/Components/Header";
 import {
   hamburgerListener,
   openSubMenu,
   backToMain,
-} from "@utilities/Navbar/HamburgerMenu";
+} from "../../Scripts/Components/Navbar/HamburgerMenu";
 
-import flag from "@assets/Images/flags/lang/nl.png";
-
+import flag from "../../Images/flags/lang/nl.png";
+import { get } from "jquery";
 import { useEffect } from "react";
 
 const baseUrl = "https://acceptance.kamernet.nl/";
@@ -32,6 +32,7 @@ const Navbar = ({ isUserLoggedIn }) => {
   const ProfilePhoto =
     "https://play-lh.googleusercontent.com/9UDY3O4wSwlBm-kHHfjKf85Yk5GCt0nckL5ZdMR-nYotAfNjODvR4sZ-scPXG3ABVF65";
 
+
   const KamernetMPLogout = () => {
     console.log("Log out potato");
   };
@@ -45,6 +46,7 @@ const Navbar = ({ isUserLoggedIn }) => {
   };
 
   useEffect(() => {
+    // set up the listener only once
     hamburgerListener();
   }, []);
 
@@ -60,9 +62,8 @@ const Navbar = ({ isUserLoggedIn }) => {
           </div>
           {/* @******************************@ */}
           <div
-            className={`brand-logo-wrapper ${
-              isSimpleHeader ? "full-width" : ""
-            }`}
+            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
+              }`}
           >
             <a
               id="brand-logo"
@@ -85,9 +86,8 @@ const Navbar = ({ isUserLoggedIn }) => {
               </a>
               <a
                 href={createAdvertUrl}
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
-                  isUserLoggedIn ? "col-start-5" : "col-start-6"
-                }`}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isUserLoggedIn ? "col-start-5" : "col-start-6"
+                  }`}
                 id="header-place-button"
               >
                 <span
@@ -101,9 +101,8 @@ const Navbar = ({ isUserLoggedIn }) => {
                 <>
                   <a
                     href="https://acceptance.kamernet.nl/en/my-adverts"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
-                      isUserLoggedIn ? "col-start-6" : "col-start-7"
-                    }`}
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isUserLoggedIn ? "col-start-6" : "col-start-7"
+                      }`}
                     id="header-my-adverts"
                   >
                     My adverts
@@ -182,8 +181,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               <div className="burger-icon"></div>
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
-                  {UserContextHelper.CurrentUser != null &&
-                  UserContextHelper.CurrentUser.IsAuthenticated ? (
+                  { isUserLoggedIn ? (
                     <>
                       <li id="menu_desk_profile">
                         <a href={getFullRoute(baseUrl, "en/public-profile")}>
@@ -621,7 +619,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-              isUserLoggedIn ? (
+                isUserLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
                     @Translator.TranslateText("LBL_GLOBAL_GET_PREMIUM")
@@ -725,7 +723,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                 </li>
               )}
 
-              {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
+              {isUserLoggedIn ? (
                 <li className="mytodolist-menubar-mobile">
                   <a href={getFullRoute(baseUrl, "en/account/to-do")}>
                     @Translator.TranslateText("LBL_MY_TODO_LIST_MENU")
@@ -738,7 +736,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-              isUserLoggedIn ? (
+                isUserLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/referrals")}>
                     @Translator.TranslateText("LBL_GLOBAL_REFERRAL")

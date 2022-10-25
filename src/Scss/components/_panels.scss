@@ -1,0 +1,92 @@
+﻿/// Referencing files so intellisense would work correctly
+/// <reference path="../abstracts/_variables.scss" />
+/// <reference path="../abstracts/_functions.scss" />
+/// <reference path="../abstracts/_mixins.scss" />
+
+.tag {
+    font-family: $font-poppins;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    position: relative;
+
+    &--s {
+        padding: 2px $spacing-xs;
+        line-height: 22px;
+        position: relative;
+    }
+
+    &--m {
+        padding: 6px $spacing-s;
+        line-height: 22px;
+        position: relative;
+    }
+
+    &--l {
+        padding: 12px $spacing-sm;
+        line-height: 18px;
+        position: relative;
+
+        & i {
+            margin-right: $padding-m;
+        }
+    }
+
+    &--xl {
+        padding: 24px $spacing-m;
+    }
+}
+
+@include for-mobile-only {
+    .tag {
+        &--xl {
+            padding: 16px $spacing-sm
+        }
+    }
+}
+
+
+.expandable-wrapper {
+    position: relative;
+
+    .chevron-right-thin {
+        position: absolute;
+        right: 0;
+        top: 8px;
+        transition: transform 300ms ease;
+        transform: rotate(0deg);
+    }
+
+    .expandable-content {
+        transition: all 300ms ease;
+        max-height: 0;
+        height: auto;
+        overflow: hidden;
+    }
+
+    &.active {
+        .chevron-right-thin {
+            transform: rotate(90deg);
+        }
+
+        .expandable-content {
+            max-height: 100vh;
+        }
+    }
+
+    &:not(.active) {
+        .expandable-content {
+            margin: 0;
+        }
+    }
+
+    .expandable-trigger {
+        padding-right: 16px;
+    }
+
+    &:not(:first-of-type) {
+        .expandable-trigger {
+            border-top: 1px solid #808080;
+        }
+    }
+}

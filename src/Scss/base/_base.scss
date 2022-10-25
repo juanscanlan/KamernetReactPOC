@@ -1,0 +1,26 @@
+﻿/// Referencing files so intellisense would work correctly
+/// <reference path="../abstracts/_variables.scss" />
+/// <reference path="../abstracts/_functions.scss" />
+/// <reference path="../abstracts/_mixins.scss" />
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: $color-secondary;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}

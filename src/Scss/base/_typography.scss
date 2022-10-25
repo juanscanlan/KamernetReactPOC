@@ -1,0 +1,204 @@
+﻿/// <reference path="../abstracts/_functions.scss" />
+/// <reference path="../abstracts/_mixins.scss" />
+body {
+    font-size: 16px;
+    color: $color-secondary;
+    font-family: $font-opensans;
+    line-height: 24px;
+}
+
+
+.text {
+    &-poppins {
+        font-family: $font-poppins !important;
+    }
+
+    &-sans, &-opensans, &-open-sans {
+        font-family: $font-opensans !important;
+    }
+
+    &-center {
+        text-align: center !important;
+    }
+
+    &-left {
+        text-align: left !important;
+    }
+
+    &-right {
+        text-align: right !important;
+    }
+
+    &-uppercase {
+        text-transform: uppercase !important;
+    }
+
+    &-lowercase {
+        text-transform: lowercase !important;
+    }
+
+    &-capitalize {
+        text-transform: capitalize !important;
+    }
+
+    &-underline {
+        text-decoration: underline !important;
+    }
+
+    &-title {
+        font-family: $font-poppins;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    &-subtitle {
+        font-family: $font-poppins;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 40px;
+
+        @include for-mobile-only {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+
+    @for $i from 1 through 9 {
+        &-weight-#{$i*100} {
+            font-weight: $i*100 !important;
+        }
+    }
+
+    &-xs {
+        font-size: 12px;
+
+        @include breakpointSuffix {
+            font-size: 12px !important;
+        }
+    }
+
+    &-s {
+        font-size: 14px;
+
+        @include breakpointSuffix {
+            font-size: 14px !important;
+        }
+    }
+
+    &-sm {
+        font-size: 16px;
+
+        @include breakpointSuffix {
+            font-size: 16px !important;
+        }
+    }
+
+    &-m {
+        font-size: 24px;
+
+        @include breakpointSuffix {
+            font-size: 24px !important;
+        }
+    }
+
+    &-xl {
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    &-lines {
+        @for $i from 1 through 10 {
+            &-#{$i} {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical
+            }
+
+            &-#{$i} {
+                -webkit-line-clamp: $i;
+
+                @include breakpointSuffix {
+                    -webkit-line-clamp: $i !important;
+                }
+            }
+        }
+    }
+}
+
+.section {
+    &-title {
+        font-family: $font-poppins;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    &-subtitle {
+        font-family: $font-poppins;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+
+        @include for-mobile-only {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+
+    &-subtitle-thin {
+        font-family: $font-opensans;
+        font-weight:400;
+        font-size:24px;
+        line-height:32px;
+    }
+}
+
+.text-bold {
+    font-weight: bold;
+}
+/**
+   LINKS   
+ **/
+a {
+    font-family: $font-poppins;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+    color: $color-text;
+}
+
+a.link-subtle {
+    font-family: $font-poppins;
+    font-weight: 400;
+}
+
+a.warning {
+    color: $color-warning-text-dark;
+}
+
+a span {
+    color: inherit;
+    font-size: inherit;
+}
+
+a i {
+    color: inherit;
+    vertical-align: middle;
+    padding-right: 8px;
+}
+/**
+   TAGS   
+ **/
+.tags {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: $font-poppins;
+    font-weight: bold;
+
+    &--thin {
+        font-weight: normal;
+    }
+}

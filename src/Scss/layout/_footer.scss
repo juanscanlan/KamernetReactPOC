@@ -1,0 +1,38 @@
+﻿/// Referencing files so intellisense would work correctly
+/// <reference path="../abstracts/_variables.scss" />
+/// <reference path="../abstracts/_functions.scss" />
+/// <reference path="../abstracts/_mixins.scss" />
+footer {
+    #social{
+        a{
+            margin-right:$spacing-xs;
+        }
+    }
+    #footer {
+        @include for-mobile-only {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    @include for-mobile-only {
+        #social {
+            text-align: center;
+        }
+    }
+}
+
+
+.most-searched-cities {
+    padding-top: $spacing-xxl-1;
+    padding-bottom: $spacing-s;
+}

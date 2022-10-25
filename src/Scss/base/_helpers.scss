@@ -1,0 +1,360 @@
+﻿@import "../abstracts/_variables.scss";
+@import "../abstracts/_mixins.scss";
+@import "../abstracts/_functions.scss";
+
+/**
+ * Clear inner floats
+ */
+
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.clear {
+    clear: both;
+}
+/* Text helpers*/
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.capitalize {
+    text-transform: capitalize !important;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.no-padding {
+    padding: 0 !important;
+
+    @include breakpointSuffix {
+        padding: 0 !important;
+    }
+}
+
+.no-margin {
+    margin: 0 !important;
+    @include breakpointSuffix;
+}
+
+/**
+    DIVIDER   
+ **/
+.divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: $color-secondary;
+    width: 100%;
+}
+
+/**
+    FORCE 100% WIDTH OF THE CONTAINER   
+ **/
+.full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    @include breakpointSuffix {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+.full-height {
+    height: 100% !important;
+    max-height: 100% !important;
+
+    @include breakpointSuffix {
+        height: 100% !important;
+        max-height: 100% !important;
+    }
+}
+
+/* Force hide any element */
+.hide {
+    display: none !important;
+
+    @include breakpointSuffix {
+        display: none !important
+    }
+}
+
+.invisible {
+    visibility: hidden !important;
+
+    @include breakpointSuffix {
+        visibility: hidden !important;
+    }
+}
+
+//
+// Layout helpers
+//
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/**/
+/*Forcing image aspect ratio*/
+/* Position child elements relative to this element */
+.aspect-ratio-box {
+    position: relative;
+    /*Create a pseudo element that uses padding-bottom to take up space*/
+    &.ratio-16-9::after {
+        display: block;
+        content: '';
+        /*16:9 aspect ratio*/
+        padding-bottom: 9 / 16 * 100%;
+    }
+
+    &.ratio-22-9::after {
+        display: block;
+        content: '';
+        /*16:9 aspect ratio*/
+        padding-bottom: 9 / 22 * 100%;
+    }
+
+    &.ratio-4-3::after {
+        display: block;
+        content: '';
+        /*4:3 aspect ratio*/
+        padding-bottom: 3 / 4 * 100%;
+    }
+
+    &.ratio-1-1::after {
+        display: block;
+        content: '';
+        /*4:3 aspect ratio*/
+        padding-bottom: 100%;
+    }
+
+    &.ratio-0::after {
+        display: block;
+        content: '';
+        /*4:3 aspect ratio*/
+        padding-bottom: 0;
+    }
+
+    &.ratio-32-9::after {
+        display: block;
+        content: '';
+        /*4:3 aspect ratio*/
+        padding-bottom: 9 / 32 * 100%;
+    }
+    /*Image is positioned absolutely relative to the parent element*/
+    img, source {
+        /*Image should match parent box size*/
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 300ms ease;
+        object-fit: cover;
+    }
+}
+
+/*Tablet>mobile, mobile-only shouldn't be visible, for-tablet-up translates to min-width:tablet(600px)*/
+@include for-tablet-down {
+    .for-desktop-s-up {
+        display: none !important;
+    }
+}
+
+@include for-tablet-up {
+    .for-mobile-only {
+        display: none !important;
+    }
+}
+
+@include for-desktop-s-down {
+    .for-desktop-up {
+        display: none !important;
+    }
+}
+
+@include for-desktop-s-up {
+    .for-tablet-down {
+        display: none !important;
+    }
+}
+
+@include for-desktop-down {
+    .for-desktop-l-up {
+        display: none !important;
+    }
+}
+
+@include for-desktop-up {
+    .for-desktop-s-down {
+        display: none !important;
+    }
+}
+
+@include for-desktop-l-up {
+    .for-desktop-down {
+        display: none !important;
+    }
+}
+
+/*
+    Border radius; mainly for offers
+*/
+
+.border-radius {
+    &--xs {
+        border-radius: $border-radius-xs !important;
+    }
+
+    &--s {
+        border-radius: $border-radius-s !important;
+    }
+
+    &--m {
+        border-radius: $border-radius-m !important;
+    }
+
+    &--sm {
+        border-radius: $border-radius-sm !important;
+    }
+
+    &--l {
+        border-radius: $border-radius-l !important;
+    }
+
+    &--no-tl {
+        border-top-left-radius: 0 !important;
+    }
+
+    &--no-tr {
+        border-top-right-radius: 0 !important;
+    }
+
+    &--no-bl {
+        border-bottom-left-radius: 0 !important;
+    }
+
+    &--no-br {
+        border-bottom-right-radius: 0 !important;
+    }
+}
+/*one line text*/
+.nowrap {
+    white-space: nowrap;
+}
+/* box shadow */
+.box-shadow {
+    @include box-shadow;
+}
+
+/*pointer*/
+.pointer {
+    cursor: pointer;
+}
+
+/** display **/
+.inline-block {
+    display: inline-block;
+}
+
+
+/** translate on/off canvas **/
+.translate-off-canvas-left {
+    transform: translateX(-100vw);
+    opacity: 0 !important;
+}
+
+.translate-on-canvas-left {
+    transform: translateX(0);
+    opacity: 1 !important;
+}
+
+.translate-on-canvas-right {
+    transform: translateX(0);
+    opacity: 1 !important;
+}
+
+.translate-off-canvas-right {
+    transform: translateX(100vw);
+    opacity: 0 !important;
+}
+
+/** position **/
+.position-relative, .relative {
+    position: relative;
+}
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.hover-shadow:hover {
+    @include box-shadow;
+}
+
+.rotate {
+    &-90 {
+        transform: rotate(90deg);
+    }
+
+    &-180 {
+        transform: rotate(180deg);
+    }
+}
+
+.flex, .grid-item {
+    display: flex;
+
+    &.align-center-all {
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.align-center-vertical {
+        align-items: center;
+    }
+
+    &.align-center-horizontal {
+        justify-content: center;
+    }
+
+    &.align-bottom {
+        align-items: flex-end;
+    }
+
+    &.align-left {
+        justify-content: flex-start;
+    }
+
+    &.align-right {
+        justify-content: flex-end;
+    }
+
+    &.dir-column {
+        flex-direction: column;
+    }
+
+    &.dir-row {
+        flex-direction: row;
+    }
+
+    &.space-between {
+        justify-content: space-between;
+    }
+}

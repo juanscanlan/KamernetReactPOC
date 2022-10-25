@@ -1,0 +1,27 @@
+﻿@charset "UTF-8";
+// 1. Configuration and helpers
+@import "abstracts/variables", "abstracts/functions", "abstracts/mixins";
+
+// 2. Vendors
+@import "vendors/normalize";
+//3. Base
+@import "base/base", "base/icons", "base/icons-fallback";
+
+//4. Layout
+@import "layout/grid", "layout/containers", "layout/navigation",
+  "layout/sidebar", "layout/header", "layout/footer";
+
+// 5. Components
+@import "components/buttons", "components/modals", "components/cards",
+  "components/panels", "components/animations";
+
+//correct order for helpers and spacers to work properly
+@import "base/typography", "base/helpers", "layout/spacers";
+// 6. Themes
+@import "themes/default";
+
+//7. Color classes
+@import "base/colors";
+
+//8. Overrides
+@import "overrides/modals", "overrides/transition";

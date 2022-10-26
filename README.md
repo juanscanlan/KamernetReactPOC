@@ -1,3 +1,10 @@
+## PREREQUISITES
+
+run: npm i
+Create a file called .env.local with the following:
+NEXT_PUBLIC_APP_SERVICES_URL=http://localhost:50001/api/customer/
+NEXT_PUBLIC_APP_BASE_URL=https://acceptance.kamernet.nl/
+
 ## TODO
 
 Figure out what goes under:

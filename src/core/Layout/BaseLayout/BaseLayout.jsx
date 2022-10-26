@@ -23,6 +23,11 @@ const BaseLayout = ({
     console.log("potato logged in");
   };
 
+  const successfulLogoutHandler = () => {
+    setIsUserLoggedIn(false);
+    console.log("potato logged out");
+  };
+
   const successfulRegisterHandler = () => {
     setIsUserLoggedIn(true);
   };
@@ -51,7 +56,10 @@ const BaseLayout = ({
         successfulLoginHandler={successfulLoginHandler}
         successfulRegisterHandler={successfulRegisterHandler}
       />
-      <Navbar isUserLoggedIn={isUserLoggedIn} />
+      <Navbar
+        isUserLoggedIn={isUserLoggedIn}
+        successfulLogoutHandler={successfulLogoutHandler}
+      />
       <div className={className}>{children}</div>
     </>
   ) : (

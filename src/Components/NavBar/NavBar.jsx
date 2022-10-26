@@ -8,16 +8,15 @@ import flag from "@assets/Images/flags/lang/nl.png";
 import ProfilePhoto from "@assets/Images/marketing/marketing_home_default_sh.jpg";
 
 import { useEffect } from "react";
-import Script from "next/script";
 import Image from "next/image";
 
-const baseUrl = "https://acceptance.kamernet.nl/";
+const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
 
 const getFullRoute = (baseUrl, route) => {
   return baseUrl + route;
 };
 
-const Navbar = ({ isUserLoggedIn }) => {
+const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
   const isSimpleHeader = false;
   const UserContextHelper = {};
   const checkStudentHouse = true;
@@ -29,8 +28,21 @@ const Navbar = ({ isUserLoggedIn }) => {
     ? "https://acceptance.kamernet.nl/en/create-room-advert"
     : "https://acceptance.kamernet.nl/en/rent-out-room";
 
-  const KamernetMPLogout = () => {
-    console.log("Log out potato");
+  const kamernetMPLogout = (e) => {
+    console.log(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "logout");
+    fetch(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "logout", {
+      method: "POST",
+      credentials: "include",
+    })
+      .then((response) => {
+        if (response.ok) {
+          successfulLogoutHandler();
+        } else {
+          //alert("wrong credentials");
+          console.log(response);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   const backToMain = () => {
@@ -42,12 +54,13 @@ const Navbar = ({ isUserLoggedIn }) => {
   };
 
   useEffect(() => {
-    //hamburgerListener();
+    hamburgerListener();
     console.log("potato rendered");
   }, []);
 
   const NavbarJSX = (
     <>
+      <div onClick={kamernetMPLogout}>potato</div>
       <nav className="header box-shadow">
         <div className="grid color-text cols-8--m">
           {/* @* *** MOBILE MENU TRIGGER ****@ */}
@@ -156,7 +169,7 @@ const Navbar = ({ isUserLoggedIn }) => {
             </>
           ) : null}
 
-          {isUserLoggedIn ? (
+          {isUserLoggedIn && (
             <div
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"
@@ -169,7 +182,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                 alt="Your profile"
               />
             </div>
-          ) : null}
+          )}
 
           <div
             className="for-desktop-s-up grid-item col-start-8--m col-start-12 align-center-all col-start-4--s floating-menu-trigger pointer"
@@ -180,8 +193,7 @@ const Navbar = ({ isUserLoggedIn }) => {
               <div className="burger-icon"></div>
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
-                  {UserContextHelper.CurrentUser != null &&
-                  UserContextHelper.CurrentUser.IsAuthenticated ? (
+                  {isUserLoggedIn ? (
                     <>
                       <li id="menu_desk_profile">
                         <a href={getFullRoute(baseUrl, "en/public-profile")}>
@@ -353,13 +365,8 @@ const Navbar = ({ isUserLoggedIn }) => {
                         </div>
                       </li>
 
-                      <li id="menu_desk_logout">
-                        <a
-                          onClick={KamernetMPLogout}
-                          href={getFullRoute(baseUrl, "en/logout")}
-                        >
-                          Log out
-                        </a>
+                      <li onClick={kamernetMPLogout} id="menu_desk_logout">
+                        <div>Log out</div>
                       </li>
                     </>
                   ) : (
@@ -857,7 +864,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/notfavorite?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText('LBL_MY_MESSAGES_NOTFAVORITE_MESSAGES')
+                    Not favorite messages
                   </a>
                 </li>
 
@@ -896,7 +903,7 @@ const Navbar = ({ isUserLoggedIn }) => {
                       "en/my-messages/read?itemsperpage=20"
                     )}
                   >
-                    @Translator.TranslateText("LBL_MY_MESSAGES_READ_MESSAGES")
+                    Read messages
                   </a>
                 </li>
 
@@ -961,12 +968,7 @@ const Navbar = ({ isUserLoggedIn }) => {
     </>
   );
 
-  return (
-    <>
-      {NavbarJSX}
-      {hamburgerListener()}
-    </>
-  );
+  return <>{NavbarJSX}</>;
 };
 
 export default Navbar;

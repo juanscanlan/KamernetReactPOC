@@ -60,7 +60,6 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
 
   const NavbarJSX = (
     <>
-      <div onClick={kamernetMPLogout}>potato</div>
       <nav className="header box-shadow">
         <div className="grid color-text cols-8--m">
           {/* @* *** MOBILE MENU TRIGGER ****@ */}

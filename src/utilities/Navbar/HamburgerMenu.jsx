@@ -6,8 +6,7 @@ export function hamburgerListener() {
   $(document).ready(function () {
     $(".floating-menu-trigger").click(function (e) {
       $(this).toggleClass("is-active");
-      // $(".floating-header-menu").toggle();
-      $(".floating-header-menu").removeClass("hide");
+      $(".floating-header-menu").toggle();
       e.stopPropagation();
     });
 

@@ -7,8 +7,6 @@ import googleIcon from "@assets/Images/SocialMedia/google_icon.jpg";
 import { Modal } from "@utilities/Modals/Modals";
 import Image from "next/image";
 
-//const apiUrl = "http://localhost:50001/api/customer/login";
-
 const Login = ({ successfulLoginHandler }) => {
   const [userEmailValue, setUserEmailValue] = useState("");
   const [userPasswordValue, setUserPasswordValue] = useState("");
@@ -22,7 +20,7 @@ const Login = ({ successfulLoginHandler }) => {
   };
 
   const postLogin = (username, password) => {
-    fetch(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "login", {
+    fetch(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "/customer/login", {
       method: "POST",
       credentials: "include",
       headers: {

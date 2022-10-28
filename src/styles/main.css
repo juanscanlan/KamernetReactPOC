@@ -12846,15 +12846,16 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 .modal.auth-login input, .modal.auth-register input, .modal.auth-forgot-password input {
   box-sizing: border-box;
   /*&[type=checkbox] + label:before {
-      border-radius: $border-radius-xs;
-      width: $spacing-s;
-      height: $spacing-s;
-      margin-right: $spacing-xs;
-      position: relative;
-      top: $spacing-xxs;
-  }*/
+            border-radius: $border-radius-xs;
+            width: $spacing-s;
+            height: $spacing-s;
+            margin-right: $spacing-xs;
+            position: relative;
+            top: $spacing-xxs;
+        }*/
 }
-.modal #forgot-password-card, .modal #facebook-email-card {
+.modal #forgot-password-card,
+.modal #facebook-email-card {
   max-width: 350px;
 }
 .modal.auth-register #register-bubbles {
@@ -12880,10 +12881,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 }
 .modal.auth-register #register-bubbles .card:nth-of-type(even), .modal.auth-register #register-bubbles .card--small:nth-of-type(even), .modal.auth-register #register-bubbles .card--large:nth-of-type(even), .modal.auth-register #register-bubbles .card--inline:nth-of-type(even), .modal.auth-register #register-bubbles .card-city:nth-of-type(even), .modal.auth-register #register-bubbles .card-offer:nth-of-type(even), .modal.auth-register #register-bubbles .card-banner:nth-of-type(even) {
   float: right;
-}
-
-#register-img, #login-img {
-  background-image: url("/src/Images/marketing/kamernet-login-bck.png");
 }
 
 .toast {

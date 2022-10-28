@@ -105,7 +105,9 @@ const Login = ({ successfulLoginHandler }) => {
                 className="btn-medium full-width color-text-light"
                 onClick={fbLogin}
               >
-                <Image src={fbIcon} alt="Facebook" width="24" height="24" />
+                <div className="loginIcon">
+                  <Image width="24" height="24" src={fbIcon} alt="Facebook" />
+                </div>
                 Log in with Facebook
               </button>
             </div>
@@ -118,7 +120,9 @@ const Login = ({ successfulLoginHandler }) => {
                   loginGoogle("@SettingsManager.Instance.GoogleApiWebClientId")
                 }
               >
-                <Image src={googleIcon} alt="Google" width="24" height="24" />
+                <div className="loginIcon">
+                  <Image src={googleIcon} alt="Google" width="24" height="24" />
+                </div>
                 Log in with Google
               </button>
             </div>

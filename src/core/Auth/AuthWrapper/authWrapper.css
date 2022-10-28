@@ -204,12 +204,14 @@
   font-size: 0.8rem;
 }
 
-#login-form button img,
-#register-form button img {
-  border-radius: 0;
+.loginIcon {
   margin: 0 8px !important;
-  height: 24px;
   width: 24px;
+  height: 24px;
+}
+
+.loginIcon img {
+  border-radius: 0;
 }
 
 @media (max-width: 1024px) {

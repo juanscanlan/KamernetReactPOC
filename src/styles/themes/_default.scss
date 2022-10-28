@@ -4,70 +4,72 @@
 /// <reference path="../abstracts/_mixins.scss" />
 
 .check.icon-s {
-    width: 16px !important;
-    height: 16px;
-    min-width: 16px;
+  width: 16px !important;
+  height: 16px;
+  min-width: 16px;
 }
 
 .loading.icon-s {
-    height: 18px !important;
-    width: 16px !important;
+  height: 18px !important;
+  width: 16px !important;
 }
 
 .form-error {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255,255,255,0.9);
-    font-family: "Open Sans", sans-serif;
-    font-weight: 700;
-    text-align: center;
-    color: #f95332;
-    font-size: 12px;
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    width: 102%;
-    transition: all 500ms ease;
-    transform: translateX(-100%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: #f95332;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 102%;
+  transition: all 500ms ease;
+  transform: translateX(-100%);
 
-    &.active {
-        transform: translateX(0);
-    }
+  &.active {
+    transform: translateX(0);
+  }
 
-    &.wipe {
-        transition: all 1500ms cubic-bezier(0, 1, 1, 0);
-        transform: translateX(100%);
-    }
+  &.wipe {
+    transition: all 1500ms cubic-bezier(0, 1, 1, 0);
+    transform: translateX(100%);
+  }
 
-    &.fade-out {
-        opacity: 0;
-    }
+  &.fade-out {
+    opacity: 0;
+  }
 }
 
 #btnRegister_popup {
-    min-width: 160px;
+  min-width: 160px;
 }
 
 #btnLogin_popup {
-    min-width: 120px;
+  min-width: 120px;
 }
 
 .input-field {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 //TODO: move to Components/auth/_login.scss
 .modal {
-    &.auth-login, &.auth-register, &.auth-forgot-password {
-        user-select: none;
-        font-size: 14px;
-        font-family: $font-poppins;
+  &.auth-login,
+  &.auth-register,
+  &.auth-forgot-password {
+    user-select: none;
+    font-size: 14px;
+    font-family: $font-poppins;
 
-        input {
-            box-sizing: border-box;
-            /*&[type=checkbox] + label:before {
+    input {
+      box-sizing: border-box;
+      /*&[type=checkbox] + label:before {
                 border-radius: $border-radius-xs;
                 width: $spacing-s;
                 height: $spacing-s;
@@ -75,60 +77,61 @@
                 position: relative;
                 top: $spacing-xxs;
             }*/
-        }
     }
+  }
 
-    #forgot-password-card, #facebook-email-card {
-        max-width: 350px;
+  #forgot-password-card,
+  #facebook-email-card {
+    max-width: 350px;
+  }
+
+  &.auth-register {
+    #register-bubbles {
+      position: absolute;
+      top: 0;
+      width: 300px;
+      right: calc(-300px - #{$spacing-xl});
+      margin-top: 30%;
+
+      .card {
+        @include border-radius-all-padding($spacing-s);
+        width: 90%;
+        float: left;
+        margin-bottom: $spacing-xs;
+        border-bottom-left-radius: 0;
+      }
+
+      .card:nth-of-type(even) {
+        float: right;
+      }
     }
-
-    &.auth-register {
-        #register-bubbles {
-            position: absolute;
-            top: 0;
-            width: 300px;
-            right: calc(-300px - #{$spacing-xl});
-            margin-top: 30%;
-
-            .card {
-                @include border-radius-all-padding($spacing-s);
-                width: 90%;
-                float: left;
-                margin-bottom: $spacing-xs;
-                border-bottom-left-radius: 0;
-            }
-
-            .card:nth-of-type(even) {
-                float: right;
-            }
-        }
-    }
+  }
 }
 
-#register-img, #login-img {
-    background-image: url("/src/Images/marketing/kamernet-login-bck.png");
+#register-img,
+#login-img {
+  //background-image: url("src/assets/Images/marketing/kamernet-login-bck.png");
 }
-
 
 .toast {
-    opacity:0;
-    position: absolute;
-    top: 86px;
-    z-index: 1;
-    max-width: 250px;
-    margin-left: $spacing-sm;
-    background-color: $color-secondary;
-    color: #fff;
-    padding: $spacing-sm;
-    border-radius: $spacing-s;
-    transition:opacity 300ms ease;
-    @include box-shadow;
+  opacity: 0;
+  position: absolute;
+  top: 86px;
+  z-index: 1;
+  max-width: 250px;
+  margin-left: $spacing-sm;
+  background-color: $color-secondary;
+  color: #fff;
+  padding: $spacing-sm;
+  border-radius: $spacing-s;
+  transition: opacity 300ms ease;
+  @include box-shadow;
 
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
 
-    .red-text {
-        color: $color-warning-text;
-    }
+  .red-text {
+    color: $color-warning-text;
+  }
 }

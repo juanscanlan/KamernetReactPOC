@@ -26,47 +26,41 @@ const Register = ({ successfulRegisterHandler }) => {
     switch (Model.Source) {
       case "LoginRegisterSourceEnum.DisplayTenant":
         <div className="strong marketing-title">
-          <span>
-            @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_PROFILES")
-          </span>
+          <span>You need a Kamernet account to view profiles</span>
         </div>;
         break;
 
       case "LoginRegisterSourceEnum.SetFavorite":
         <div id="rdMarketingTitleRoomType" className="strong marketing-title">
-          <span>
-            @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_FAVORITE")
-          </span>
+          <span>You need a Kamernet account to favorite ads</span>
         </div>;
         break;
 
       case "LoginRegisterSourceEnum.CreateAlert":
         <div className="strong marketing-title">
-          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_ALERT")
+          You need a Kamernet account to save your search
         </div>;
         break;
 
       case "LoginRegisterSourceEnum.ReactToRoomAdvert":
         <div className="strong marketing-title">
-          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_REACT")
+          You need a Kamernet account to react to ads
         </div>;
         break;
 
       case "LoginRegisterSourceEnum.ReportAbuse":
         <div className="strong marketing-title">
-          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_REPORTABUSE")
+          You need a Kamernet account to report this
         </div>;
         break;
       case "LoginRegisterSourceEnum.PageAccessRequiresLogin":
         <div className="strong marketing-title">
-          @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_ACCESS")
+          You need to be logged in to access this page
         </div>;
         break;
       default:
         <div className="strong marketing-title">
-          <span>
-            @Translator.TranslateText("LBL_REGISTER_POPUP_MARKETING_DEFAULT")
-          </span>
+          <span>Create a new account</span>
         </div>;
         break;
     }
@@ -155,7 +149,9 @@ const Register = ({ successfulRegisterHandler }) => {
               className="btn-medium full-width color-text-light"
               onClick={fbRegister}
             >
-              <Image src={fbIcon} alt="Facebook" width="24" height="24" />
+              <div className="loginIcon">
+                <Image src={fbIcon} alt="Facebook" width="24" height="24" />
+              </div>
               Sign up with Facebook
             </button>
           </div>
@@ -166,7 +162,9 @@ const Register = ({ successfulRegisterHandler }) => {
               className="btn-medium full-width color-background color-text-secondary"
               onClick={() => googleRegister()}
             >
-              <Image src={googleIcon} alt="Google" width="24" height="24" />
+              <div className="loginIcon">
+                <Image src={googleIcon} alt="Google" width="24" height="24" />
+              </div>
               Sign up with Google
             </button>
           </div>

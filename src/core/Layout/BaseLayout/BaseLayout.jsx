@@ -33,6 +33,7 @@ const BaseLayout = ({
   };
 
   useEffect(() => {
+    console.log("UserLoggedIn:", isUserLoggedIn);
     fetch("http://localhost:50001/api/customer/view", {
       method: "GET",
       credentials: "include",
@@ -42,11 +43,12 @@ const BaseLayout = ({
         setIsUserLoggedIn(body.userid != null);
         setIsAppInitialized(true);
         initModal();
+        console.log("UserId:", body.userid);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [isUserLoggedIn]);
 
   //isAppInitialized
   // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet

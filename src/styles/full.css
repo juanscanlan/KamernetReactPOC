@@ -13410,15 +13410,16 @@ span.select-prepend-icon, input.select2-search__field::placeholder {
 .modal.auth-login input, .modal.auth-register input, .modal.auth-forgot-password input {
   box-sizing: border-box;
   /*&[type=checkbox] + label:before {
-      border-radius: $border-radius-xs;
-      width: $spacing-s;
-      height: $spacing-s;
-      margin-right: $spacing-xs;
-      position: relative;
-      top: $spacing-xxs;
-  }*/
+            border-radius: $border-radius-xs;
+            width: $spacing-s;
+            height: $spacing-s;
+            margin-right: $spacing-xs;
+            position: relative;
+            top: $spacing-xxs;
+        }*/
 }
-.modal #forgot-password-card, .modal #facebook-email-card {
+.modal #forgot-password-card,
+.modal #facebook-email-card {
   max-width: 350px;
 }
 .modal.auth-register #register-bubbles {
@@ -13444,10 +13445,6 @@ span.select-prepend-icon, input.select2-search__field::placeholder {
 }
 .modal.auth-register #register-bubbles .card:nth-of-type(even) {
   float: right;
-}
-
-#register-img, #login-img {
-  background-image: url("/src/Images/marketing/kamernet-login-bck.png");
 }
 
 .toast {

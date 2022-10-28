@@ -18,7 +18,7 @@ import Image from "next/image";
 
 const isMobile = false;
 
-const RentOk = () => {
+const RentOk = ({ T }) => {
   const [isLandlord, setIsLandlord] = useState(true);
 
   const landlordSectionJSX = (
@@ -270,6 +270,7 @@ const RentOk = () => {
 
   const RentOkJSX = (
     <div className={styles.section}>
+      <div>{T("potato")}</div>
       <div className={`${styles.rentOkLogoHeader} spacer-v--m`}>
         <Image src={rentOkImg} alt="RentOk Logo" />
       </div>

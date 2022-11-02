@@ -270,20 +270,12 @@ const RentOk = ({ T }) => {
 
   const RentOkJSX = (
     <div className={styles.section}>
-      <div>{T("potato")}</div>
       <div className={`${styles.rentOkLogoHeader} spacer-v--m`}>
         <Image src={rentOkImg} alt="RentOk Logo" />
       </div>
       <div className={`${styles.summaryContainer} padding-h--xs`}>
         <div className={`${styles.summaryContainer__text} padding-h--xs`}>
-          Safely find a tenant or a house with RentOK: a simple, quick and safe
-          way to transfer the first month’s rent and/or deposit. Tenants are
-          assured that their money will end up at the right place, and landlords
-          will secure themselves of a simple downpayment of the first month's
-          rent and/or deposit. This service has been developed in cooperation
-          with Online Betaalplatform: a payment service provider licensed at the
-          Nederlandsche Bank. OBP complies with all laws and regulations for the
-          processing of payments. This is how it works:
+          {T("summary")}
         </div>
         <div className={`${styles.summaryContainer__video} padding-h--xs`}>
           <Image src={rentOkVideoThumbnail} alt="RentOk Video" />

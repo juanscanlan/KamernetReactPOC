@@ -1,0 +1,101 @@
+{
+  "summary": "Safely find a tenant or a house with RentOK: a simple, quick and safe way to transfer the first month’s rent and/or deposit. Tenants are assured that their money will end up at the right place, and landlords will secure themselves of a simple downpayment of the first month's rent and/or deposit. This service has been developed in cooperation with Online Betaalplatform: a payment service provider licensed at the Nederlandsche Bank. OBP complies with all laws and regulations for the processing of payments. This is how it works:",
+  "i-am-a": "I am a...",
+  "instructions": {
+    "common": {
+      "rent-request-completed": "Rent request completed?",
+      "amount-stored-third-party": "The amount will be stored on a trust account by a certified third party: "
+    },
+    "landlord": {
+      "be-trustworthy": "Be trustworthy",
+      "landlords-roommates-can-verify": "Landlords or roommates can verify their bank account.",
+      "after-verification-badge": "After verification you will see a 'reliability badge' below your profile picture which is visible to tenants.",
+      "verification-through-rentok": "The verification will be processed through our certified RentOK partner Online Betaalplatform.",
+      "start-verification": "Start verification",
+      "verification-successful": "Verification successful?",
+      "show-safely-rent": "You are now showing tenants that they can safely rent from you. You can arrange the down payment, rent transfer and/or deposit with RentOK.",
+      "how-select-tenant": "This is how: Select the chosen tenant in 'my messages'.",
+      "click-request-follow-steps": "Click the button 'rent request' and follow the steps.",
+      "after-send-tenant": "After clicking 'send' the tenant will be able to complete the request.",
+      "after-key-transfer-amount": "After the key transfer date has taken place the amount will be transferred to your account."
+    },
+    "tenant": {
+      "when-pay-rentok": "When can I pay via RentOK?",
+      "do-with-verified": "You can do this with landlords / roommates that have a verified profile.",
+      "check-badge-profile": "Check the verification badge below their profile picture.",
+      "are-you-tenant": "Are you the chosen tenant?",
+      "ask-landlord-rent": "You can ask the landlord to send you a rent request. You will receive the rent request in 'my messages'.",
+      "follow-steps-request": "Follow the steps to complete the request.",
+      "after-received-key": "After you have received the key the money will be transferred to the landlord / roommate"
+    }
+  },
+  "no-key-help": {
+    "title": "Did not receive the key or the money?",
+    "subtitle-1/2": "Please contact ",
+    "subtitle-2/2": " as quickly as possible."
+  },
+  "faq": {
+    "landlord-section": "FOR LANDLORDS",
+    "tenant-section": "FOR TENANTS",
+    "what-is-rentok": {
+      "question": "What is RentOK?",
+      "answer": "Via RentOK tenants can transfer a down payment, rent and or/deposit to (verified) landlords in an easy and safe way. You can recognize verified landlords by the verified sign below their profile picture. You can safely transfer money with a rent request. The money that is transferred is saved on a third party account at Online Betaalplatform. The money will be controlled here until the tenant has received the key. Within 7 working days after the key transfer, the landlord will receive the money on his/her account. "
+    },
+    "who-is-obp": {
+      "question": "Who is Online Betaalplatform?",
+      "answer-1-1": "Online Payment Platform is a payment service provider with a license at De Nederlandsche Bank. OBP complies with all laws and regulations for processing payments. OBP verifies the bank account and identity of the landlord and holds the amount until the key transfer has taken place. Visit the ",
+      "bold-obp-site": "Online Betaalplatform website",
+      "answer-1-2": " for more information."
+    },
+    "benefits-of-rentok": {
+      "question": "What are the benefits of RentOK?",
+      "for-tenants": {
+        "li-1": "The money will be transferred to the landlord's bank account once you have received the key. Until then, the money will be safely parked on a third party account at ",
+        "li-2": "The landlord has been verified on the basis of a Dutch bank account. For amounts that exceed € 250, the landlord must also verify his identity in order to receive your down payment, rent and/or deposit.",
+        "li-3": "Did you not receive the key? Your money will be refunded."
+      },
+      "for-landlords": {
+        "li-1": "You do not have to share your bank details with strangers.",
+        "li-2": "It is no longer necessary to wait until the rent, down payment or deposit is on your account. A payment confirmation is now sufficient. After confirmation, it is guaranteed that the amount will be transferred to your account. This is done within 7 working days after the key transfer.",
+        "li-3": "All security measures that apply to iDEAL also apply to RentOK via Kamernet."
+      }
+    },
+    "how-rentok-works": {
+      "question": "How does RentOK work?",
+      "for-tenants": {
+        "li-1": "Are you the chosen tenant? You can ask the landlord to send you a rent request via 'My Messages'. You can find the rent request button in the conversation with the landlord.",
+        "li-2": "The landlord may also have sent you a rental request. Always check carefully whether the amounts correspond to the agreements made. We recommend that you pay only when the rental contract has been signed, unless it is a down payment.",
+        "li-3-1": "After you transferred the money via the RentOK rent request the amount will be parked on a third party account at ",
+        "li-3-2": ". They will transfer the money after you received the key."
+      },
+      "for-landlords": {
+        "subtitle": "As a landlord you can send a rent request via 'My Messages' to the new tenant. The rent request is a payment link with all details about the payment, such as extra costs.",
+        "li-1": "After creating and sending the rent request, the tenant receives it in his/her inbox. With one click, the person is referred to his/her banking environment. Here, the payment is processed immediately.",
+        "li-2": "When the payment is made, both the tenant and the landlord receive a confirmation in 'My Messages'.",
+        "li-3": "A payment is transferred to the landlord within 7 working days to the verified account."
+      }
+    },
+    "keep-in-mind-rentok": {
+      "question": "What should I keep in mind when using RentOK?",
+      "for-tenants": {
+        "li-1": "Did you not receive the key? Let us know within 7 days at ",
+        "li-2": "If you have not indicated that you have not received the key within 7 days, we assume that you have received the key. The amount will now be transferred to the landlord.",
+        "li-3": "The tenants is charged a service fee for every payment made through RentOK. This is always 2.5% of the total transaction amount.",
+        "li-4": "You can pay with iDEAL or Creditcard"
+      },
+      "for-landlords": {
+        "section-1": {
+          "title": "Online Betaalplatform and identity check",
+          "li-1": "The RentOK service has been developed in collaboration with Online Betaalplatform (a trade name of Media Medics B.V.). Online Betaalplatform has a license with De Nederlandsche Bank as a payment service provider and complies with all laws and regulations for processing payments.",
+          "li-2": "Online Betaalplatform checks whether the identity of the landlord matches the linked bank account that the landlord has previously verified. This information is not provided to Kamernet.",
+          "li-3": "The RentOK service is available for both private and business users.",
+          "li-4": "More information about the ID check by Online Betaalplatform can be found here."
+        },
+        "section-2": {
+          "title": "Service fee and rent requests with iDEAL",
+          "li-1": "The tenants is charged a service fee for every payment made through RentOK. This is always 2.5% of the total transaction amount."
+        }
+      }
+    }
+  }
+}

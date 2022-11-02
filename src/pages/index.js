@@ -1,9 +1,7 @@
-// export { default } from "@views/RentOk/RentOk";
-
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-import Page from "@views/RentOk/RentOk";
+import Page from "@views/Home/Home";
 
 // Locale gets the current language from the url, given the language codes in next-i18next.config.js
 export async function getStaticProps({ locale }) {

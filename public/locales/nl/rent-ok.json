@@ -1,0 +1,102 @@
+{
+  "summary": "Zorg voor een veilige huur of verhuur van je woning met RentOK. Hiermee kunnen huurders simpel, snel en veilig de eerste maand huur overmaken. Huurders weten dat de eerste maand huur en/of borg veilig terecht komt, en verhuurders krijgen de zekerheid van verhuur door middel van deze aanbetaling. Deze dienst is ontwikkeld in samenwerking met Online Betaalplatform: een betaaldienstverlener met een vergunning bij de Nederlandsche Bank. OBP voldoet aan alle wet- en regelgeving voor het verwerken van betalingen. Dit is hoe het werkt:",
+  "i-am-a": "Ik ben een...",
+
+  "instructions": {
+    "common": {
+      "rent-request-completed": "Huurverzoek voltooid?",
+      "amount-stored-third-party": "Het bedrag wordt bewaard op een derdenrekening bij: "
+    },
+    "landlord": {
+      "be-trustworthy": "Wees betrouwbaar",
+      "landlords-roommates-can-verify": "Verhuurders verifiëren hun bankgegevens.",
+      "after-verification-badge": "Hiermee krijg je een ‘betrouwbaarheids badge’ onderaan je profielfoto, dit is zichtbaar voor huurders.",
+      "verification-through-rentok": "De verificatie verloopt via onze RentOK partner Online Betaalplatform.",
+      "start-verification": "Start verificatie",
+      "verification-successful": "Verificatie geslaagd?",
+      "show-safely-rent": "Je laat nu aan huurders zien dat ze bij jou veilig kunnen huren. Je kunt aan-, huur- en/of borgbetalingen nu via RentOK laten verlopen.",
+      "how-select-tenant": "Dit doe je als volgt: Je selecteert de gekozen huurder in 'mijn berichten'.",
+      "click-request-follow-steps": "Klik op huurverzoek en vul alle betaalgegevens in.",
+      "after-send-tenant": "Na verzending kan de huurder het huurverzoek voltooien.",
+      "after-key-transfer-amount": "Na de sleuteloverdracht wordt het bedrag op je rekening gestort."
+    },
+    "tenant": {
+      "when-pay-rentok": "Wanneer kan ik met RentOK betalen?",
+      "do-with-verified": "Dat kan bij verhuurders met een geverifieerd profiel.",
+      "check-badge-profile": "Check het verificatie logo onderaan de profielfoto van de verhuurder.",
+      "are-you-tenant": "Ben jij de gekozen huurder?",
+      "ask-landlord-rent": "Je kunt de verhuurder vragen een huurverzoek te sturen. Dit huurverzoek ontvang je in 'mijn berichten'.",
+      "follow-steps-request": "Volg de stappen om aan het huurverzoek te voldoen.",
+      "after-received-key": "Nadat je de sleutel hebt ontvangen wordt het geld overgemaakt naar de verhuurder"
+    }
+  },
+  "no-key-help": {
+    "title": "Heb je de sleutel of het geld niet ontvangen?",
+    "subtitle-1/2": "Neem dan zo snel mogelijk contact op met ",
+    "subtitle-2/2": "."
+  },
+  "faq": {
+    "landlord-section": "VOOR VERHUURDERS",
+    "tenant-section": "VOOR HUURDERS",
+    "what-is-rentok": {
+      "question": "Wat is RentOK?",
+      "answer": "Via RentOK kunnen huurders veilig een aanbetaling, huur en/of borg overmaken naar (geverifieerde) verhuurders. Geverifieerde verhuurders zijn te herkennen aan het vinkje onderaan hun profielfoto. Veilig betalen gebeurt via een huurverzoek. Het geld dat word overgemaakt wordt bewaard op een derdenrekening bij Online Betaalplatform. Hier wordt het bedrag beheerd totdat de huurder de sleutel in ontvangst heeft genomen. Binnen 7 werkdagen na ontvangst krijgen verhuurders het geld op hun rekening gestort."
+    },
+    "who-is-obp": {
+      "question": "Wie is Online Betaalplatform?",
+      "answer-1-1": "Online Betaalplatform is een betaaldienstverlener met een vergunning bij de Nederlandsche Bank. OBP voldoet aan alle wet- en regelgeving voor het verwerken van betalingen. OBP verifieert de bankrekening en identiteit van de verhuurder en houdt het bedrag vast totdat de sleuteloverdracht heeft plaatsgevonden. Ga naar de ",
+      "bold-obp-site": "website van Online Betaalplatform",
+      "answer-1-2": " voor meer informatie."
+    },
+    "benefits-of-rentok": {
+      "question": "Wat zijn de voordelen van RentOK?",
+      "for-tenants": {
+        "li-1": "Het geld gaat pas naar de verhuurder als jij de sleutel hebt ontvangen. Tot die tijd staat jouw geld veilig geparkeerd op een derdenrekening bij ",
+        "li-2": "De verhuurder is geverifieerd op basis van een Nederlandse bankrekening. Bij bedragen hoger dan €250 dient de verhuurder ook zijn identiteit te verifiëren om jouw aanbetaling, huur en/of borg te ontvangen.",
+        "li-3": "Heb je geen sleutel ontvangen? Dan krijg jij je geld teruggestort."
+      },
+      "for-landlords": {
+        "li-1": "Je hoeft niet je bankgegevens te delen met vreemden.",
+        "li-2": "Het is niet meer nodig te wachten tot de huur, borg of aanbetaling op je rekening staat. Een betalingsbevestiging is nu voldoende. Na een bevestiging wordt het bedrag gegarandeerd overgemaakt op je rekening. Dit gebeurt binnen 7 werkdagen na de sleuteloverdracht.",
+        "li-3": "Alle veiligheidsmaatregelen die van toepassing zijn op iDEAL gelden ook voor RentOK via Kamernet."
+      }
+    },
+    "how-rentok-works": {
+      "question": "Hoe werkt RentOK?",
+      "for-tenants": {
+        "li-1": "Ben jij de gekozen huurder geworden? Vraag dan of de verhuurder je een huurverzoek wilt sturen via ‘mijn berichten’. Je vindt de huurverzoek button in de conversatie met de verhuurder.",
+        "li-2": "De verhuurder kan jou ook al een huurverzoek gestuurd hebben. Controleer altijd goed of de bedragen overeenkomen met de gemaakte afspraken. We raden je aan pas te betalen als de huurovereenkomst is getekend, tenzij het gaat om een aanbetaling.",
+        "li-3-1": "Nadat je het geld hebt overgemaakt via het RentOK huurverzoek staat het geparkeerd op een derdenrekening bij ",
+        "li-3-2": ". Zij maken het geld pas over naar de verhuurder nadat jij de sleutel hebt ontvangen."
+      },
+      "for-landlords": {
+        "subtitle": "Als verhuurder kun je een huurverzoek sturen via ‘mijn berichten’ naar de nieuwe huurder. Het huurverzoek is een betaallink met daarin alle details rondom de betaling, zoals extra kosten.",
+        "li-1": "Na het aanmaken en versturen van het huurverzoek ontvangt de huurder deze in zijn/haar inbox. Met één klik wordt wordt diegene doorverwezen naar zijn/haar bankomgeving. Hier wordt de betaling direct afgehandeld.",
+        "li-2": "Wanneer de betaling voldaan is ontvangen zowel de huurder als verhuurder hiervan een bevestiging in ‘mijn berichten’.",
+        "li-3": "Een betaling wordt uiterlijk binnen 7 werkdagen na de sleuteloverdracht bijgeschreven op de reeds geverifieerde bankrekening van de verhuurder."
+      }
+    },
+    "keep-in-mind-rentok": {
+      "question": "Waar moet ik op letten bij RentOK?",
+      "for-tenants": {
+        "li-1": "Heb je de sleutel niet ontvangen? Meld dit binnen 7 dagen bij ",
+        "li-2": "Indien je niet binnen 7 dagen hebt aangegeven de sleutel niet te hebben ontvangen, gaan we ervan uit dat je de sleutel hebt ontvangen. Het bedrag zal nu worden overgemaakt naar de verhuurder.",
+        "li-3": "Voor elke betaling die via RentOK verloopt worden servicekosten in rekening gebracht. Dit is altijd 2.5% van het totale transactiebedrag.",
+        "li-4": "Je kunt middels iDEAL of Creditcard betalen."
+      },
+      "for-landlords": {
+        "section-1": {
+          "title": "Online Betaalplatform en identiteitscontrole",
+          "li-1": "De dienst RentOK is ontwikkeld in samenwerking met Online Betaalplatform (een handelsnaam van Media Medics B.V.). Online Betaalplatform heeft een vergunning bij de Nederlandsche Bank als betaaldienstverlener en voldoet aan alle wet- en regelgeving voor het verwerken van betalingen.",
+          "li-2": "Online Betaalplatform controleert of de identiteit van de verhuurder matcht met de gekoppelde bankrekening die de verhuurder eerder heeft geverifieerd. Deze informatie wordt niet verstrekt aan Kamernet.",
+          "li-3": "De dienst RentOK is beschikbaar voor zowel particuliere als zakelijke gebruikers.",
+          "li-4": "Meer informatie over de identiteitscontrole door Online Betaalplatform is hier te vinden."
+        },
+        "section-2": {
+          "title": "Servicekosten en huurverzoeken met iDEAL",
+          "li-1": "Voor elke transactie worden servicekosten in rekening gebracht bij de huurder. Deze kosten bedragen 2.5% van de totale transactie."
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,8 @@
 {
-  "potato": "yes"
+  "landlord": "Landlord",
+  "tenant": "Tenant",
+  "obp": "OBP",
+  "obp-long": "Online Betaalplatform",
+  "support-desk-email": "supportdesk@kamernet.nl",
+  "faq-long": "Frequently asked questions"
 }

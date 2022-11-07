@@ -1,0 +1,454 @@
+@charset "UTF-8";
+/*@import "../icons/_icons-fallback-variables";*/
+/*
+    *  
+    * SMALL
+    *
+    */
+/*
+    *  
+    * MEDIUM
+    *
+    */
+/*
+    *  
+    * LARGE
+    *
+    */
+/*
+    *  
+    * XL
+    *
+    */
+/*
+    *  
+    * XXL
+    *
+    */
+/*
+Burger by Joren Van Hee, http: //joren.co
+MIT License (MIT)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+/************ mixin to change opacity *************/
+/************************************************/
+/**********************************************************/
+/************ WEBP background support *********************/
+/* webp/no-webp classes added automatically by modernizr **/
+/**********************************************************/
+/*************************************************/
+/*************************************************/
+/*************************************************/
+/**********************************************************/
+/************ Background mixin ****************************/
+/**********************************************************/
+/*************************************************/
+/*************************************************/
+/*************************************************/
+/* GET ICON */
+.owl-nav {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+}
+.owl-nav .owl-prev {
+  left: 0;
+}
+.owl-nav .owl-next {
+  right: 0;
+}
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
+  transition: opacity 300ms ease;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  position: absolute;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+}
+.owl-nav .owl-prev.disabled,
+.owl-nav .owl-next.disabled {
+  opacity: 0;
+}
+
+.carousel-left,
+.carousel-right {
+  background: url("data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e %3c!-- Generator: Adobe Illustrator 18.1.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e %3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 185.343 185.343' style='enable-background:new 0 0 185.343 185.343%3b' xml:space='preserve'%3e %3cg%3e %3cg%3e %3cpath style='fill:%23010002%3b' d='M51.707%2c185.343c-2.741%2c0-5.493-1.044-7.593-3.149c-4.194-4.194-4.194-10.981%2c0-15.175 l74.352-74.347L44.114%2c18.32c-4.194-4.194-4.194-10.987%2c0-15.175c4.194-4.194%2c10.987-4.194%2c15.18%2c0l81.934%2c81.934 c4.194%2c4.194%2c4.194%2c10.987%2c0%2c15.175l-81.934%2c81.939C57.201%2c184.293%2c54.454%2c185.343%2c51.707%2c185.343z'/%3e %3c/g%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3cg%3e %3c/g%3e %3c/svg%3e");
+  position: relative;
+  right: -1px;
+}
+
+.carousel-left {
+  left: -1px;
+  transform: rotate(180deg);
+}
+
+.carousel-card-padding.no-padding-left .owl-stage {
+  padding-left: 0 !important;
+}
+
+#promo .card--large {
+  display: flex;
+  flex-direction: column;
+}
+#promo .card--large .full-width--m-up {
+  margin-top: auto;
+}
+@media (max-width: 599px) {
+  #promo .card--large .full-width--m-up {
+    position: absolute;
+    left: 0;
+    bottom: -64px;
+  }
+  #promo .card--large .full-width--m-up a.btn-medium {
+    width: 100%;
+  }
+}
+#promo .card--large .full-width--m-up a.btn-medium {
+  margin-top: 16px;
+}
+@media (max-width: 599px) {
+  #promo .grid-item:first-of-type .card--large {
+    margin-bottom: 15%;
+  }
+}
+
+.page-footer li a {
+  display: block;
+}
+
+#landlord-cta {
+  padding-top: 16px;
+}
+
+#above-search .card--large {
+  height: auto;
+}
+
+#types {
+  font-size: 14px;
+}
+#types .active {
+  border-bottom: 2px solid #37d39a;
+}
+#types .grid-item {
+  cursor: pointer;
+}
+
+//TODO. Uncomment
+// @media (max-width: 1023px) {
+//   body {
+//     overflow-x: hidden;
+//   }
+// }
+
+@media (max-width: 599px) {
+  /*#promo #card .grid .grid-item {
+        margin-top: 50%;
+    }*/
+  #above-search .section-title {
+    background-color: transparent !important;
+    color: #00163f !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
+.search-wrapper {
+  /*padding: $spacing-xxl-2 0;*/
+  opacity: 90%;
+  padding: 96px 0;
+}
+@media (min-width: 600px) {
+  .search-wrapper {
+    min-height: 420px;
+    /*background*/
+    background: url("../../assets/Images/pages/home/home_opent_deuren.jpg")
+      no-repeat scroll center/cover;
+    background-position-y: 15%;
+  }
+}
+@media (max-width: 599px) {
+  .search-wrapper {
+    padding: 24px 0 !important;
+    background-color: #f3f9f9;
+  }
+  .search-wrapper a {
+    display: block;
+    text-align: center;
+  }
+}
+
+.search-wrapper .tag {
+  line-height: 1.33;
+  padding: 32px 48px;
+}
+.search-wrapper .tag--info {
+  font-size: 24px;
+}
+.search-wrapper .tag--action {
+  font-size: 18px;
+  align-items: center;
+}
+
+.last-search-wrapper {
+  padding: 0 24px;
+}
+.last-search-wrapper .search-content {
+  padding: 4px 24px;
+  background-color: rgba(0, 22, 63, 0.75);
+}
+
+#hiw,
+#testimonials {
+  padding: 96px 0;
+}
+#hiw .owl-nav,
+#testimonials .owl-nav {
+  top: 55%;
+}
+#hiw .card--large,
+#testimonials .card--large {
+  height: inherit;
+}
+#hiw .owl-stage,
+#testimonials .owl-stage {
+  display: flex;
+}
+#hiw .owl-stage .grid-item,
+#testimonials .owl-stage .grid-item {
+  display: block;
+  height: 100%;
+}
+#hiw .card--large,
+#testimonials .card--large {
+  background: #fff;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  #hiw .card--large .card__head,
+  #testimonials .card--large .card__head {
+    padding: 0 32px;
+  }
+}
+@media (max-width: 1023px) {
+  #hiw .card--large .card__head,
+  #testimonials .card--large .card__head {
+    padding: 0 15%;
+  }
+}
+@media (max-width: 599px) {
+  #hiw .card--large .card__head,
+  #testimonials .card--large .card__head {
+    padding: 0 24px;
+  }
+}
+@media (max-width: 1023px) {
+  #hiw .card--large,
+  #testimonials .card--large {
+    padding: 16px;
+  }
+}
+
+#testimonials {
+  padding: 24px 0;
+}
+#testimonials .owl-nav {
+  top: 44%;
+}
+#testimonials .star-rating {
+  justify-content: flex-end;
+}
+#testimonials .card--large {
+  text-align: left;
+  min-height: 268px;
+  position: relative;
+}
+#testimonials .card__footer {
+  position: absolute;
+  bottom: 16px;
+}
+#testimonials .tag {
+  background: #fff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+#testimonials .tag .reviews {
+  font-weight: 400;
+  font-size: 14px;
+  color: #8ca5c1;
+  padding: 0 8px;
+}
+#testimonials .tag .logo-feedback {
+  vertical-align: middle;
+}
+#testimonials .card__footer img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+#testimonials .testimonial-customer {
+  font-size: 14px;
+  margin-left: 16px;
+  margin-top: 20px;
+}
+#testimonials .testimonial-name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+#testimonials .testimonial-role {
+  font-weight: 400;
+  color: #8ca5c1;
+}
+
+#products {
+  padding: 96px 0;
+}
+#products #elbuco.card--large {
+  /*background*/
+  background: #37d39a url("/content/images/redesign/pages/home/elbuco.webp")
+    no-repeat scroll center/cover;
+  background-origin: content-box;
+}
+.no-webp #products #elbuco.card--large {
+  background-image: url("/content/images/redesign/pages/home/elbuco.jpg");
+}
+@media (max-width: 599px) {
+  #products {
+    padding: 48px 16px;
+    grid-row-gap: 24px;
+  }
+  #products #elbuco.card--large {
+    min-height: 128px;
+  }
+  #products #elbuco.card--large .section-subtitle {
+    width: 75%;
+  }
+}
+#products .card--large {
+  min-height: 254px;
+}
+@media (max-width: 1359px) {
+  #products .card--large {
+    min-height: 290px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  #products .card--large {
+    min-height: 188px;
+  }
+}
+@media (max-width: 599px) {
+  #products .card--large {
+    min-height: unset;
+  }
+}
+#products #promo-left {
+  background-color: #cae1e9;
+}
+@media (min-width: 1024px) {
+  #products #promo-left.card--large {
+    /*background*/
+    background: #cae1e9
+      url("/content/images/redesign/pages/home/promo-left.webp") no-repeat
+      scroll center/55%;
+    background-position-y: center;
+    background-position-x: 100%;
+  }
+  .no-webp #products #promo-left.card--large {
+    background-image: url("/content/images/redesign/pages/home/promo-left.jpg");
+  }
+}
+@media (max-width: 1280px) {
+  #products #promo-left.card--large {
+    background-size: 66%;
+  }
+}
+@media (min-width: 1680px) {
+  #products #promo-left.card--large {
+    background-size: 45%;
+  }
+}
+
+@media (max-width: 1023px) {
+  #popular-cities .grid-item,
+  #popular-cities .card-city,
+  #hiw-cards .grid-item,
+  #hiw-cards .card-city,
+  #testimonials-cards .grid-item,
+  #testimonials-cards .card-city {
+    min-width: 242px;
+    width: 64.5vw;
+    max-width: 300px;
+  }
+  #popular-cities .owl-stage-outer,
+  #hiw-cards .owl-stage-outer,
+  #testimonials-cards .owl-stage-outer {
+    overflow: visible;
+  }
+  #popular-cities .owl-stage-outer picture *,
+  #hiw-cards .owl-stage-outer picture *,
+  #testimonials-cards .owl-stage-outer picture * {
+    text-indent: 10%;
+  }
+  #testimonials .star-rating {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 599px) {
+  #popular-cities .grid-item,
+  #popular-cities .card-city,
+  #hiw-cards .grid-item,
+  #hiw-cards .card-city,
+  #testimonials-cards .grid-item,
+  #testimonials-cards .card-city {
+    min-width: 220px;
+  }
+}
+
+#bottomSection {
+  grid-row-gap: 24px;
+}
+@media (max-width: 599px) {
+  #bottomSection {
+    background-color: #f3f9f9;
+  }
+}
+
+/* TEMPORARY CHANGES - TO BE REMOVED ONCE WE CHANGE THE LOGIN/REGISTRATION POPUP TO THE NEW ONE */
+#login-form input[type="checkbox"]:checked + label:before,
+#register-form input[type="checkbox"]:checked + label:before {
+  background-color: #37d39a;
+  border-radius: 2px;
+  height: 18px;
+  width: 18px;
+}
+
+#login-form input[type="checkbox"]:checked + label::after,
+#register-form input[type="checkbox"]:checked + label::after {
+  -webkit-mask: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M5.43431 11.7643L0.234305 6.53442C-0.0781016 6.22021 -0.0781016 5.71077 0.234305 5.39654L1.36565 4.25865C1.67806 3.94442 2.18462 3.94442 2.49703 4.25865L6 7.78174L13.503 0.235652C13.8154 -0.0785507 14.3219 -0.0785507 14.6344 0.235652L15.7657 1.37353C16.0781 1.68774 16.0781 2.19718 15.7657 2.51141L6.56569 11.7644C6.25325 12.0786 5.74672 12.0786 5.43431 11.7643V11.7643Z' fill='white'/%3e %3c/svg%3e");
+  mask: url("data:image/svg+xml,%3csvg width='12' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M5.43431 11.7643L0.234305 6.53442C-0.0781016 6.22021 -0.0781016 5.71077 0.234305 5.39654L1.36565 4.25865C1.67806 3.94442 2.18462 3.94442 2.49703 4.25865L6 7.78174L13.503 0.235652C13.8154 -0.0785507 14.3219 -0.0785507 14.6344 0.235652L15.7657 1.37353C16.0781 1.68774 16.0781 2.19718 15.7657 2.51141L6.56569 11.7644C6.25325 12.0786 5.74672 12.0786 5.43431 11.7643V11.7643Z' fill='white'/%3e %3c/svg%3e");
+  -webkit-mask-size: contain;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  color: #fff;
+  background: #fff;
+  border-color: #fff;
+  content: "";
+  line-height: 24px;
+  border-radius: 2px;
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  left: 3px;
+  top: 6px;
+}

@@ -56,7 +56,7 @@ const BaseLayout = ({
 
   //isAppInitialized
   // We could use react-helmet to insert the title and description in the <head> https://www.npmjs.com/package/react-helmet
-  return isAppInitialized ? (
+  return true ? (
     <>
       <AuthWrapper
         successfulLoginHandler={successfulLoginHandler}

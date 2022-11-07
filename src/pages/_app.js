@@ -1,3 +1,6 @@
+import "@styles/components/Search/Select2.css";
+import "@styles/components/Search/SearchBar.css";
+
 import "@styles/main.scss";
 import "@styles/full.scss";
 

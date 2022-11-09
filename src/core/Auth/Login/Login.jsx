@@ -44,7 +44,7 @@ const Login = ({ successfulLoginHandler }) => {
 
   const handleSubmit = (event) => {
     console.log(userEmailValue, userPasswordValue);
-    postLogin(userEmailValue, userPasswordValue);
+    //postLogin(userEmailValue, userPasswordValue);
     event.preventDefault();
   };
 

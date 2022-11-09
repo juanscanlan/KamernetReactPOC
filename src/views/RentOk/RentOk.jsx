@@ -356,7 +356,7 @@ const RentOk = ({ T }) => {
     <BaseLayout
       title="RentOK"
       description="Learn how to use RentOK"
-      className="container padding-h--s"
+      className=""
     >
       {RentOkJSX}
     </BaseLayout>

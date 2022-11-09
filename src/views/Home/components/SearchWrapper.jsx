@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 
+import Script from "next/script";
+
 import SearchWrapperStyles from "../home.module.scss";
 // import CommonStyles from "@styles/full.module.scss";
 // import SearchStyles from "@styles/components/Search/SearchBar.scss";
@@ -16,7 +18,7 @@ const SearchWrapper = () => {
             <div className="full-width">
               <div className="grid">
                 <div className="grid-item col-span-4 card--large color-background-secondary-light-1 border-radius--no-bl section-title color-text-light ">
-                  {t("find-your-home")}
+                  {t("header-title")}
                 </div>
               </div>
             </div>
@@ -41,7 +43,7 @@ const SearchWrapper = () => {
               action="/en/SearchRooms/PerformSearchAllAdverts"
               id="SearchForm"
               method="post"
-              novalidate="novalidate"
+              noValidate="novalidate"
             >
               <input
                 id="PageNumber"
@@ -94,7 +96,7 @@ const SearchWrapper = () => {
                       style={{ width: "100%" }}
                       aria-label="LocationText"
                       data-select2-id="LocationText"
-                      tabindex="-1"
+                      tabIndex="-1"
                       aria-hidden="true"
                     ></select>
                     <span
@@ -109,7 +111,7 @@ const SearchWrapper = () => {
                           role="combobox"
                           aria-haspopup="true"
                           aria-expanded="false"
-                          tabindex="0"
+                          tabIndex="0"
                           aria-disabled="false"
                           aria-labelledby="select2-LocationText-container"
                         >
@@ -147,7 +149,7 @@ const SearchWrapper = () => {
                       id="RadiusId__"
                       name="RadiusId[]"
                       data-select2-id="RadiusId__"
-                      tabindex="-1"
+                      tabIndex="-1"
                       aria-hidden="true"
                     >
                       <option selected="selected" value="1" data-select2-id="3">
@@ -171,7 +173,7 @@ const SearchWrapper = () => {
                           role="combobox"
                           aria-haspopup="true"
                           aria-expanded="false"
-                          tabindex="0"
+                          tabIndex="0"
                           aria-disabled="false"
                           aria-labelledby="select2-RadiusId__-container"
                         >
@@ -210,7 +212,7 @@ const SearchWrapper = () => {
                       multiple=""
                       name="RoomTypeId"
                       data-select2-id="RoomTypeId"
-                      tabindex="-1"
+                      tabIndex="-1"
                       aria-hidden="true"
                     >
                       <option disabled="disabled" value="">
@@ -233,7 +235,7 @@ const SearchWrapper = () => {
                           role="combobox"
                           aria-haspopup="true"
                           aria-expanded="false"
-                          tabindex="-1"
+                          tabIndex="-1"
                           aria-disabled="false"
                         >
                           <ul className="select2-selection__rendered">
@@ -241,19 +243,19 @@ const SearchWrapper = () => {
                               <input
                                 className="select2-search__field"
                                 type="search"
-                                tabindex="0"
-                                autocomplete="off"
-                                autocorrect="off"
-                                autocapitalize="none"
-                                spellcheck="false"
+                                tabIndex="0"
+                                autoComplete="off"
+                                autoCorrect="off"
+                                autoCapitalize="none"
+                                spellCheck="false"
                                 role="searchbox"
                                 aria-autocomplete="list"
                                 id="4qus0i"
                                 placeholder="Property type"
                                 style={{ width: "206.609px" }}
-                                readonly="readonly"
+                                readOnly="readonly"
                               />
-                              <label for="4qus0i">
+                              <label htmlFor="4qus0i">
                                 &lrm;&lrm;&rlm;&rlm;&lrm; &lrm;
                               </label>
                             </li>
@@ -266,7 +268,7 @@ const SearchWrapper = () => {
                         aria-hidden="true"
                       ></span>
                     </span>
-                    <label for="RoomTypeId"></label>
+                    <label htmlFor="RoomTypeId"></label>
                   </div>
 
                   <div className="grid-item col-span-2 select-prepend text-center col-span-4--m row--s ">
@@ -290,7 +292,7 @@ const SearchWrapper = () => {
                       id="RentalPriceId"
                       name="RentalPriceId"
                       data-select2-id="RentalPriceId"
-                      tabindex="-1"
+                      tabIndex="-1"
                       aria-hidden="true"
                     >
                       <option value=""></option>
@@ -347,7 +349,7 @@ const SearchWrapper = () => {
                           role="combobox"
                           aria-haspopup="true"
                           aria-expanded="false"
-                          tabindex="0"
+                          tabIndex="0"
                           aria-disabled="false"
                           aria-labelledby="select2-RentalPriceId-container"
                         >
@@ -404,7 +406,7 @@ const SearchWrapper = () => {
                       id="SurfaceId"
                       name="SurfaceId"
                       data-select2-id="SurfaceId"
-                      tabindex="-1"
+                      tabIndex="-1"
                       aria-hidden="true"
                     >
                       <option value=""></option>
@@ -448,7 +450,7 @@ const SearchWrapper = () => {
                           role="combobox"
                           aria-haspopup="true"
                           aria-expanded="false"
-                          tabindex="0"
+                          tabIndex="0"
                           aria-disabled="false"
                           aria-labelledby="select2-SurfaceId-container"
                         >

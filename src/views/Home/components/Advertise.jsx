@@ -5,22 +5,22 @@ const Advertise = () => {
   const { t } = useTranslation(["home", "common"]);
   const AdvertiseJSX = () => {
     return (
-      <div class="padding-v--l hide--s color-background-secondary-light-3">
-        <div class="grid container">
-          <div class="grid-item col-span-8 dir-column col-span-6--m">
-            <h2 class="section-title no-margin">{t("sub-header.title")}</h2>
-            <p class="no-margin">{t("sub-header.paragraph")}</p>
+      <div className="padding-v--l hide--s color-background-secondary-light-3">
+        <div className="grid container">
+          <div className="grid-item col-span-8 dir-column col-span-6--m">
+            <h2 className="section-title no-margin">{t("sub-header.title")}</h2>
+            <p className="no-margin">{t("sub-header.paragraph")}</p>
             <a
-              class="btn-medium accent-dark right spacer-v--s"
+              className="btn-medium accent-dark right spacer-v--s"
               href="@NavigationHelper.GetLandlordLandingPageUrl()"
               aria-disabled="true"
             >
               {t("place-advert", { ns: "common" })}
             </a>
           </div>
-          <div class="grid-item col-span-4 align-right col-span-3--m">
+          <div className="grid-item col-span-4 align-right col-span-3--m">
             <a
-              class="underline"
+              className="underline"
               href="@NavigationHelper.GetLandlordLandingPageUrl()"
               aria-disabled="true"
             >

@@ -34,7 +34,7 @@ const BaseLayout = ({
 
   useEffect(() => {
     console.log("UserLoggedIn:", isUserLoggedIn);
-    doLogin();
+    //doLogin();
   }, []);
 
   const doLogin = () => {

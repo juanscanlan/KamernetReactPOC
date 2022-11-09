@@ -23,11 +23,8 @@ export default function Home(props) {
   //https://react.i18next.com/latest/usetranslation-hook
 
   return (
-    <BaseLayout
-      title="Home"
-      description="Home page"
-      className="container padding-h--s"
-    >
+    <BaseLayout title="Home" description="Home page" className="">
+      {/* <Script src="Scripts/Select2.js" strategy="lazyOnload" /> */}
       <Page T={t} />
     </BaseLayout>
   );

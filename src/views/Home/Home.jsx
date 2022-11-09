@@ -9,7 +9,7 @@ import { useTranslation } from "next-i18next";
 
 const isMobile = false;
 
-const Home = ({ T }) => {
+export const Home = ({ T }) => {
   const { t } = useTranslation(["home", "common"]);
   const HomeJSX = <div>Potato</div>;
 
@@ -22,5 +22,3 @@ const Home = ({ T }) => {
     </>
   );
 };
-
-export default Home;

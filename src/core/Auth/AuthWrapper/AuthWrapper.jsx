@@ -5,11 +5,11 @@ import React from "react";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 
-const AuthWrapper = ({ successfulLoginHandler, successfulRegisterHandler }) => {
+const AuthWrapper = () => {
   const loginJSX = (
     <div id="modal-auth-login" className="modal auth-login">
       <div className="modal-background"></div>
-      <Login successfulLoginHandler={successfulLoginHandler} />
+      <Login />
     </div>
   );
 
@@ -18,7 +18,7 @@ const AuthWrapper = ({ successfulLoginHandler, successfulRegisterHandler }) => {
       <div className="modal-background"></div>
       {/* @Html.Partial("~/Views/Redesign/Components/Auth/_Register.cshtml",
       registerModel) */}
-      <Register successfulRegisterHandler={successfulRegisterHandler} />
+      <Register />
     </div>
   );
 

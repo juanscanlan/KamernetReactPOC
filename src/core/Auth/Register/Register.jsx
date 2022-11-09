@@ -3,11 +3,11 @@ import { useState } from "react";
 import fbIcon from "@assets/Images/SocialMedia/facebook-3-48.png";
 import googleIcon from "@assets/Images/SocialMedia/google_icon.jpg";
 
-import { fbLogin, loginGoogle, slideRegForm } from "@utilities/Auth/Auth";
-import { Modal } from "@utilities/Modals/Modals";
+import { slideRegForm } from "@utilities/Auth/Auth";
 import Image from "next/image";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
-const apiUrl = "http://localhost:50001/api/customer/register";
 
 const baseUrl = "https://acceptance.kamernet.nl/";
 
@@ -15,12 +15,13 @@ const getFullRoute = (baseUrl, route) => {
   return baseUrl + route;
 };
 
-const Register = ({ successfulRegisterHandler }) => {
+const Register = () => {
   const Model = {};
 
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
+  const { register } = useContext(AuthContext);
 
   const RenderSourceSwitch = () => {
     switch (Model.Source) {
@@ -68,7 +69,7 @@ const Register = ({ successfulRegisterHandler }) => {
 
   const handleSubmit = (event) => {
     console.log(firstName, email, password);
-    postRegister(firstName, email, password);
+    register(firstName, email, password);
     event.preventDefault();
   };
 
@@ -90,30 +91,6 @@ const Register = ({ successfulRegisterHandler }) => {
 
   const googleRegister = () => {
     console.log("googleRegister");
-  };
-
-  const postRegister = (firstName, email, password) => {
-    fetch(apiUrl, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        UserFirstName: firstName,
-        UserEmail: email,
-        UserPassword: password,
-      }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          Modal.hideAllModals();
-          successfulRegisterHandler();
-        } else {
-          alert("register failed");
-        }
-      })
-      .catch(() => alert("register failed"));
   };
 
   const registerJSX = (

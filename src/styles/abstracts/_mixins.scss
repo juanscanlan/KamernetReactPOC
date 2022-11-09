@@ -1,6 +1,4 @@
-﻿/// Referencing files so intellisense would work correctly
-/// <reference path="_variables.scss" />
-/// <reference path="_functions.scss" />
+﻿@import './variables';
 
 @mixin clearfix {
     &:after {

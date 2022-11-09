@@ -1,7 +1,6 @@
 {
   "summary": "Zorg voor een veilige huur of verhuur van je woning met RentOK. Hiermee kunnen huurders simpel, snel en veilig de eerste maand huur overmaken. Huurders weten dat de eerste maand huur en/of borg veilig terecht komt, en verhuurders krijgen de zekerheid van verhuur door middel van deze aanbetaling. Deze dienst is ontwikkeld in samenwerking met Online Betaalplatform: een betaaldienstverlener met een vergunning bij de Nederlandsche Bank. OBP voldoet aan alle wet- en regelgeving voor het verwerken van betalingen. Dit is hoe het werkt:",
-  "i-am-a": "Ik ben een...",
-
+  "iam": "Ik ben een...",
   "instructions": {
     "common": {
       "rent-request-completed": "Huurverzoek voltooid?",

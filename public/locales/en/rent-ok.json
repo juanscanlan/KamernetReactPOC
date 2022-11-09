@@ -1,7 +1,7 @@
 {
   "summary": "Safely find a tenant or a house with RentOK: a simple, quick and safe way to transfer the first month’s rent and/or deposit. Tenants are assured that their money will end up at the right place, and landlords will secure themselves of a simple downpayment of the first month's rent and/or deposit. This service has been developed in cooperation with Online Betaalplatform: a payment service provider licensed at the Nederlandsche Bank. OBP complies with all laws and regulations for the processing of payments. This is how it works:",
-  "i-am-a": "I am a...",
-  "instructions": {
+  "iam": {
+    "title": "I am a...",
     "common": {
       "rent-request-completed": "Rent request completed?",
       "amount-stored-third-party": "The amount will be stored on a trust account by a certified third party: "

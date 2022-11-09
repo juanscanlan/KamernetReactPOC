@@ -6,10 +6,13 @@ import fbIcon from "@assets/Images/SocialMedia/facebook-3-48.png";
 import googleIcon from "@assets/Images/SocialMedia/google_icon.jpg";
 import { Modal } from "@utilities/Modals/Modals";
 import Image from "next/image";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
-const Login = ({ successfulLoginHandler }) => {
+const Login = () => {
   const [userEmailValue, setUserEmailValue] = useState("");
   const [userPasswordValue, setUserPasswordValue] = useState("");
+  const { login } = useContext(AuthContext);
 
   const handleEmailChange = (event) => {
     setUserEmailValue(event.target.value);
@@ -19,32 +22,9 @@ const Login = ({ successfulLoginHandler }) => {
     setUserPasswordValue(event.target.value);
   };
 
-  const postLogin = (username, password) => {
-    fetch(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "/customer/login", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        useremail: username,
-        userpassword: password,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          Modal.hideAllModals();
-          successfulLoginHandler();
-        } else {
-          alert("wrong credentials");
-        }
-      })
-      .catch(() => alert("wrong credentials"));
-  };
-
   const handleSubmit = (event) => {
     console.log(userEmailValue, userPasswordValue);
-    postLogin(userEmailValue, userPasswordValue);
+    login(userEmailValue, userPasswordValue);
     event.preventDefault();
   };
 

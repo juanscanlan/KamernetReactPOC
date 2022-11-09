@@ -9,6 +9,8 @@ import ProfilePhoto from "@assets/Images/marketing/marketing_home_default_sh.jpg
 
 import { useEffect } from "react";
 import Image from "next/image";
+import { useContext } from "react";
+import { AuthContext } from "@core/Auth/AuthContext";
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
 
@@ -16,34 +18,18 @@ const getFullRoute = (baseUrl, route) => {
   return baseUrl + route;
 };
 
-const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
+const Navbar = () => {
   const isSimpleHeader = false;
   const UserContextHelper = {};
   const checkStudentHouse = true;
   const _verificationPossible = true;
   const SettingsManager = {};
   const iUnrepliedConversationCounter = 0;
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
-  const createAdvertUrl = isUserLoggedIn
+  const createAdvertUrl = isLoggedIn
     ? "https://acceptance.kamernet.nl/en/create-room-advert"
     : "https://acceptance.kamernet.nl/en/rent-out-room";
-
-  const kamernetMPLogout = (e) => {
-    console.log(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "logout");
-    fetch(process.env.NEXT_PUBLIC_APP_SERVICES_URL + "logout", {
-      method: "POST",
-      credentials: "include",
-    })
-      .then((response) => {
-        if (response.ok) {
-          successfulLogoutHandler();
-        } else {
-          //alert("wrong credentials");
-          console.log(response);
-        }
-      })
-      .catch((error) => console.log(error));
-  };
 
   const backToMain = () => {
     console.log("Back to main potato");
@@ -70,9 +56,8 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
           </div>
           {/* @******************************@ */}
           <div
-            className={`brand-logo-wrapper ${
-              isSimpleHeader ? "full-width" : ""
-            }`}
+            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
+              }`}
           >
             <a
               id="brand-logo"
@@ -95,9 +80,8 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
               </a>
               <a
                 href={createAdvertUrl}
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
-                  isUserLoggedIn ? "col-start-5" : "col-start-6"
-                }`}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isLoggedIn ? "col-start-5" : "col-start-6"
+                  }`}
                 id="header-place-button"
               >
                 <span
@@ -107,13 +91,12 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
                   Rent your place for free
                 </span>
               </a>
-              {isUserLoggedIn ? (
+              {isLoggedIn ? (
                 <>
                   <a
                     href="https://acceptance.kamernet.nl/en/my-adverts"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
-                      isUserLoggedIn ? "col-start-6" : "col-start-7"
-                    }`}
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isLoggedIn ? "col-start-6" : "col-start-7"
+                      }`}
                     id="header-my-adverts"
                   >
                     My adverts
@@ -168,7 +151,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
             </>
           ) : null}
 
-          {isUserLoggedIn && (
+          {isLoggedIn && (
             <div
               className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
               id="user-image"
@@ -192,7 +175,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
               <div className="burger-icon"></div>
               <div className="floating-header-menu" style={{ display: "none" }}>
                 <ul>
-                  {isUserLoggedIn ? (
+                  {isLoggedIn ? (
                     <>
                       <li id="menu_desk_profile">
                         <a href={getFullRoute(baseUrl, "en/public-profile")}>
@@ -364,7 +347,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
                         </div>
                       </li>
 
-                      <li onClick={kamernetMPLogout} id="menu_desk_logout">
+                      <li onClick={logout} id="menu_desk_logout">
                         <div>Log out</div>
                       </li>
                     </>
@@ -517,7 +500,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
       {/* @* *** MOBILE MENU ****@ */}
       <nav id="mobile-menu" className="for-tablet-down">
         <div className="grid padding-h--sm spacer-v--sm">
-          {isUserLoggedIn ? (
+          {isLoggedIn ? (
             <>
               <div className="grid-item">
                 <div className="profile-wrapper">
@@ -580,7 +563,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
 
         {/* @* menu links *@ */}
         <div className="grid padding-h--sm position-relative spacer-v--s--s">
-          {!isUserLoggedIn ? (
+          {!isLoggedIn ? (
             <>
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul>
@@ -621,7 +604,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-              isUserLoggedIn ? (
+                isLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
                     Get Premium
@@ -633,7 +616,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
 
           <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
 
-          {isUserLoggedIn ? (
+          {isLoggedIn ? (
             <>
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul className="menu-first">
@@ -736,7 +719,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-              isUserLoggedIn ? (
+                isLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/referrals")}>
                     Refer a friend
@@ -793,7 +776,7 @@ const Navbar = ({ isUserLoggedIn, successfulLogoutHandler }) => {
             </ul>
           </div>
 
-          {isUserLoggedIn ? (
+          {isLoggedIn ? (
             <>
               <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
               <div className="grid-item col-span-4 col-span-12--m">

@@ -1,0 +1,201 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+$iam-number-circle-diameter: 88; // px
+$iam-number-h-connector-height: 4; // px
+$iam-number-v-connector-width: 8; // px
+
+.video {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+    >li {
+        width: 400px;
+        display: inline-block;
+        list-style: outside none none;
+        line-height: 0;
+
+        @include for-mobile-only {
+            width: 100%;
+        }
+
+        >a {
+            border: 3px solid #FFF;
+            border-radius: 3px;
+            display: block;
+            overflow: hidden;
+            position: relative;
+            float: left;
+            min-width: 100%;
+            min-height: 240px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('/images/rent-ok/rentok-video.png');
+
+            >div {
+                background-color: rgba(0, 0, 0, 0.1);
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                -webkit-transition: background-color 0.15s ease 0s;
+                -o-transition: background-color 0.15s ease 0s;
+                transition: background-color 0.15s ease 0s;
+            }
+
+            img {
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                -webkit-transition: opacity 0.3s ease 0s;
+                -o-transition: opacity 0.3s ease 0s;
+                transition: opacity 0.3s ease 0s;
+                height: 48px;
+                margin-left: -24px;
+                margin-top: -24px;
+                opacity: 0.8;
+                width: 48px;
+            }
+
+            &:hover {
+                >div {
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.iam {
+    &-landlord-button,
+    &-tenant-button {
+        background-color: $color-secondary-light-3;
+        color: $color-secondary;
+        font-size: $font-size-m;
+    }
+
+    &-box {
+        border: 1px solid $color-secondary-light-3;
+        border-radius: 32px;
+        background-color: $color-text-light;
+        opacity: 1;
+
+        &--inactive {
+            opacity: 0.3;
+        }
+    }
+
+    &-content {
+        > a {
+            color: $color-primary;
+        }
+    }
+
+    &-image-box {
+        border-radius: 4px;
+        background-color: $color-secondary-light-3;
+        display: block;
+    }
+
+    &-image {
+        max-width: 100%;
+    }
+
+    &-h-divider {
+        height: 1px;
+        background-color: $color-secondary-light-3;
+    }
+
+    &-number-circle {
+        background-color: $color-secondary-light-3;
+        border-radius: 50%;
+        height: #{$iam-number-circle-diameter}px;
+        width: #{$iam-number-circle-diameter}px;
+        line-height: #{$iam-number-circle-diameter}px;
+        text-align: center;
+        margin: 0 auto;
+        font-size: $font-size-l;
+    }
+
+    &-number-container {
+        position: relative;
+    }
+
+    &-number-h-connector {
+        height: #{$iam-number-h-connector-height}px;
+        width: 100%;
+        left: -50%;
+        background-color: $color-secondary-light-3;
+        position: absolute;
+        top: #{$iam-number-circle-diameter / 2 - $iam-number-h-connector-height / 2}px;
+        transition: all .5s ease;
+        z-index: -1;
+
+        &--invert {
+            left: 50%;
+        }
+    }
+
+    &-number-v-connector {
+        position: absolute;
+        height: 100%;
+        left: calc(50% - #{$iam-number-v-connector-width / 2}px);
+        width: #{$iam-number-v-connector-width}px;
+        background-color: $color-secondary-light-3;
+        z-index: -1;
+    }
+
+    @include for-desktop-s-up {
+        > *:nth-child(6) {
+            grid-area: 5 / 6 / span 1 / span 2;
+        }
+
+        > *:nth-child(7) {
+            grid-area: 6 / 6 / span 1 / span 2;
+        }
+
+        > *:nth-child(8) {
+            grid-area: 7 / 6 / span 1 / span 2;
+        }
+
+        > *:nth-child(9) {
+            grid-area: 5 / 1 / span 1 / span 5;
+        }
+
+        > *:nth-child(10) {
+            grid-area: 6 / 1 / span 1 / span 5;
+        }
+
+        > *:nth-child(11) {
+            grid-area: 7 / 1 / span 1 / span 5;
+        }
+
+        > *:nth-child(12) {
+            grid-area: 5 / 8 / span 1 / span 5;
+        }
+
+        > *:nth-child(13) {
+            grid-area: 6 / 8 / span 1 / span 5;
+        }
+
+        > *:nth-child(14) {
+            grid-area: 7 / 8 / span 1 / span 5;
+        }
+    }
+
+    @include for-tablet-down {
+        &-landlord-button,
+        &-tenant-button {
+            font-size: $font-size-s;
+        }
+    }
+}

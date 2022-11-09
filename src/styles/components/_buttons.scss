@@ -17,7 +17,7 @@ a[class*="btn-"], span[class*="btn-"] {
     justify-content: center;
 }
 
-.btn-small, .btn-medium, .btn-large {
+.btn, .btn-small, .btn-medium, .btn-large, .btn-xlarge {
     width: min-content;
     font-family: $font-poppins;
     font-weight: bold;
@@ -209,6 +209,25 @@ a[class*="btn-"], span[class*="btn-"] {
     &.btn-round {
         width: 48px;
         height: 48px;
+        padding: 0;
+
+        & i {
+            vertical-align: middle;
+        }
+    }
+}
+
+.btn-xlarge {
+    padding: 21px 25px;
+    font-size: 28px;
+    height: 68px;
+    line-height: 24px;
+    /***
+        ROUND BUTTON
+    ***/
+    &.btn-round {
+        width: 64px;
+        height: 64px;
         padding: 0;
 
         & i {

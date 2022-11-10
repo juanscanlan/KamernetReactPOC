@@ -11,10 +11,39 @@ import GiveKeyImage from "@public/images/rent-ok/GiveKey.png";
 import PaymentRequestImage from "@public/images/rent-ok/PaymentRequest.png";
 import styles from './rent-ok.module.scss';
 import { useState } from "react";
+import { Accordeon, AccordeonItem, AccordeonItemTitle, AccordeonItemBody } from "@components/accordeon";
 
 export const RentOk = () => {
   const { t } = useTranslation(["rent-ok", "common"]);
   const [isLandlord, setIsLandlord] = useState(true);
+
+  const faq = (
+    <>
+      <div className="container grid padding-v--xxl-1 padding-v--xl--m-down">
+        <h1 className="col-span-12 text-center section-title">{t('faq.title')}</h1>
+        <div className="col-start-3 col-end-11 col-start-1--m-down col-span-4--s">
+          <Accordeon>
+            <AccordeonItem>
+              <AccordeonItemTitle>one title</AccordeonItemTitle>
+              <AccordeonItemBody>one body</AccordeonItemBody>
+            </AccordeonItem>
+            <AccordeonItem>
+              <AccordeonItemTitle>two title</AccordeonItemTitle>
+              <AccordeonItemBody>two body</AccordeonItemBody>
+            </AccordeonItem>
+            <AccordeonItem>
+              <AccordeonItemTitle>three title</AccordeonItemTitle>
+              <AccordeonItemBody>three body</AccordeonItemBody>
+            </AccordeonItem>
+            <AccordeonItem>
+              <AccordeonItemTitle>four title</AccordeonItemTitle>
+              <AccordeonItemBody>four body</AccordeonItemBody>
+            </AccordeonItem>
+          </Accordeon>
+        </div>
+      </div>
+    </>
+  );
 
   const noKey = (
     <div className="color-background-secondary-light-3">
@@ -226,6 +255,7 @@ export const RentOk = () => {
       {video}
       {iam}
       {noKey}
+      {faq}
     </>
   );
 };

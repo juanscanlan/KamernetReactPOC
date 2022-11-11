@@ -18,31 +18,99 @@ export const RentOk = () => {
   const [isLandlord, setIsLandlord] = useState(true);
 
   const faq = (
-    <>
-      <div className="container grid padding-v--xxl-1 padding-v--xl--m-down">
-        <h1 className="col-span-12 text-center section-title">{t('faq.title')}</h1>
-        <div className="col-start-3 col-end-11 col-start-1--m-down col-span-4--s">
-          <Accordeon>
-            <AccordeonItem>
-              <AccordeonItemTitle>one title</AccordeonItemTitle>
-              <AccordeonItemBody>one body</AccordeonItemBody>
-            </AccordeonItem>
-            <AccordeonItem>
-              <AccordeonItemTitle>two title</AccordeonItemTitle>
-              <AccordeonItemBody>two body</AccordeonItemBody>
-            </AccordeonItem>
-            <AccordeonItem>
-              <AccordeonItemTitle>three title</AccordeonItemTitle>
-              <AccordeonItemBody>three body</AccordeonItemBody>
-            </AccordeonItem>
-            <AccordeonItem>
-              <AccordeonItemTitle>four title</AccordeonItemTitle>
-              <AccordeonItemBody>four body</AccordeonItemBody>
-            </AccordeonItem>
-          </Accordeon>
-        </div>
+    <div className="container grid padding-v--xxl-1 padding-v--xl--m-down">
+      <h1 className="col-span-12 text-center section-title">{t('faq.title')}</h1>
+      <div className="col-start-3 col-end-11 col-start-1--m-down col-span-4--s">
+        <Accordeon>
+          <AccordeonItem>
+            <AccordeonItemTitle>{t('faq.what-is-rentok.question')}</AccordeonItemTitle>
+            <AccordeonItemBody><p>{t('faq.what-is-rentok.answer')}</p></AccordeonItemBody>
+          </AccordeonItem>
+          <AccordeonItem className="padding-v--xs spacer-v--xs">
+            <AccordeonItemTitle>{t('faq.who-is-obp.question')}</AccordeonItemTitle>
+            <AccordeonItemBody>
+              {t('faq.who-is-obp.answer-1-1')}
+              <a className="color-text-primary" href="https://onlinepaymentplatform.com/en" target="_blank">
+                {t('faq.who-is-obp.bold-obp-site')}
+              </a>
+              {t('faq.who-is-obp.answer-1-2')}
+            </AccordeonItemBody>
+          </AccordeonItem>
+          <AccordeonItem className="padding-v--xs">
+            <AccordeonItemTitle>{t('faq.benefits-of-rentok.question')}</AccordeonItemTitle>
+            <AccordeonItemBody>
+              <h4>{t('faq.tenant-section')}</h4>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>
+                  {t('faq.benefits-of-rentok.for-tenants.li-1')}
+                  <a className="color-text-primary" href="https://onlinepaymentplatform.com/en">OPB</a>
+                </li>
+                <li>{t('faq.benefits-of-rentok.for-tenants.li-2')}</li>
+                <li>{t('faq.benefits-of-rentok.for-tenants.li-3')}</li>
+              </ul>
+              <h4>{t('faq.landlord-section')}</h4>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>{t('faq.benefits-of-rentok.for-landlords.li-1')}</li>
+                <li>{t('faq.benefits-of-rentok.for-landlords.li-2')}</li>
+                <li>{t('faq.benefits-of-rentok.for-landlords.li-3')}</li>
+              </ul>
+            </AccordeonItemBody>
+          </AccordeonItem>
+          <AccordeonItem className="padding-v--xs">
+            <AccordeonItemTitle>{t('faq.how-rentok-works.question')}</AccordeonItemTitle>
+            <AccordeonItemBody>
+              <h4>{t('faq.tenant-section')}</h4>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>{t('faq.how-rentok-works.for-tenants.li-1')}</li>
+                <li>{t('faq.how-rentok-works.for-tenants.li-2')}</li>
+                <li>
+                  {t('faq.how-rentok-works.for-tenants.li-3-1')}
+                  <a className="color-text-primary" href="https://onlinepaymentplatform.com/en">Online Betaalplatform</a>
+                  {t('faq.how-rentok-works.for-tenants.li-3-2')}
+                </li>
+              </ul>
+              <h4>{t('faq.landlord-section')}</h4>
+              <div>{t('faq.how-rentok-works.for-landlords.subtitle')}</div>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>{t('faq.how-rentok-works.for-landlords.li-1')}</li>
+                <li>{t('faq.how-rentok-works.for-landlords.li-2')}</li>
+                <li>{t('faq.how-rentok-works.for-landlords.li-3')}</li>
+              </ul>
+            </AccordeonItemBody>
+          </AccordeonItem>
+          <AccordeonItem className="padding-v--xs">
+            <AccordeonItemTitle>{t('faq.keep-in-mind-rentok.question')}</AccordeonItemTitle>
+            <AccordeonItemBody>
+              <h4>{t('faq.tenant-section')}</h4>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>
+                  {t('faq.keep-in-mind-rentok.for-tenants.li-1')}
+                  <a href="mailto:supportdesk@kamernet.nl" className="color-text-primary">supportdesk@kamernet.nl</a>
+                </li>
+                <li>{t('faq.keep-in-mind-rentok.for-tenants.li-2')}</li>
+                <li>{t('faq.keep-in-mind-rentok.for-tenants.li-3')}</li>
+              </ul>
+              <h4>{t('faq.landlord-section')}</h4>
+              <div>{t('faq.keep-in-mind-rentok.for-landlords.section-1.title')}</div>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>{t('faq.keep-in-mind-rentok.for-landlords.section-1.li-1')}</li>
+                <li>{t('faq.keep-in-mind-rentok.for-landlords.section-1.li-2')}</li>
+                <li>{t('faq.keep-in-mind-rentok.for-landlords.section-1.li-3')}</li>
+                <li>
+                  <a className="color-text-primary" href="https://onlinebetaalplatform.nl/assets/public/static/algemene-voorwaarden-c2c-betaallink.html">
+                    {t('faq.keep-in-mind-rentok.for-landlords.section-1.li-3')}
+                  </a>
+                </li>
+              </ul>
+              <div>{t('faq.keep-in-mind-rentok.for-landlords.section-2.title')}</div>
+              <ul className={`${styles['faq-list']} padding-h--m`}>
+                <li>{t('faq.keep-in-mind-rentok.for-landlords.section-2.li-1')}</li>
+              </ul>
+            </AccordeonItemBody>
+          </AccordeonItem>
+        </Accordeon>
       </div>
-    </>
+    </div>
   );
 
   const noKey = (

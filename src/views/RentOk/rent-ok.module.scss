@@ -203,3 +203,9 @@ $iam-number-v-connector-width: 8; // px
 .no-key-content > a {
     color: $color-primary;
 }
+
+.faq {
+    &-list {
+        list-style-type: disc;
+    }
+}

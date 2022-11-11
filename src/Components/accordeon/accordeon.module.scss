@@ -1,7 +1,33 @@
 .accordeon {
-    display: grid;
-
     &-item {
-        font-size: 30px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        border-top: solid 1px black;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        &-title {
+            cursor: pointer;
+            order: 1;
+        }
+
+        &-toggle {
+            cursor: pointer;
+            order: 2;
+        }
+
+        &-body {
+            order: 3;
+            grid-column: span 2;
+            max-height: 2000px;
+            transition: all 300ms ease;
+            overflow: hidden;
+            height: auto;
+            &.collapsed {
+                max-height: 0;
+            }
+        }
     }
 }

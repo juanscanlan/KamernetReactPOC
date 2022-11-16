@@ -25,6 +25,7 @@ const Navbar = () => {
   const iUnrepliedConversationCounter = 0;
   const { isLoggedIn, logout } = useContext(AuthContext);
   const [showBurger, setShowBurger] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   const createAdvertUrl = isLoggedIn
     ? "https://acceptance.kamernet.nl/en/create-room-advert"
@@ -42,6 +43,10 @@ const Navbar = () => {
 
   const handleBurgerClick = () => {
     setShowBurger((currentState) => !currentState);
+  };
+
+  const handleMobileNavClick = () => {
+    setShowMobileNav((currentState) => !currentState);
   };
 
   const BurgerJSX = () => {
@@ -340,147 +345,20 @@ const Navbar = () => {
     );
   };
 
-  const NavbarJSX = (
-    <>
-      <nav className="header box-shadow">
-        <div className="grid color-text cols-8--m">
-          {/* @* *** MOBILE MENU TRIGGER ****@ */}
-          <div className="for-tablet-down grid-item col-span-1 spacer-h--s spacer-v--xs">
-            <div className="burger-wrapper mobile-menu-trigger">
-              <div className="burger-icon"></div>
-            </div>
-          </div>
-          {/* @******************************@ */}
-          <div
-            className={`brand-logo-wrapper ${
-              isSimpleHeader ? "full-width" : ""
-            }`}
-          >
-            <a
-              id="brand-logo"
-              href="https://acceptance.kamernet.nl/"
-              className="grid-item align-center-all logo color-background-secondary col-span-3--m col-span-1--s"
-            >
-              logo
-            </a>
-          </div>
-
-          {!isSimpleHeader ? (
-            <>
-              <a
-                href="https://acceptance.kamernet.nl/en/search"
-                className="dark-white-hover for-desktop-s-up grid-item col-span-3 align-center-all link-subtle col-span-2--xl"
-                id="header-search"
-              >
-                <i className="icon-m search color-background-secondary-light-1"></i>
-                Search for a room
-              </a>
-              <a
-                href={createAdvertUrl}
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
-                  isLoggedIn ? "col-start-5" : "col-start-6"
-                }`}
-                id="header-place-button"
-              >
-                <span
-                  className="btn-medium header accent-dark"
-                  aria-disabled="true"
-                >
-                  Rent your place for free
-                </span>
-              </a>
-              {isLoggedIn ? (
-                <>
-                  <a
-                    href="https://acceptance.kamernet.nl/en/my-adverts"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
-                      isLoggedIn ? "col-start-6" : "col-start-7"
-                    }`}
-                    id="header-my-adverts"
-                  >
-                    My adverts
-                  </a>
-                  <a
-                    href="https://acceptance.kamernet.nl/en/my-messages/default?itemsperpage=20&amp;pageno=1"
-                    data-tooltip="@Translator.TranslateText('LBL_MENU_BAR_TT_MESSAGES')"
-                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
-                    id="header-messages"
-                  >
-                    <i className="icon-header header-mail color-background-secondary"></i>
-                    {/* @Html.Action("GetUnreadConversationsCount", "Home", new{" "}
-                    {(userId = UserContextHelper.CurrentUser.UserId)}) */}
-                  </a>
-                  <a
-                    data-tooltip="@Translator.TranslateText('LBL_GLOBAL_FAVORITES')"
-                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
-                    id="header-favorites"
-                    href={getFullRoute(baseUrl, "en/my-favorites/rooms")}
-                  >
-                    <i className="icon-header header-favorite color-background-secondary"></i>
-                  </a>
-                  <a
-                    data-tooltip="@Translator.TranslateText('LBL_MY_TODO_LIST_MENU')"
-                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
-                    id="header-todo"
-                    href="#!"
-                  >
-                    {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
-                    {(userId = UserContextHelper.CurrentUser.UserId)}) */}
-                    <i className="icon-header header-check color-background-secondary"></i>
-                  </a>
-                </>
-              ) : (
-                <>
-                  <div
-                    className="for-desktop-s-up grid-item align-center-all pointer"
-                    data-modal-id="#modal-auth-login"
-                    id="login-button"
-                  >
-                    Log in
-                  </div>
-                  <div
-                    className="for-desktop-s-up grid-item col-span-2 align-center-all pointer"
-                    data-modal-id="#modal-auth-register"
-                    id="register-button"
-                  >
-                    Create account
-                  </div>
-                </>
-              )}
-            </>
-          ) : null}
-
-          {isLoggedIn && (
-            <div
-              className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
-              id="user-image"
-            >
-              <Image
-                className="border-radius--s border-radius--no-bl"
-                src={ProfilePhoto}
-                width="48"
-                height="48"
-                alt="Your profile"
-              />
-            </div>
-          )}
-
-          <div
-            className="for-desktop-s-up grid-item col-start-8--m col-start-12 align-center-all col-start-4--s floating-menu-trigger pointer"
-            id="burger"
-            onClick={handleBurgerClick}
-          >
-            {/* @* *** DESKTOP TRIGGER & FLOATING MENU ****@ */}
-            <div className="for-desktop-s-up burger-wrapper">
-              <div className="burger-icon"></div>
-              {showBurger && <BurgerJSX />}
-            </div>
-            <i id="header-chevron-down"></i>
-          </div>
+  const MobileNavbarJSX = () => {
+    return (
+      <nav id="mobile-menu" className="">
+        <div
+          style={{
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+            fontSize: "20px",
+          }}
+          onClick={handleMobileNavClick}
+        >
+          <b>X</b>
         </div>
-      </nav>
-      {/* @* *** MOBILE MENU ****@ */}
-      <nav id="mobile-menu" className="for-tablet-down">
         <div className="grid padding-h--sm spacer-v--sm">
           {isLoggedIn ? (
             <>
@@ -615,7 +493,7 @@ const Navbar = () => {
                     <a>Messages</a>
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetUnreadConversationsCount", "Home", new{" "}
-                      {(userId = UserContextHelper.CurrentUser.UserId)}) */}
+                  {(userId = UserContextHelper.CurrentUser.UserId)}) */}
                     </span>
                   </li>
                   <li>
@@ -694,7 +572,7 @@ const Navbar = () => {
                     To do
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
-                      {(userId = UserContextHelper.CurrentUser.UserId)}) */}
+                  {(userId = UserContextHelper.CurrentUser.UserId)}) */}
                     </span>
                   </a>
                 </li>
@@ -928,6 +806,153 @@ const Navbar = () => {
           ) : null}
         </div>
       </nav>
+    );
+  };
+
+  const NavbarJSX = (
+    <>
+      <nav className="header box-shadow">
+        <div className="grid color-text cols-8--m">
+          {/* @* *** MOBILE MENU TRIGGER ****@ */}
+          <div
+            className="for-tablet-down grid-item col-span-1 spacer-h--s spacer-v--xs"
+            onClick={handleMobileNavClick}
+          >
+            <div className="burger-wrapper mobile-menu-trigger">
+              <div className="burger-icon"></div>
+            </div>
+          </div>
+          {/* @******************************@ */}
+          <div
+            className={`brand-logo-wrapper ${
+              isSimpleHeader ? "full-width" : ""
+            }`}
+          >
+            <a
+              id="brand-logo"
+              href="https://acceptance.kamernet.nl/"
+              className="grid-item align-center-all logo color-background-secondary col-span-3--m col-span-1--s"
+            >
+              logo
+            </a>
+          </div>
+
+          {!isSimpleHeader ? (
+            <>
+              <a
+                href="https://acceptance.kamernet.nl/en/search"
+                className="dark-white-hover for-desktop-s-up grid-item col-span-3 align-center-all link-subtle col-span-2--xl"
+                id="header-search"
+              >
+                <i className="icon-m search color-background-secondary-light-1"></i>
+                Search for a room
+              </a>
+              <a
+                href={createAdvertUrl}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
+                  isLoggedIn ? "col-start-5" : "col-start-6"
+                }`}
+                id="header-place-button"
+              >
+                <span
+                  className="btn-medium header accent-dark"
+                  aria-disabled="true"
+                >
+                  Rent your place for free
+                </span>
+              </a>
+              {isLoggedIn ? (
+                <>
+                  <a
+                    href="https://acceptance.kamernet.nl/en/my-adverts"
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
+                      isLoggedIn ? "col-start-6" : "col-start-7"
+                    }`}
+                    id="header-my-adverts"
+                  >
+                    My adverts
+                  </a>
+                  <a
+                    href="https://acceptance.kamernet.nl/en/my-messages/default?itemsperpage=20&amp;pageno=1"
+                    data-tooltip="@Translator.TranslateText('LBL_MENU_BAR_TT_MESSAGES')"
+                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
+                    id="header-messages"
+                  >
+                    <i className="icon-header header-mail color-background-secondary"></i>
+                    {/* @Html.Action("GetUnreadConversationsCount", "Home", new{" "}
+                    {(userId = UserContextHelper.CurrentUser.UserId)}) */}
+                  </a>
+                  <a
+                    data-tooltip="@Translator.TranslateText('LBL_GLOBAL_FAVORITES')"
+                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
+                    id="header-favorites"
+                    href={getFullRoute(baseUrl, "en/my-favorites/rooms")}
+                  >
+                    <i className="icon-header header-favorite color-background-secondary"></i>
+                  </a>
+                  <a
+                    data-tooltip="@Translator.TranslateText('LBL_MY_TODO_LIST_MENU')"
+                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
+                    id="header-todo"
+                    href="#!"
+                  >
+                    {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
+                    {(userId = UserContextHelper.CurrentUser.UserId)}) */}
+                    <i className="icon-header header-check color-background-secondary"></i>
+                  </a>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="for-desktop-s-up grid-item align-center-all pointer"
+                    data-modal-id="#modal-auth-login"
+                    id="login-button"
+                  >
+                    Log in
+                  </div>
+                  <div
+                    className="for-desktop-s-up grid-item col-span-2 align-center-all pointer"
+                    data-modal-id="#modal-auth-register"
+                    id="register-button"
+                  >
+                    Create account
+                  </div>
+                </>
+              )}
+            </>
+          ) : null}
+
+          {isLoggedIn && (
+            <div
+              className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
+              id="user-image"
+            >
+              <Image
+                className="border-radius--s border-radius--no-bl"
+                src={ProfilePhoto}
+                width="48"
+                height="48"
+                alt="Your profile"
+              />
+            </div>
+          )}
+
+          <div
+            className="for-desktop-s-up grid-item col-start-8--m col-start-12 align-center-all col-start-4--s floating-menu-trigger pointer"
+            id="burger"
+            onClick={handleBurgerClick}
+          >
+            {/* @* *** DESKTOP TRIGGER & FLOATING MENU ****@ */}
+            <div className="for-desktop-s-up burger-wrapper">
+              <div className="burger-icon"></div>
+              {showBurger && <BurgerJSX />}
+            </div>
+            <i id="header-chevron-down"></i>
+          </div>
+        </div>
+      </nav>
+      {showMobileNav && <MobileNavbarJSX />}
+
       <div className="my-todo-list color-background for-desktop-s-up"></div>
     </>
   );

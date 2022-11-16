@@ -5,105 +5,106 @@
 @import "../../layout/_forms.scss";
 
 .spacer {
-    background-color: $color-secondary-light-2;
-    height: 1px;
+  background-color: $color-secondary-light-2;
+  height: 1px;
 }
 
 .side-panel-trigger {
-    min-width: 160px;
+  min-width: 160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .filter-count {
+    float: left;
+  }
+
+  .filter-arrow {
+    float: right;
+  }
+
+  .filter-count,
+  .filter-arrow {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+  }
 
-    .filter-count {
-        float: left;
-    }
-
-    .filter-arrow {
-        float: right;
-    }
-
-    .filter-count, .filter-arrow {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .text-open-sans {
-        font-weight: 400;
-    }
+  .text-open-sans {
+    font-weight: 400;
+  }
 }
 
 nav#side-panel {
-    &::before {
-        content: '';
-        width: 100%;
-        height: 100%;
-        left: 0;
-        background-color: $color-secondary;
-        opacity: 0;
-        transition: all 300ms ease;
-    }
-
-    position: fixed;
-    top: 0;
-    right: -300px;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  &::before {
+    content: "";
     width: 100%;
-    max-width: 300px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 2;
-    -moz-transition: all 300ms ease;
-    -webkit-transition: all 300ms ease;
+    height: 100%;
+    left: 0;
+    background-color: $color-secondary;
+    opacity: 0;
     transition: all 300ms ease;
-    background: $color-text-light;
-    /*bottom-padding for when mobile bottom-navbar blocks page content*/
-    user-select: none;
+  }
 
-    .side-panel-active & {
-        @include box-shadow;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 2;
+  -moz-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  background: $color-text-light;
+  /*bottom-padding for when mobile bottom-navbar blocks page content*/
+  user-select: none;
 
-        &::before {
-            position: fixed;
-            left: -300px;
-            opacity: 0.5;
-        }
+  .side-panel-active & {
+    @include box-shadow;
+
+    &::before {
+      position: fixed;
+      // left: -300px;
+      opacity: 0.5;
     }
+  }
 
-    & .grid {
-        grid-column-gap: 16px;
-    }
+  & .grid {
+    grid-column-gap: 16px;
+  }
 
-    .select-prepend .select2-selection--single .select2-selection__rendered {
-        padding-left: 54px;
-    }
+  .select-prepend .select2-selection--single .select2-selection__rendered {
+    padding-left: 54px;
+  }
 
-    .select2-container--kamernet .select2-selection {
-        border: 1px solid #00163f !important;
-    }
+  .select2-container--kamernet .select2-selection {
+    border: 1px solid #00163f !important;
+  }
 
-    .filter-body {
-        margin-bottom: $spacing-m;
-        padding-bottom: $spacing-xxl-1;
-    }
+  .filter-body {
+    margin-bottom: $spacing-m;
+    padding-bottom: $spacing-xxl-1;
+  }
 
-    #show-results-button {
-        margin-top: auto;
-        border-radius: 0;
-        position: sticky;
-        bottom: 0;
-    }
+  #show-results-button {
+    margin-top: auto;
+    border-radius: 0;
+    position: sticky;
+    bottom: 0;
+  }
 }
 
 body.side-panel-active nav#side-panel {
-    right: 0;
+  right: 0;
 
-    & ul {
-        right: 0;
-        opacity: 1;
-    }
+  & ul {
+    right: 0;
+    opacity: 1;
+  }
 }

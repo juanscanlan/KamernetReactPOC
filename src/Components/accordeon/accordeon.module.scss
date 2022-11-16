@@ -16,6 +16,9 @@
         &-toggle {
             cursor: pointer;
             order: 2;
+            &-turn-90 {
+                transform: rotate(90deg);
+            }
         }
 
         &-body {
@@ -25,6 +28,7 @@
             transition: all 300ms ease;
             overflow: hidden;
             height: auto;
+
             &.collapsed {
                 max-height: 0;
             }

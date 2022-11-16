@@ -1,4 +1,4 @@
-import { Select, TextField } from "@mui/material";
+import { Select } from "@mui/material";
 
 import { useTranslation } from "next-i18next";
 
@@ -90,8 +90,7 @@ const SearchWrapper = () => {
                       City or postal code is not recognized
                     </div>
                     <i className="select-prepend-icon location icon-m color-background-secondary"></i>
-                    <TextField label="City or postcode" />
-                    {/* <select
+                    <select
                       className="select-className single-select-search select-city hide select2-hidden-accessible"
                       id="LocationText"
                       name="LocationText"
@@ -202,7 +201,7 @@ const SearchWrapper = () => {
                         className="dropdown-wrapper"
                         aria-hidden="true"
                       ></span>
-                    </span> */}
+                    </span>{" "}
                   </div>
                   <div className="grid-item col-span-3 select-prepend select-checkbox col-span-4--m row--s ">
                     <i className="select-prepend-icon home icon-m color-background-secondary"></i>

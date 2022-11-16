@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { initTodoList } from "@utilities/Header/Header";
-
-import { hamburgerListener } from "@utilities/Navbar/HamburgerMenu";
 
 import flag from "@assets/Images/flags/lang/nl.png";
 import ProfilePhoto from "@assets/Images/marketing/marketing_home_default_sh.jpg";
@@ -26,6 +24,7 @@ const Navbar = () => {
   const SettingsManager = {};
   const iUnrepliedConversationCounter = 0;
   const { isLoggedIn, logout } = useContext(AuthContext);
+  const [showBurger, setShowBurger] = useState(false);
 
   const createAdvertUrl = isLoggedIn
     ? "https://acceptance.kamernet.nl/en/create-room-advert"
@@ -39,10 +38,307 @@ const Navbar = () => {
     console.log("OpenSubMenu potato");
   };
 
-  useEffect(() => {
-    hamburgerListener();
-    console.log("potato rendered");
-  }, []);
+  useEffect(() => {}, []);
+
+  const handleBurgerClick = () => {
+    setShowBurger((currentState) => !currentState);
+  };
+
+  const BurgerJSX = () => {
+    return (
+      <div className="floating-header-menu">
+        <ul>
+          {isLoggedIn ? (
+            <>
+              <li id="menu_desk_profile">
+                <a href={getFullRoute(baseUrl, "en/public-profile")}>
+                  My profile
+                </a>
+              </li>
+              <li id="menu_desk_adverts">
+                <a href={getFullRoute(baseUrl, "en/my-adverts")}>My adverts</a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <div className="divider-icon">
+                    <i className="fa fa-search" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </li>
+
+              <li id="menu_desk_roomsearch">
+                <a href={getFullRoute(baseUrl, "en/search")}>
+                  Searching for a room
+                </a>
+              </li>
+              <li id="menu_desk_tenantsearch">
+                <a href="@NavigationHelper.GetSearchTenantsRouteUrl(_searchOptions)?browseTenantSearch=1">
+                  Searching for a tenant
+                </a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <div className="divider-icon">
+                    <i className="fa fa-home" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </li>
+
+              {checkStudentHouse ? (
+                <li id="menu_desk_studenthouse">
+                  <a href={getFullRoute(baseUrl, "en/studenthouse")}>
+                    Student House
+                  </a>
+                </li>
+              ) : (
+                <li id="menu_desk_studenthouse">
+                  <a
+                    href={getFullRoute(
+                      baseUrl,
+                      "en/student-house/find-your-new-roommate"
+                    )}
+                  >
+                    Student House
+                  </a>
+                </li>
+              )}
+              <li id="menu_desk_cashback">
+                <a href={getFullRoute(baseUrl, "en/cashback")}>
+                  Cashback & discounts
+                </a>
+              </li>
+
+              <li id="menu_desk_smartstudent">
+                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
+                  Rent your appliances
+                </a>
+              </li>
+
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <div className="divider-icon">
+                    <i className="fa fa-cog" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </li>
+
+              <li id="menu_desk_account">
+                <a href={getFullRoute(baseUrl, "en/my-account")}>My account</a>
+              </li>
+              <li id="menu_desk_settings">
+                <a href={getFullRoute(baseUrl, "en/account/settings")}>
+                  Settings
+                </a>
+              </li>
+              <li id="menu_desk_language">
+                <a
+                  href="@NavigationHelper.GetChangeLanguageUrl(languageId)"
+                  id="languageIdDesktop"
+                  rel="nofollow"
+                >
+                  @_langLabel{" "}
+                  <Image
+                    className="icon-s flagImg"
+                    src={flag}
+                    width="12"
+                    height="12"
+                    alt="Flag"
+                  />
+                </a>
+              </li>
+
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <div className="divider-icon">
+                    <i className="fa fa-question-circle" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </li>
+
+              <li id="menu_desk_howitwors">
+                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
+                  How does it work?
+                </a>
+              </li>
+              <li id="menu_desk_aboutus">
+                <a href={getFullRoute(baseUrl, "en/about-us")}>
+                  About Kamernet
+                </a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <div className="divider-icon">
+                    <i className="fa fa-sign-out" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </li>
+              <li id="menu_desk_rentok">
+                <a href={getFullRoute(baseUrl, "en/safety-tenant")}>Safety</a>
+              </li>
+              <li id="menu_desk_usefultips">
+                <a href={getFullRoute(baseUrl, "tips/studenten")}>
+                  Useful tips
+                </a>
+              </li>
+              <li id="menu_desk_support">
+                <a
+                  href="https://support.kamernet.nl/en"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Support
+                </a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <div className="divider-icon">
+                    <i className="fa fa-sign-out" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </li>
+
+              <li onClick={logout} id="menu_desk_logout">
+                <div>Log out</div>
+              </li>
+            </>
+          ) : (
+            <>
+              <li
+                className="for-mobile-only"
+                data-modal-id="#modal-auth-login"
+                id="login-button-mobile"
+              >
+                <a href="#!">Log in</a>
+              </li>
+              <li
+                className="for-mobile-only"
+                data-modal-id="#modal-auth-register"
+                id="register-button-mobile"
+              >
+                <a href="#!">Create account</a>
+              </li>
+              <li className="desktop-menu-divider for-mobile-only">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <i
+                    className="icon-s search color-background-secondary"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+              </li>
+              <li id="menu_desk_roomsearch_loggedout">
+                <a href={getFullRoute(baseUrl, "en/search")}>
+                  Searching for a room
+                </a>
+              </li>
+              <li id="menu_desk_tenantsearch_loggedout">
+                <a href={getFullRoute(baseUrl, "en/tenants/room-netherlands")}>
+                  Searching for a tenant
+                </a>
+              </li>
+
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <i
+                    className="icon-s home color-background-secondary"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+              </li>
+              <li id="menu_desk_createadvert_loggedout">
+                <a href={getFullRoute(baseUrl, "en/create-room-advert")}>
+                  Place advert
+                </a>
+              </li>
+              <li id="menu_desk_studenthouse">
+                <a
+                  href={getFullRoute(
+                    baseUrl,
+                    "en/student-house/find-your-new-roommate"
+                  )}
+                >
+                  Student House
+                </a>
+              </li>
+              <li id="menu_desk_smartstudent">
+                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
+                  Rent your appliances
+                </a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <i className="icon-s chevron-right-thin color-background-secondary"></i>
+                </div>
+              </li>
+              <li id="menu_desk_language_loggedout">
+                <a
+                  href="@NavigationHelper.GetChangeLanguageUrl(languageId)"
+                  id="languageIdDesktop"
+                  rel="nofollow"
+                >
+                  @_langLabel{" "}
+                  <Image
+                    className="icon-s flagImg"
+                    src={flag}
+                    width="12"
+                    height="12"
+                    alt="Flag"
+                  />
+                </a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <i className="icon-s overlay-question"></i>
+                </div>
+              </li>
+              <li id="menu_desk_howitwors_loggedout">
+                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
+                  How does it work?
+                </a>
+              </li>
+              <li id="menu_desk_aboutus_loggedout">
+                <a href={getFullRoute(baseUrl, "en/about-us")}>
+                  About Kamernet
+                </a>
+              </li>
+              <li className="desktop-menu-divider">
+                <div className="divider-wrapper">
+                  <div className="divider"></div>
+                  <i className="icon-s overlay-question"></i>
+                </div>
+              </li>
+              <li id="menu_desk_safety_loggedout">
+                <a href={getFullRoute(baseUrl, "en/safety-landlord")}>Safety</a>
+              </li>
+              <li id="menu_desk_usefultips_loggedout">
+                <a href={getFullRoute(baseUrl, "tips/studenten")}>
+                  Useful tips
+                </a>
+              </li>
+              <li id="menu_desk_support_loggedout">
+                <a
+                  href="https://support.kamernet.nl/en"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Support
+                </a>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
+    );
+  };
 
   const NavbarJSX = (
     <>
@@ -56,8 +352,9 @@ const Navbar = () => {
           </div>
           {/* @******************************@ */}
           <div
-            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
-              }`}
+            className={`brand-logo-wrapper ${
+              isSimpleHeader ? "full-width" : ""
+            }`}
           >
             <a
               id="brand-logo"
@@ -80,8 +377,9 @@ const Navbar = () => {
               </a>
               <a
                 href={createAdvertUrl}
-                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isLoggedIn ? "col-start-5" : "col-start-6"
-                  }`}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${
+                  isLoggedIn ? "col-start-5" : "col-start-6"
+                }`}
                 id="header-place-button"
               >
                 <span
@@ -95,8 +393,9 @@ const Navbar = () => {
                 <>
                   <a
                     href="https://acceptance.kamernet.nl/en/my-adverts"
-                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isLoggedIn ? "col-start-6" : "col-start-7"
-                      }`}
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${
+                      isLoggedIn ? "col-start-6" : "col-start-7"
+                    }`}
                     id="header-my-adverts"
                   >
                     My adverts
@@ -169,329 +468,12 @@ const Navbar = () => {
           <div
             className="for-desktop-s-up grid-item col-start-8--m col-start-12 align-center-all col-start-4--s floating-menu-trigger pointer"
             id="burger"
+            onClick={handleBurgerClick}
           >
             {/* @* *** DESKTOP TRIGGER & FLOATING MENU ****@ */}
             <div className="for-desktop-s-up burger-wrapper">
               <div className="burger-icon"></div>
-              <div className="floating-header-menu" style={{ display: "none" }}>
-                <ul>
-                  {isLoggedIn ? (
-                    <>
-                      <li id="menu_desk_profile">
-                        <a href={getFullRoute(baseUrl, "en/public-profile")}>
-                          My profile
-                        </a>
-                      </li>
-                      <li id="menu_desk_adverts">
-                        <a href={getFullRoute(baseUrl, "en/my-adverts")}>
-                          My adverts
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <div className="divider-icon">
-                            <i className="fa fa-search" aria-hidden="true"></i>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li id="menu_desk_roomsearch">
-                        <a href={getFullRoute(baseUrl, "en/search")}>
-                          Searching for a room
-                        </a>
-                      </li>
-                      <li id="menu_desk_tenantsearch">
-                        <a href="@NavigationHelper.GetSearchTenantsRouteUrl(_searchOptions)?browseTenantSearch=1">
-                          Searching for a tenant
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <div className="divider-icon">
-                            <i className="fa fa-home" aria-hidden="true"></i>
-                          </div>
-                        </div>
-                      </li>
-
-                      {checkStudentHouse ? (
-                        <li id="menu_desk_studenthouse">
-                          <a href={getFullRoute(baseUrl, "en/studenthouse")}>
-                            Student House
-                          </a>
-                        </li>
-                      ) : (
-                        <li id="menu_desk_studenthouse">
-                          <a
-                            href={getFullRoute(
-                              baseUrl,
-                              "en/student-house/find-your-new-roommate"
-                            )}
-                          >
-                            Student House
-                          </a>
-                        </li>
-                      )}
-                      <li id="menu_desk_cashback">
-                        <a href={getFullRoute(baseUrl, "en/cashback")}>
-                          Cashback & discounts
-                        </a>
-                      </li>
-
-                      <li id="menu_desk_smartstudent">
-                        <a
-                          href={getFullRoute(baseUrl, "en/for-rent/appliances")}
-                        >
-                          Rent your appliances
-                        </a>
-                      </li>
-
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <div className="divider-icon">
-                            <i className="fa fa-cog" aria-hidden="true"></i>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li id="menu_desk_account">
-                        <a href={getFullRoute(baseUrl, "en/my-account")}>
-                          My account
-                        </a>
-                      </li>
-                      <li id="menu_desk_settings">
-                        <a href={getFullRoute(baseUrl, "en/account/settings")}>
-                          Settings
-                        </a>
-                      </li>
-                      <li id="menu_desk_language">
-                        <a
-                          href="@NavigationHelper.GetChangeLanguageUrl(languageId)"
-                          id="languageIdDesktop"
-                          rel="nofollow"
-                        >
-                          @_langLabel{" "}
-                          <Image
-                            className="icon-s flagImg"
-                            src={flag}
-                            width="12"
-                            height="12"
-                            alt="Flag"
-                          />
-                        </a>
-                      </li>
-
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <div className="divider-icon">
-                            <i
-                              className="fa fa-question-circle"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li id="menu_desk_howitwors">
-                        <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
-                          How does it work?
-                        </a>
-                      </li>
-                      <li id="menu_desk_aboutus">
-                        <a href={getFullRoute(baseUrl, "en/about-us")}>
-                          About Kamernet
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <div className="divider-icon">
-                            <i
-                              className="fa fa-sign-out"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                        </div>
-                      </li>
-                      <li id="menu_desk_rentok">
-                        <a href={getFullRoute(baseUrl, "en/safety-tenant")}>
-                          Safety
-                        </a>
-                      </li>
-                      <li id="menu_desk_usefultips">
-                        <a href={getFullRoute(baseUrl, "tips/studenten")}>
-                          Useful tips
-                        </a>
-                      </li>
-                      <li id="menu_desk_support">
-                        <a
-                          href="https://support.kamernet.nl/en"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Support
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <div className="divider-icon">
-                            <i
-                              className="fa fa-sign-out"
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li onClick={logout} id="menu_desk_logout">
-                        <div>Log out</div>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li
-                        className="for-mobile-only"
-                        data-modal-id="#modal-auth-login"
-                        id="login-button-mobile"
-                      >
-                        <a href="#!">Log in</a>
-                      </li>
-                      <li
-                        className="for-mobile-only"
-                        data-modal-id="#modal-auth-register"
-                        id="register-button-mobile"
-                      >
-                        <a href="#!">Create account</a>
-                      </li>
-                      <li className="desktop-menu-divider for-mobile-only">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <i
-                            className="icon-s search color-background-secondary"
-                            aria-hidden="true"
-                          ></i>
-                        </div>
-                      </li>
-                      <li id="menu_desk_roomsearch_loggedout">
-                        <a href={getFullRoute(baseUrl, "en/search")}>
-                          Searching for a room
-                        </a>
-                      </li>
-                      <li id="menu_desk_tenantsearch_loggedout">
-                        <a
-                          href={getFullRoute(
-                            baseUrl,
-                            "en/tenants/room-netherlands"
-                          )}
-                        >
-                          Searching for a tenant
-                        </a>
-                      </li>
-
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <i
-                            className="icon-s home color-background-secondary"
-                            aria-hidden="true"
-                          ></i>
-                        </div>
-                      </li>
-                      <li id="menu_desk_createadvert_loggedout">
-                        <a
-                          href={getFullRoute(baseUrl, "en/create-room-advert")}
-                        >
-                          Place advert
-                        </a>
-                      </li>
-                      <li id="menu_desk_studenthouse">
-                        <a
-                          href={getFullRoute(
-                            baseUrl,
-                            "en/student-house/find-your-new-roommate"
-                          )}
-                        >
-                          Student House
-                        </a>
-                      </li>
-                      <li id="menu_desk_smartstudent">
-                        <a
-                          href={getFullRoute(baseUrl, "en/for-rent/appliances")}
-                        >
-                          Rent your appliances
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <i className="icon-s chevron-right-thin color-background-secondary"></i>
-                        </div>
-                      </li>
-                      <li id="menu_desk_language_loggedout">
-                        <a
-                          href="@NavigationHelper.GetChangeLanguageUrl(languageId)"
-                          id="languageIdDesktop"
-                          rel="nofollow"
-                        >
-                          @_langLabel{" "}
-                          <Image
-                            className="icon-s flagImg"
-                            src={flag}
-                            width="12"
-                            height="12"
-                            alt="Flag"
-                          />
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <i className="icon-s overlay-question"></i>
-                        </div>
-                      </li>
-                      <li id="menu_desk_howitwors_loggedout">
-                        <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
-                          How does it work?
-                        </a>
-                      </li>
-                      <li id="menu_desk_aboutus_loggedout">
-                        <a href={getFullRoute(baseUrl, "en/about-us")}>
-                          About Kamernet
-                        </a>
-                      </li>
-                      <li className="desktop-menu-divider">
-                        <div className="divider-wrapper">
-                          <div className="divider"></div>
-                          <i className="icon-s overlay-question"></i>
-                        </div>
-                      </li>
-                      <li id="menu_desk_safety_loggedout">
-                        <a href={getFullRoute(baseUrl, "en/safety-landlord")}>
-                          Safety
-                        </a>
-                      </li>
-                      <li id="menu_desk_usefultips_loggedout">
-                        <a href={getFullRoute(baseUrl, "tips/studenten")}>
-                          Useful tips
-                        </a>
-                      </li>
-                      <li id="menu_desk_support_loggedout">
-                        <a
-                          href="https://support.kamernet.nl/en"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Support
-                        </a>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </div>
+              {showBurger && <BurgerJSX />}
             </div>
             <i id="header-chevron-down"></i>
           </div>
@@ -604,7 +586,7 @@ const Navbar = () => {
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-                isLoggedIn ? (
+              isLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
                     Get Premium
@@ -719,7 +701,7 @@ const Navbar = () => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-                isLoggedIn ? (
+              isLoggedIn ? (
                 <li>
                   <a href={getFullRoute(baseUrl, "en/referrals")}>
                     Refer a friend

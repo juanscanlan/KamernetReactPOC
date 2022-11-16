@@ -10,10 +10,8 @@ import Image from "next/image";
 import { useContext } from "react";
 import { AuthContext } from "@core/Auth/AuthContext";
 
-const baseUrl = process.env.NEXT_PUBLIC_APP_BASE_URL;
-
-const getFullRoute = (baseUrl, route) => {
-  return baseUrl + route;
+const getMvcUrl = (path) => {
+  return process.env.NEXT_PUBLIC_MVC_APP_BASE_URL + path;
 };
 
 const Navbar = () => {
@@ -28,8 +26,8 @@ const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const createAdvertUrl = isLoggedIn
-    ? "https://acceptance.kamernet.nl/en/create-room-advert"
-    : "https://acceptance.kamernet.nl/en/rent-out-room";
+    ? getMvcUrl("en/create-room-advert")
+    : getMvcUrl("en/rent-out-room");
 
   const backToMain = () => {
     console.log("Back to main potato");
@@ -39,7 +37,7 @@ const Navbar = () => {
     console.log("OpenSubMenu potato");
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const handleBurgerClick = () => {
     setShowBurger((currentState) => !currentState);
@@ -56,12 +54,12 @@ const Navbar = () => {
           {isLoggedIn ? (
             <>
               <li id="menu_desk_profile">
-                <a href={getFullRoute(baseUrl, "en/public-profile")}>
+                <a href={getMvcUrl("en/public-profile")}>
                   My profile
                 </a>
               </li>
               <li id="menu_desk_adverts">
-                <a href={getFullRoute(baseUrl, "en/my-adverts")}>My adverts</a>
+                <a href={getMvcUrl("en/my-adverts")}>My adverts</a>
               </li>
               <li className="desktop-menu-divider">
                 <div className="divider-wrapper">
@@ -73,12 +71,12 @@ const Navbar = () => {
               </li>
 
               <li id="menu_desk_roomsearch">
-                <a href={getFullRoute(baseUrl, "en/search")}>
+                <a href={getMvcUrl("en/search")}>
                   Searching for a room
                 </a>
               </li>
               <li id="menu_desk_tenantsearch">
-                <a href="@NavigationHelper.GetSearchTenantsRouteUrl(_searchOptions)?browseTenantSearch=1">
+                <a href={getMvcUrl("en/tenants/room-netherlands?browseTenantSearch=1")}>
                   Searching for a tenant
                 </a>
               </li>
@@ -93,15 +91,14 @@ const Navbar = () => {
 
               {checkStudentHouse ? (
                 <li id="menu_desk_studenthouse">
-                  <a href={getFullRoute(baseUrl, "en/studenthouse")}>
+                  <a href={getMvcUrl("en/studenthouse")}>
                     Student House
                   </a>
                 </li>
               ) : (
                 <li id="menu_desk_studenthouse">
                   <a
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/student-house/find-your-new-roommate"
                     )}
                   >
@@ -110,13 +107,13 @@ const Navbar = () => {
                 </li>
               )}
               <li id="menu_desk_cashback">
-                <a href={getFullRoute(baseUrl, "en/cashback")}>
+                <a href={getMvcUrl("en/cashback")}>
                   Cashback & discounts
                 </a>
               </li>
 
               <li id="menu_desk_smartstudent">
-                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
+                <a href={getMvcUrl("en/for-rent/appliances")}>
                   Rent your appliances
                 </a>
               </li>
@@ -131,10 +128,10 @@ const Navbar = () => {
               </li>
 
               <li id="menu_desk_account">
-                <a href={getFullRoute(baseUrl, "en/my-account")}>My account</a>
+                <a href={getMvcUrl("en/my-account")}>My account</a>
               </li>
               <li id="menu_desk_settings">
-                <a href={getFullRoute(baseUrl, "en/account/settings")}>
+                <a href={getMvcUrl("en/account/settings")}>
                   Settings
                 </a>
               </li>
@@ -165,12 +162,12 @@ const Navbar = () => {
               </li>
 
               <li id="menu_desk_howitwors">
-                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
+                <a href={getMvcUrl("en/how-does-it-work")}>
                   How does it work?
                 </a>
               </li>
               <li id="menu_desk_aboutus">
-                <a href={getFullRoute(baseUrl, "en/about-us")}>
+                <a href={getMvcUrl("en/about-us")}>
                   About Kamernet
                 </a>
               </li>
@@ -183,10 +180,10 @@ const Navbar = () => {
                 </div>
               </li>
               <li id="menu_desk_rentok">
-                <a href={getFullRoute(baseUrl, "en/safety-tenant")}>Safety</a>
+                <a href={getMvcUrl("en/safety-tenant")}>Safety</a>
               </li>
               <li id="menu_desk_usefultips">
-                <a href={getFullRoute(baseUrl, "tips/studenten")}>
+                <a href={getMvcUrl("tips/studenten")}>
                   Useful tips
                 </a>
               </li>
@@ -238,12 +235,12 @@ const Navbar = () => {
                 </div>
               </li>
               <li id="menu_desk_roomsearch_loggedout">
-                <a href={getFullRoute(baseUrl, "en/search")}>
+                <a href={getMvcUrl("en/search")}>
                   Searching for a room
                 </a>
               </li>
               <li id="menu_desk_tenantsearch_loggedout">
-                <a href={getFullRoute(baseUrl, "en/tenants/room-netherlands")}>
+                <a href={getMvcUrl("en/tenants/room-netherlands")}>
                   Searching for a tenant
                 </a>
               </li>
@@ -258,14 +255,13 @@ const Navbar = () => {
                 </div>
               </li>
               <li id="menu_desk_createadvert_loggedout">
-                <a href={getFullRoute(baseUrl, "en/create-room-advert")}>
+                <a href={getMvcUrl("en/create-room-advert")}>
                   Place advert
                 </a>
               </li>
               <li id="menu_desk_studenthouse">
                 <a
-                  href={getFullRoute(
-                    baseUrl,
+                  href={getMvcUrl(
                     "en/student-house/find-your-new-roommate"
                   )}
                 >
@@ -273,7 +269,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li id="menu_desk_smartstudent">
-                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
+                <a href={getMvcUrl("en/for-rent/appliances")}>
                   Rent your appliances
                 </a>
               </li>
@@ -306,12 +302,12 @@ const Navbar = () => {
                 </div>
               </li>
               <li id="menu_desk_howitwors_loggedout">
-                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
+                <a href={getMvcUrl("en/how-does-it-work")}>
                   How does it work?
                 </a>
               </li>
               <li id="menu_desk_aboutus_loggedout">
-                <a href={getFullRoute(baseUrl, "en/about-us")}>
+                <a href={getMvcUrl("en/about-us")}>
                   About Kamernet
                 </a>
               </li>
@@ -322,10 +318,10 @@ const Navbar = () => {
                 </div>
               </li>
               <li id="menu_desk_safety_loggedout">
-                <a href={getFullRoute(baseUrl, "en/safety-landlord")}>Safety</a>
+                <a href={getMvcUrl("en/safety-landlord")}>Safety</a>
               </li>
               <li id="menu_desk_usefultips_loggedout">
-                <a href={getFullRoute(baseUrl, "tips/studenten")}>
+                <a href={getMvcUrl("tips/studenten")}>
                   Useful tips
                 </a>
               </li>
@@ -345,27 +341,150 @@ const Navbar = () => {
     );
   };
 
-  const MobileNavbarJSX = () => {
-    return (
-      <nav id="mobile-menu" className="">
-        <div
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: "10px",
-            fontSize: "20px",
-          }}
-          onClick={handleMobileNavClick}
-        >
-          <b>X</b>
+  const NavbarJSX = (
+    <>
+      <nav className="header box-shadow">
+        <div className="grid color-text cols-8--m">
+          {/* @* *** MOBILE MENU TRIGGER ****@ */}
+          <div className="for-tablet-down grid-item col-span-1 spacer-h--s spacer-v--xs">
+            <div className="burger-wrapper mobile-menu-trigger">
+              <div className="burger-icon"></div>
+            </div>
+          </div>
+          {/* @******************************@ */}
+          <div
+            className={`brand-logo-wrapper ${isSimpleHeader ? "full-width" : ""
+              }`}
+          >
+            <a
+              id="brand-logo"
+              href="http://localhost"
+              className="grid-item align-center-all logo color-background-secondary col-span-3--m col-span-1--s"
+            >
+              logo
+            </a>
+          </div>
+
+          {!isSimpleHeader ? (
+            <>
+              <a
+                href={getMvcUrl("en/search")}
+                className="dark-white-hover for-desktop-s-up grid-item col-span-3 align-center-all link-subtle col-span-2--xl"
+                id="header-search"
+              >
+                <i className="icon-m search color-background-secondary-light-1"></i>
+                Search for a room
+              </a>
+              <a
+                href={createAdvertUrl}
+                className={`for-desktop-s-up grid-item col-span-3 align-center-all ${isLoggedIn ? "col-start-5" : "col-start-6"
+                  }`}
+                id="header-place-button"
+              >
+                <span
+                  className="btn-medium header accent-dark"
+                  aria-disabled="true"
+                >
+                  Rent your place for free
+                </span>
+              </a>
+              {isLoggedIn ? (
+                <>
+                  <a
+                    href={getMvcUrl("en/my-adverts")}
+                    className={`dark-white-hover for-desktop-up grid-item col-span-2 align-center-all link-subtle ${isLoggedIn ? "col-start-6" : "col-start-7"
+                      }`}
+                    id="header-my-adverts"
+                  >
+                    My adverts
+                  </a>
+                  <a
+                    href={getMvcUrl("en/my-messages/default?itemsperpage=20&amp;pageno=1")}
+                    data-tooltip="@Translator.TranslateText('LBL_MENU_BAR_TT_MESSAGES')"
+                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
+                    id="header-messages"
+                  >
+                    <i className="icon-header header-mail color-background-secondary"></i>
+                    {/* @Html.Action("GetUnreadConversationsCount", "Home", new{" "}
+                    {(userId = UserContextHelper.CurrentUser.UserId)}) */}
+                  </a>
+                  <a
+                    data-tooltip="@Translator.TranslateText('LBL_GLOBAL_FAVORITES')"
+                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
+                    id="header-favorites"
+                    href={getMvcUrl("en/my-favorites/rooms")}
+                  >
+                    <i className="icon-header header-favorite color-background-secondary"></i>
+                  </a>
+                  <a
+                    data-tooltip="@Translator.TranslateText('LBL_MY_TODO_LIST_MENU')"
+                    className="tooltipped dark-white-hover for-desktop-s-up grid-item align-center-all"
+                    id="header-todo"
+                  >
+                    {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
+                    {(userId = UserContextHelper.CurrentUser.UserId)}) */}
+                    <i className="icon-header header-check color-background-secondary"></i>
+                  </a>
+                </>
+              ) : (
+                <>
+                  <div
+                    className="for-desktop-s-up grid-item align-center-all pointer"
+                    data-modal-id="#modal-auth-login"
+                    id="login-button"
+                  >
+                    Log in
+                  </div>
+                  <div
+                    className="for-desktop-s-up grid-item col-span-2 align-center-all pointer"
+                    data-modal-id="#modal-auth-register"
+                    id="register-button"
+                  >
+                    Create account
+                  </div>
+                </>
+              )}
+            </>
+          ) : null}
+
+          {isLoggedIn && (
+            <div
+              className="for-desktop-s-up grid-item col-start-11 align-center-all col-start-7--m col-start-3--s "
+              id="user-image"
+            >
+              <Image
+                className="border-radius--s border-radius--no-bl"
+                src={ProfilePhoto}
+                width="48"
+                height="48"
+                alt="Your profile"
+              />
+            </div>
+          )}
+
+          <div
+            className="for-desktop-s-up grid-item col-start-8--m col-start-12 align-center-all col-start-4--s floating-menu-trigger pointer"
+            id="burger"
+            onClick={handleBurgerClick}
+          >
+            {/* @* *** DESKTOP TRIGGER & FLOATING MENU ****@ */}
+            <div className="for-desktop-s-up burger-wrapper">
+              <div className="burger-icon"></div>
+              {showBurger && <BurgerJSX />}
+            </div>
+            <i id="header-chevron-down"></i>
+          </div>
         </div>
+      </nav>
+      {/* @* *** MOBILE MENU ****@ */}
+      <nav id="mobile-menu" className="for-tablet-down">
         <div className="grid padding-h--sm spacer-v--sm">
           {isLoggedIn ? (
             <>
               <div className="grid-item">
                 <div className="profile-wrapper">
                   <a
-                    href={getFullRoute(baseUrl, "en/my-account")}
+                    href={getMvcUrl("en/my-account")}
                     className="mobile-menu-user"
                   >
                     <Image
@@ -443,30 +562,30 @@ const Navbar = () => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul className="menu-first">
               <li className="submenu-item-selector">
-                <a href={getFullRoute(baseUrl, "en/create-room-advert")}>
+                <a href={getMvcUrl("en/create-room-advert")}>
                   <i className="icon-m home color-background-secondary"></i>
                   Place advert
                 </a>
               </li>
               <li>
                 <a
-                  href={getFullRoute(baseUrl, "en/for-rent/rooms-netherlands")}
+                  href={getMvcUrl("en/for-rent/rooms-netherlands")}
                 >
                   <i className="icon-m search color-background-secondary"></i>
                   Search room
                 </a>
               </li>
               <li>
-                <a href={getFullRoute(baseUrl, "en/tenants/room-netherlands")}>
+                <a href={getMvcUrl("en/tenants/room-netherlands")}>
                   <i className="icon-m search color-background-secondary"></i>
                   Searching for a tenant
                 </a>
               </li>
 
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-              isLoggedIn ? (
+                isLoggedIn ? (
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
+                  <a href={getMvcUrl("en/premium-account-payment")}>
                     Get Premium
                   </a>
                 </li>
@@ -481,7 +600,7 @@ const Navbar = () => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul className="menu-first">
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/dashboard")}>
+                    <a href={getMvcUrl("en/dashboard")}>
                       Dashboard
                     </a>
                   </li>
@@ -497,7 +616,7 @@ const Navbar = () => {
                     </span>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/my-account")}>
+                    <a href={getMvcUrl("en/my-account")}>
                       My account
                     </a>
                   </li>
@@ -515,22 +634,22 @@ const Navbar = () => {
                     <a href="#!">My adverts</a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/public-profile")}>
+                    <a href={getMvcUrl("en/public-profile")}>
                       Public profile
                     </a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/account/alerts")}>
+                    <a href={getMvcUrl("en/account/alerts")}>
                       Saved searches
                     </a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/my-favorites/rooms")}>
+                    <a href={getMvcUrl("en/my-favorites/rooms")}>
                       Favorites
                     </a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/account/settings")}>
+                    <a href={getMvcUrl("en/account/settings")}>
                       Settings
                     </a>
                   </li>
@@ -546,7 +665,7 @@ const Navbar = () => {
               {checkStudentHouse ? (
                 <li>
                   <a
-                    href={getFullRoute(baseUrl, "en/studenthouse")}
+                    href={getMvcUrl("en/studenthouse")}
                     className="white-text"
                   >
                     Student House
@@ -555,8 +674,7 @@ const Navbar = () => {
               ) : (
                 <li>
                   <a
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/student-house/find-your-new-roommate"
                     )}
                     className="white-text"
@@ -568,7 +686,7 @@ const Navbar = () => {
 
               {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
                 <li className="mytodolist-menubar-mobile">
-                  <a href={getFullRoute(baseUrl, "en/account/to-do")}>
+                  <a href={getMvcUrl("en/account/to-do")}>
                     To do
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
@@ -579,21 +697,21 @@ const Navbar = () => {
               ) : null}
 
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-              isLoggedIn ? (
+                isLoggedIn ? (
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/referrals")}>
+                  <a href={getMvcUrl("en/referrals")}>
                     Refer a friend
                   </a>
                 </li>
               ) : null}
 
               <li className="cashback-mobile">
-                <a href={getFullRoute(baseUrl, "en/cashback")}>
+                <a href={getMvcUrl("en/cashback")}>
                   Cashback & discounts
                 </a>
               </li>
               <li className="smartstudent-mobile">
-                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
+                <a href={getMvcUrl("en/for-rent/appliances")}>
                   Rent your appliances
                 </a>
               </li>
@@ -604,12 +722,12 @@ const Navbar = () => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul>
               <li>
-                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
+                <a href={getMvcUrl("en/how-does-it-work")}>
                   How does it work?
                 </a>
               </li>
               <li>
-                <a href={getFullRoute(baseUrl, "en/about-us")}>
+                <a href={getMvcUrl("en/about-us")}>
                   About Kamernet
                 </a>
               </li>
@@ -620,7 +738,7 @@ const Navbar = () => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul>
               <li>
-                <a href={getFullRoute(baseUrl, "tips/studenten")}>
+                <a href={getMvcUrl("tips/studenten")}>
                   Useful tips
                 </a>
               </li>
@@ -642,7 +760,7 @@ const Navbar = () => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/logout")}>Log out</a>
+                    <a href={getMvcUrl("en/logout")}>Log out</a>
                   </li>
                 </ul>
               </div>
@@ -657,8 +775,7 @@ const Navbar = () => {
                 <li className="tab all-messages spacer-v--m collection-item sub-item @if (Model.CurrentMessageType == MessagesType.All) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetAllMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/all?itemsperpage=20"
                     )}
                   >
@@ -670,8 +787,7 @@ const Navbar = () => {
                 <li className="tab unreplied-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Unreplied) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetUnrepliedMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/unreplied?itemsperpage=20"
                     )}
                   >
@@ -688,8 +804,7 @@ const Navbar = () => {
                 <li className="tab favorite-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Favorites) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetFavoritesMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/favorite?itemsperpage=20"
                     )}
                   >
@@ -701,8 +816,7 @@ const Navbar = () => {
                 <li className="hide tab notfavorite-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.NotFavorites) { <text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetNotFavoritesMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/notfavorite?itemsperpage=20"
                     )}
                   >
@@ -714,8 +828,7 @@ const Navbar = () => {
                 <li className="tab activeadvert-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.ActiveAdvert) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetActiveAdvertsMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/activeadverts?itemsperpage=20"
                     )}
                   >
@@ -727,8 +840,7 @@ const Navbar = () => {
                 <li className="tab inactiveadvert-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.InactiveAdvert) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetInactiveAdvertsMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/inactiveadverts?itemsperpage=20"
                     )}
                   >
@@ -740,8 +852,7 @@ const Navbar = () => {
                 <li className="hide tab read-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Read) { <text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetReadMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/read?itemsperpage=20"
                     )}
                   >
@@ -753,8 +864,7 @@ const Navbar = () => {
                 <li className="hide tab unread-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Unread) { <text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetUnreadMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/unread?itemsperpage=20"
                     )}
                   >
@@ -766,8 +876,7 @@ const Navbar = () => {
                 <li className="tab trash-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Trash) {<text> my-messages-menuitem-selected</text>}">
                   <a
                     data-content="@(Url.Action('GetTrashMessages', 'Messages') + queryString)"
-                    href={getFullRoute(
-                      baseUrl,
+                    href={getMvcUrl(
                       "en/my-messages/trash?itemsperpage=20"
                     )}
                   >
@@ -776,7 +885,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="tab custom-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Custom) {<text> my-messages-menuitem-selected selection selected</text>}">
-                  <a href={getFullRoute(baseUrl, "en/my-messages/custom")}>
+                  <a href={getMvcUrl("en/my-messages/custom")}>
                     Custom message
                   </a>
                 </li>
@@ -787,17 +896,17 @@ const Navbar = () => {
                   <a href="#!">Back to main menu</a>
                 </li>
                 <li className="spacer-v--m">
-                  <a href={getFullRoute(baseUrl, "en/my-adverts")}>
+                  <a href={getMvcUrl("en/my-adverts")}>
                     Active adverts
                   </a>
                 </li>
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/my-adverts/inactive")}>
+                  <a href={getMvcUrl("en/my-adverts/inactive")}>
                     Inactive adverts
                   </a>
                 </li>
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/my-adverts/draft")}>
+                  <a href={getMvcUrl("en/my-adverts/draft")}>
                     Draft Adverts
                   </a>
                 </li>

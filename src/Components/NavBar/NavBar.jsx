@@ -333,7 +333,7 @@ const Navbar = () => {
               <div className="grid-item">
                 <div className="profile-wrapper">
                   <a
-                    href={getFullRoute(baseUrl, "en/my-account")}
+                    href={getMvcUrl("en/my-account")}
                     className="mobile-menu-user"
                   >
                     <Image
@@ -411,21 +411,19 @@ const Navbar = () => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul className="menu-first">
               <li className="submenu-item-selector">
-                <a href={getFullRoute(baseUrl, "en/create-room-advert")}>
+                <a href={getMvcUrl("en/create-room-advert")}>
                   <i className="icon-m home color-background-secondary"></i>
                   Place advert
                 </a>
               </li>
               <li>
-                <a
-                  href={getFullRoute(baseUrl, "en/for-rent/rooms-netherlands")}
-                >
+                <a href={getMvcUrl("en/for-rent/rooms-netherlands")}>
                   <i className="icon-m search color-background-secondary"></i>
                   Search room
                 </a>
               </li>
               <li>
-                <a href={getFullRoute(baseUrl, "en/tenants/room-netherlands")}>
+                <a href={getMvcUrl("en/tenants/room-netherlands")}>
                   <i className="icon-m search color-background-secondary"></i>
                   Searching for a tenant
                 </a>
@@ -434,7 +432,7 @@ const Navbar = () => {
               {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
               isLoggedIn ? (
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/premium-account-payment")}>
+                  <a href={getMvcUrl("en/premium-account-payment")}>
                     Get Premium
                   </a>
                 </li>
@@ -449,9 +447,7 @@ const Navbar = () => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul className="menu-first">
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/dashboard")}>
-                      Dashboard
-                    </a>
+                    <a href={getMvcUrl("en/dashboard")}>Dashboard</a>
                   </li>
                   <li
                     data-attr="submenu-messages"
@@ -465,9 +461,7 @@ const Navbar = () => {
                     </span>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/my-account")}>
-                      My account
-                    </a>
+                    <a href={getMvcUrl("en/my-account")}>My account</a>
                   </li>
                 </ul>
               </div>
@@ -483,24 +477,16 @@ const Navbar = () => {
                     <a href="#!">My adverts</a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/public-profile")}>
-                      Public profile
-                    </a>
+                    <a href={getMvcUrl("en/public-profile")}>Public profile</a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/account/alerts")}>
-                      Saved searches
-                    </a>
+                    <a href={getMvcUrl("en/account/alerts")}>Saved searches</a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/my-favorites/rooms")}>
-                      Favorites
-                    </a>
+                    <a href={getMvcUrl("en/my-favorites/rooms")}>Favorites</a>
                   </li>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/account/settings")}>
-                      Settings
-                    </a>
+                    <a href={getMvcUrl("en/account/settings")}>Settings</a>
                   </li>
                 </ul>
               </div>
@@ -513,10 +499,7 @@ const Navbar = () => {
             <ul className="menu-first">
               {checkStudentHouse ? (
                 <li>
-                  <a
-                    href={getFullRoute(baseUrl, "en/studenthouse")}
-                    className="white-text"
-                  >
+                  <a href={getMvcUrl("en/studenthouse")} className="white-text">
                     Student House
                   </a>
                 </li>
@@ -536,7 +519,7 @@ const Navbar = () => {
 
               {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
                 <li className="mytodolist-menubar-mobile">
-                  <a href={getFullRoute(baseUrl, "en/account/to-do")}>
+                  <a href={getMvcUrl("en/account/to-do")}>
                     To do
                     <span className="badge mobile-message-badge ">
                       {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
@@ -549,19 +532,15 @@ const Navbar = () => {
               {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
               isLoggedIn ? (
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/referrals")}>
-                    Refer a friend
-                  </a>
+                  <a href={getMvcUrl("en/referrals")}>Refer a friend</a>
                 </li>
               ) : null}
 
               <li className="cashback-mobile">
-                <a href={getFullRoute(baseUrl, "en/cashback")}>
-                  Cashback & discounts
-                </a>
+                <a href={getMvcUrl("en/cashback")}>Cashback & discounts</a>
               </li>
               <li className="smartstudent-mobile">
-                <a href={getFullRoute(baseUrl, "en/for-rent/appliances")}>
+                <a href={getMvcUrl("en/for-rent/appliances")}>
                   Rent your appliances
                 </a>
               </li>
@@ -572,14 +551,10 @@ const Navbar = () => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul>
               <li>
-                <a href={getFullRoute(baseUrl, "en/how-does-it-work")}>
-                  How does it work?
-                </a>
+                <a href={getMvcUrl("en/how-does-it-work")}>How does it work?</a>
               </li>
               <li>
-                <a href={getFullRoute(baseUrl, "en/about-us")}>
-                  About Kamernet
-                </a>
+                <a href={getMvcUrl("en/about-us")}>About Kamernet</a>
               </li>
             </ul>
           </div>
@@ -588,9 +563,7 @@ const Navbar = () => {
           <div className="grid-item col-span-4 col-span-12--m">
             <ul>
               <li>
-                <a href={getFullRoute(baseUrl, "tips/studenten")}>
-                  Useful tips
-                </a>
+                <a href={getMvcUrl("tips/studenten")}>Useful tips</a>
               </li>
               <li>
                 <a
@@ -610,7 +583,7 @@ const Navbar = () => {
               <div className="grid-item col-span-4 col-span-12--m">
                 <ul>
                   <li>
-                    <a href={getFullRoute(baseUrl, "en/logout")}>Log out</a>
+                    <a href={getMvcUrl("en/logout")}>Log out</a>
                   </li>
                 </ul>
               </div>
@@ -744,7 +717,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="tab custom-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Custom) {<text> my-messages-menuitem-selected selection selected</text>}">
-                  <a href={getFullRoute(baseUrl, "en/my-messages/custom")}>
+                  <a href={getMvcUrl("en/my-messages/custom")}>
                     Custom message
                   </a>
                 </li>
@@ -755,19 +728,15 @@ const Navbar = () => {
                   <a href="#!">Back to main menu</a>
                 </li>
                 <li className="spacer-v--m">
-                  <a href={getFullRoute(baseUrl, "en/my-adverts")}>
-                    Active adverts
-                  </a>
+                  <a href={getMvcUrl("en/my-adverts")}>Active adverts</a>
                 </li>
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/my-adverts/inactive")}>
+                  <a href={getMvcUrl("en/my-adverts/inactive")}>
                     Inactive adverts
                   </a>
                 </li>
                 <li>
-                  <a href={getFullRoute(baseUrl, "en/my-adverts/draft")}>
-                    Draft Adverts
-                  </a>
+                  <a href={getMvcUrl("en/my-adverts/draft")}>Draft Adverts</a>
                 </li>
               </ul>
             </>
@@ -782,7 +751,10 @@ const Navbar = () => {
       <nav className="header box-shadow">
         <div className="grid color-text cols-8--m">
           {/* @* *** MOBILE MENU TRIGGER ****@ */}
-          <div className="for-tablet-down grid-item col-span-1 spacer-h--s spacer-v--xs">
+          <div
+            className="for-tablet-down grid-item col-span-1 spacer-h--s spacer-v--xs"
+            onClick={handleMobileNavClick}
+          >
             <div className="burger-wrapper mobile-menu-trigger">
               <div className="burger-icon"></div>
             </div>
@@ -917,400 +889,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* @* *** MOBILE MENU ****@ */}
-      <nav id="mobile-menu" className="for-tablet-down">
-        <div className="grid padding-h--sm spacer-v--sm">
-          {isLoggedIn ? (
-            <>
-              <div className="grid-item">
-                <div className="profile-wrapper">
-                  <a
-                    href={getMvcUrl("en/my-account")}
-                    className="mobile-menu-user"
-                  >
-                    <Image
-                      src={ProfilePhoto}
-                      alt="Your profile"
-                      width="48"
-                      height="48"
-                    />
-                  </a>
-                </div>
-              </div>
-
-              <div className="grid-item col-span-3 col-span-9--m">
-                <div>
-                  <div className="mobile-menu-username">
-                    @UserContextHelper.CurrentUser.FirstName
-                  </div>
-                  {_verificationPossible ? (
-                    <div
-                      className="lazy verification-status-mobile-wrapper"
-                      data-loader="ajax"
-                      data-src="/Account/VerificationInfo?ismobile=true"
-                    >
-                      <div className="verification-status-text-mobile">
-                        <i className="fa"></i>
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-            </>
-          ) : null}
-
-          <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-          {/* @* language*@ */}
-          <div className="grid-item col-span-4 col-span-12--m">
-            <Image
-              className="lang-flag"
-              src={flag}
-              alt="Language"
-              width="24"
-              height="24"
-            />
-            <a
-              className="lang"
-              href="@NavigationHelper.GetChangeLanguageUrl(languageId)"
-              id="languageId"
-              rel="nofollow"
-            >
-              @_langLabel
-            </a>
-          </div>
-          <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-        </div>
-
-        {/* @* menu links *@ */}
-        <div className="grid padding-h--sm position-relative spacer-v--s--s">
-          {!isLoggedIn ? (
-            <>
-              <div className="grid-item col-span-4 col-span-12--m">
-                <ul>
-                  <li>
-                    <a data-modal-id="#modal-auth-login">Log in</a>
-                  </li>
-                  <li>
-                    <a data-modal-id="#modal-auth-register">Create account</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-            </>
-          ) : null}
-
-          <div className="grid-item col-span-4 col-span-12--m">
-            <ul className="menu-first">
-              <li className="submenu-item-selector">
-                <a href={getMvcUrl("en/create-room-advert")}>
-                  <i className="icon-m home color-background-secondary"></i>
-                  Place advert
-                </a>
-              </li>
-              <li>
-                <a href={getMvcUrl("en/for-rent/rooms-netherlands")}>
-                  <i className="icon-m search color-background-secondary"></i>
-                  Search room
-                </a>
-              </li>
-              <li>
-                <a href={getMvcUrl("en/tenants/room-netherlands")}>
-                  <i className="icon-m search color-background-secondary"></i>
-                  Searching for a tenant
-                </a>
-              </li>
-
-              {!UserContextHelper?.CurrentUser?.HasActivePremiumMembership &&
-              isLoggedIn ? (
-                <li>
-                  <a href={getMvcUrl("en/premium-account-payment")}>
-                    Get Premium
-                  </a>
-                </li>
-              ) : null}
-            </ul>
-          </div>
-
-          <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-
-          {isLoggedIn ? (
-            <>
-              <div className="grid-item col-span-4 col-span-12--m">
-                <ul className="menu-first">
-                  <li>
-                    <a href={getMvcUrl("en/dashboard")}>Dashboard</a>
-                  </li>
-                  <li
-                    data-attr="submenu-messages"
-                    className="submenu-item-selector"
-                    onClick={() => openSubMenu("submenu-messages")}
-                  >
-                    <a>Messages</a>
-                    <span className="badge mobile-message-badge ">
-                      {/* @Html.Action("GetUnreadConversationsCount", "Home", new{" "}
-                      {(userId = UserContextHelper.CurrentUser.UserId)}) */}
-                    </span>
-                  </li>
-                  <li>
-                    <a href={getMvcUrl("en/my-account")}>My account</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-              <div className="grid-item col-span-4 col-span-12--m">
-                <ul className="menu-first">
-                  <li
-                    data-attr="submenu-properties"
-                    className="submenu-item-selector"
-                    onClick={() => openSubMenu("submenu-properties")}
-                  >
-                    <a href="#!">My adverts</a>
-                  </li>
-                  <li>
-                    <a href={getMvcUrl("en/public-profile")}>Public profile</a>
-                  </li>
-                  <li>
-                    <a href={getMvcUrl("en/account/alerts")}>Saved searches</a>
-                  </li>
-                  <li>
-                    <a href={getMvcUrl("en/my-favorites/rooms")}>Favorites</a>
-                  </li>
-                  <li>
-                    <a href={getMvcUrl("en/account/settings")}>Settings</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-            </>
-          ) : null}
-
-          <div className="grid-item col-span-4 col-span-12--m">
-            <ul className="menu-first">
-              {checkStudentHouse ? (
-                <li>
-                  <a href={getMvcUrl("en/studenthouse")} className="white-text">
-                    Student House
-                  </a>
-                </li>
-              ) : (
-                <li>
-                  <a
-                    href={getMvcUrl("en/student-house/find-your-new-roommate")}
-                    className="white-text"
-                  >
-                    Student House
-                  </a>
-                </li>
-              )}
-
-              {UserContextHelper?.CurrentUser?.IsAuthenticated ? (
-                <li className="mytodolist-menubar-mobile">
-                  <a href={getMvcUrl("en/account/to-do")}>
-                    To do
-                    <span className="badge mobile-message-badge ">
-                      {/* @Html.Action("GetToDoTasksCount", "Account", new{" "}
-                      {(userId = UserContextHelper.CurrentUser.UserId)}) */}
-                    </span>
-                  </a>
-                </li>
-              ) : null}
-
-              {SettingsManager?.Instance?.ReferFriendProgramEnabled &&
-              isLoggedIn ? (
-                <li>
-                  <a href={getMvcUrl("en/referrals")}>Refer a friend</a>
-                </li>
-              ) : null}
-
-              <li className="cashback-mobile">
-                <a href={getMvcUrl("en/cashback")}>Cashback & discounts</a>
-              </li>
-              <li className="smartstudent-mobile">
-                <a href={getMvcUrl("en/for-rent/appliances")}>
-                  Rent your appliances
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-          <div className="grid-item col-span-4 col-span-12--m">
-            <ul>
-              <li>
-                <a href={getMvcUrl("en/how-does-it-work")}>How does it work?</a>
-              </li>
-              <li>
-                <a href={getMvcUrl("en/about-us")}>About Kamernet</a>
-              </li>
-            </ul>
-          </div>
-          <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-
-          <div className="grid-item col-span-4 col-span-12--m">
-            <ul>
-              <li>
-                <a href={getMvcUrl("tips/studenten")}>Useful tips</a>
-              </li>
-              <li>
-                <a
-                  href="https://support.kamernet.nl/en"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Support
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {isLoggedIn ? (
-            <>
-              <div className="grid-item col-span-4 divider color-background-secondary-light-1 col-span-12--m"></div>
-              <div className="grid-item col-span-4 col-span-12--m">
-                <ul>
-                  <li>
-                    <a href={getMvcUrl("en/logout")}>Log out</a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* @* SUBMENU *@ */}
-              <ul className="col-span-4 submenu-mobile-wrapper submenu-messages translate-off-canvas-right col-span-12--m">
-                <li className="mainmenu-item-selector" onClick={backToMain}>
-                  <a href="#!">Back to main menu</a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.All ? _currentQueryString : itemsPerpage;} */}
-                <li className="tab all-messages spacer-v--m collection-item sub-item @if (Model.CurrentMessageType == MessagesType.All) {<text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetAllMessages', 'Messages') + queryString)"
-                    href={getMvcUrl("en/my-messages/all?itemsperpage=20")}
-                  >
-                    All Messages
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.Unreplied ? _currentQueryString : itemsPerpage;} */}
-                <li className="tab unreplied-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Unreplied) {<text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetUnrepliedMessages', 'Messages') + queryString)"
-                    href={getMvcUrl("en/my-messages/unreplied?itemsperpage=20")}
-                  >
-                    Unreplied conversations
-                    {iUnrepliedConversationCounter > 0 ? (
-                      <span className="unrepliedConversationClass">
-                        @iUnrepliedConversationCounter
-                      </span>
-                    ) : null}
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.Favorites ? _currentQueryString : itemsPerpage;} */}
-                <li className="tab favorite-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Favorites) {<text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetFavoritesMessages', 'Messages') + queryString)"
-                    href={getMvcUrl("en/my-messages/favorite?itemsperpage=20")}
-                  >
-                    Favorite messages
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.NotFavorites ? _currentQueryString : itemsPerpage;} */}
-                <li className="hide tab notfavorite-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.NotFavorites) { <text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetNotFavoritesMessages', 'Messages') + queryString)"
-                    href={getMvcUrl(
-                      "en/my-messages/notfavorite?itemsperpage=20"
-                    )}
-                  >
-                    Not favorite messages
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.ActiveAdvert ? _currentQueryString : itemsPerpage;} */}
-                <li className="tab activeadvert-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.ActiveAdvert) {<text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetActiveAdvertsMessages', 'Messages') + queryString)"
-                    href={getMvcUrl(
-                      "en/my-messages/activeadverts?itemsperpage=20"
-                    )}
-                  >
-                    Messages active adverts
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.InactiveAdvert ? _currentQueryString : itemsPerpage;} */}
-                <li className="tab inactiveadvert-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.InactiveAdvert) {<text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetInactiveAdvertsMessages', 'Messages') + queryString)"
-                    href={getMvcUrl(
-                      "en/my-messages/inactiveadverts?itemsperpage=20"
-                    )}
-                  >
-                    Messages inactive adverts
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.Read ? _currentQueryString : itemsPerpage;} */}
-                <li className="hide tab read-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Read) { <text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetReadMessages', 'Messages') + queryString)"
-                    href={getMvcUrl("en/my-messages/read?itemsperpage=20")}
-                  >
-                    Read messages
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.Unread ? _currentQueryString : itemsPerpage;} */}
-                <li className="hide tab unread-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Unread) { <text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetUnreadMessages', 'Messages') + queryString)"
-                    href={getMvcUrl("en/my-messages/unread?itemsperpage=20")}
-                  >
-                    Unread messages
-                  </a>
-                </li>
-
-                {/* @{queryString = Model.CurrentMessageType == MessagesType.Trash ? _currentQueryString : itemsPerpage;} */}
-                <li className="tab trash-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Trash) {<text> my-messages-menuitem-selected</text>}">
-                  <a
-                    data-content="@(Url.Action('GetTrashMessages', 'Messages') + queryString)"
-                    href={getMvcUrl("en/my-messages/trash?itemsperpage=20")}
-                  >
-                    Trash
-                  </a>
-                </li>
-
-                <li className="tab custom-messages collection-item sub-item @if (Model.CurrentMessageType == MessagesType.Custom) {<text> my-messages-menuitem-selected selection selected</text>}">
-                  <a href={getMvcUrl("en/my-messages/custom")}>
-                    Custom message
-                  </a>
-                </li>
-              </ul>
-
-              <ul className="col-span-4 submenu-mobile-wrapper submenu-properties translate-off-canvas-right col-span-12--m">
-                <li className="mainmenu-item-selector" onClick={backToMain}>
-                  <a href="#!">Back to main menu</a>
-                </li>
-                <li className="spacer-v--m">
-                  <a href={getMvcUrl("en/my-adverts")}>Active adverts</a>
-                </li>
-                <li>
-                  <a href={getMvcUrl("en/my-adverts/inactive")}>
-                    Inactive adverts
-                  </a>
-                </li>
-                <li>
-                  <a href={getMvcUrl("en/my-adverts/draft")}>Draft Adverts</a>
-                </li>
-              </ul>
-            </>
-          ) : null}
-        </div>
-      </nav>
+      {showMobileNav && <MobileNavbarJSX />}
       <div className="my-todo-list color-background for-desktop-s-up"></div>
     </>
   );
